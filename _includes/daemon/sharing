@@ -1,0 +1,8 @@
+{% if site.safe and site.daemon369.sharing.provider and page.daemon369.sharing != false %}
+
+{% case site.daemon369.sharing.provider %}
+{% when "custom" %}
+  {% include custom/sharing %}
+{% endcase %}
+
+{% endif %}
