@@ -49,7 +49,7 @@ daemon :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  #BASE_PATH : false
+  BASE_PATH : false
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
@@ -75,7 +75,10 @@ daemon :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : disqus
+    #provider : disqus
+    provider : duoshuo
+    duoshuo:
+      short_name: daemon
     disqus :
       short_name : daemon
    
@@ -86,7 +89,7 @@ daemon :
   analytics :
     provider : google 
     google : 
-        tracking_id : 'UA-40934298-1'
+        tracking_id : 'UA-42944128-1'
 
   # Settings for sharing helper. 
   # Sharing is for things like tweet, plusone, like, reddit buttons etc.
@@ -106,3 +109,4 @@ daemon :
   # and include your custom code. Your custom file must be defined at:
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
+  
