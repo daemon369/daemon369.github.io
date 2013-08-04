@@ -1,0 +1,66 @@
+---
+layout: post
+keywords: linux,partition table 
+description: Linux硬盘分区表简单描述
+title: "Linux硬盘分区表"
+categories: [Linux]
+tags: [Linux]
+group: archive
+icon: file-alt
+---
+{% include daemon/setup %}
+<p class="paragraph">硬盘的第一个扇区512字节，包含以下内容：</p>
+<p class="paragraph">1.主引导记录(Master Boot Record, MBR)：446字节，用来安装启动管理程序</p>
+<p class="paragraph">2.硬盘分区表(partition table)：64字节，记录硬盘分区状态</p>
+<p class="paragraph">3.引导扇区结束标记AA55H</p>
+<p class="paragraph">硬盘分区表的64字节，每16字节可记录一个分区的起始与结束地址以及其他信息，包括主分区(Primary)(1~4个)和扩展分区(Extended)(0~1个)。主分区和扩展名称为：(IDE)/dev/hda1到/dev/hda4或者(SATA)/dev/sda1到/dev/sda4。</p>
+<p class="paragraph">其中扩展分区可划分为多个逻辑分区。逻辑分区命名从5开始，例如sda5，即使主分区和扩展分区数目不够4个也是这样。</p>
+<p class="paragraph">硬盘分区表记录的信息如下：&nbsp;</p>
+<table style="height: 386px; width: 430px;" border="1">
+<tbody>
+<tr><th>偏移</th><th>长度(字节)</th><th>意义</th></tr>
+<tr>
+<td>00H</td>
+<td>1</td>
+<td>分区状态：00--&gt;非活动分区；80--&gt; 活动分区；&nbsp;<br />其它数值没有意义</td>
+</tr>
+<tr>
+<td>01H</td>
+<td>1</td>
+<td>分区起始磁头号(HEAD)，用到全部8位</td>
+</tr>
+<tr>
+<td>02H</td>
+<td>2</td>
+<td>分区起始扇区号(SECTOR)，占据02H的位0－5；&nbsp;<br />该分区的起始磁柱号(CYLINDER)，占据&nbsp;<br />02H的位6－7和03H的全部8位</td>
+</tr>
+<tr>
+<td>04H</td>
+<td>1</td>
+<td>文件系统标志位,如82--&gt; Linux Native分区 83--&gt; Linux Swap 分区</td>
+</tr>
+<tr>
+<td>05H</td>
+<td>1</td>
+<td>分区结束磁头号(HEAD)，用到全部8位</td>
+</tr>
+<tr>
+<td>06H</td>
+<td>2</td>
+<td>分区结束扇区号(SECTOR)，占据06H的位0－5；&nbsp;<br />该分区的起始磁柱号(CYLINDER)，占据&nbsp;<br />06H的位6－7和07H的全部8位</td>
+</tr>
+<tr>
+<td>08H</td>
+<td>4</td>
+<td>分区起始绝对扇区</td>
+</tr>
+<tr>
+<td>0CH</td>
+<td>4</td>
+<td>分区总的扇区数</td>
+</tr>
+</tbody>
+</table>
+<p class="paragraph">参考：</p>
+<p><a href="http://vbird.dic.ksu.edu.tw/linux_basic/0130designlinux_2.php">http://vbird.dic.ksu.edu.tw/linux_basic/0130designlinux_2.php</a></p>
+<p><a href="http://blog.csdn.net/lanxinju/article/details/5714124">http://blog.csdn.net/lanxinju/article/details/5714124</a></p>
