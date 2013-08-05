@@ -1,0 +1,68 @@
+---
+layout: post
+keywords: linux,filesystem, directory tree
+description: Linux目录树与文件系统
+title: "Linux目录树与文件系统"
+categories: [Linux]
+tags: [Linux]
+group: archive
+icon: file-alt
+---
+{% include daemon/setup %}
+
+<p class="paragraph"><span>&nbsp;Linux的目录树架构(directory tree)就是以根目录为主，然后向下呈现分支状的目录结构的一种文件架构。 所以，</span><span class="text_import2">整个目录树架构最重要的就是那个根目录(root directory)，这个根目录的表示方法为一条斜线『<strong>/</strong>』</span><span>， 所有的文件都与目录树有关。</span></p>
+<p class="paragraph"><span>我的Linux系统目录树主要部分如下：</span></p>
+<div>
+<pre>
+/
+├── bin
+├── boot
+├── cdrom
+├── dev
+├── etc
+├── home
+│ &nbsp; &nbsp; ├── lost+found
+│ &nbsp; &nbsp; └── daemon
+├── lib
+├── lib32
+├── lib64
+├── lost+found
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── selinux
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+</pre>
+</div>
+<p class="paragraph">我们的硬盘可以分成多个分区，并格式化为多个文件系统。每个文件系统必须要挂载(mount)到目录树下才能正常使用。</p>
+<p class="paragraph">所谓的挂载，就是将一个目录与一个文件系统关联起来，目录做为文件系统的入口，进入目录就可以访问这个文件系统。这个关联动作就是挂载(mount)，挂载的目录称为&ldquo;挂载点&rdquo;。</p>
+<p class="paragraph">整个Linux系统最重要的就是根目录&ldquo;／&rdquo;，根目录一定要挂载到一个分区，其他目录根据需求来挂载。</p>
+<p class="paragraph">我的系统挂载如下：</p>
+<div>
+<pre>$ df -h
+文件系统          容量  已用   可用 已用% 挂载点
+/dev/sda7        29G  6.6G   21G   25% /
+...
+/dev/sda5       262G  131G  118G   53% /home
+/dev/sda1       191M   83M   99M   46% /boot
+</pre>
+</div>
+<p class="paragraph">&nbsp;我们在安装操作系统时，首先需要进行分区的划分，划分出的分区需要选择文件系统。文件系统是多种多样的，例如：ext3, ext4, ntfs, vfat等等。Linux常用的是extn系列，windows常用的是vfat, ntfs等。</p>
+<p class="paragraph">硬盘分区后，需要挂载到挂载点：</p>
+<p class="paragraph">1. /boot，启动分区，存放Linux内核等系统启动文件，100M足矣。保险起见可以多分点，因为可能会安装多个版本的内核。</p>
+<p class="paragraph">2. swap，交换分区，类似与windows的虚拟内存，不需要挂载到目录树下。大小一般与内存大小相当。</p>
+<p class="paragraph">3. /，目录树的根，存放系统文件，需要多点空间。</p>
+<p class="paragraph">4. /home，用户目录，可单独挂载一个分区，每个用户都会在这个目录下创建自己的子目录，单独用户数据都存放到这个目录。</p>
+<p class="paragraph">其他目录可单独挂载，也可不单独挂载而使用&ldquo;/&rdquo;所在的分区。</p>
+<p class="paragraph">&nbsp;</p>
+<p class="paragraph">参考：</p>
+<p><a href="http://vbird.dic.ksu.edu.tw/linux_basic/0130designlinux_2.php">http://vbird.dic.ksu.edu.tw/linux_basic/0130designlinux_2.php</a></p>
+<p><a href="http://vbird.dic.ksu.edu.tw/linux_basic/0157installcentos5_2.php">http://vbird.dic.ksu.edu.tw/linux_basic/0157installcentos5_2.php</a></p>
