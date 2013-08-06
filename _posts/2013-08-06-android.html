@@ -1,0 +1,43 @@
+---
+layout: post
+keywords: android,桌面,launcher 
+description: 使用第三方桌面替换Android手机预装的系统桌面
+title: "替换Android系统桌面"
+categories: [Android]
+tags: [Android]
+group: archive
+icon: file-alt
+---
+{% include daemon/setup %}
+
+<p class="paragraph">使用a.apk桌面程序替换手机中系统桌面b.apk</p>
+<p class="paragraph">1.如果系统只读，运行命令行</p>
+<div>
+<pre>
+    $ adb remount
+</pre>
+</div>
+<p class="paragraph">2.将a.apk放入手机</p>
+<div>
+<pre>
+    $ adb push d:/a.apk /system/app
+</pre>
+</div>
+<p class="paragraph">3. 更改a.apk权限</p>
+<div>
+<pre>
+    $ adb shell chmod 644 /system/app/a.apk
+</pre>
+</div>
+<p class="paragraph">4.删除原系统桌面</p>
+<div>
+<pre>
+    $ adb shell rm /system/app/b.apk
+</pre>
+</div>
+<p class="paragraph">5 .重启手机</p>
+<div>
+<pre>
+    $ adb reboot 
+</pre>
+</div>
