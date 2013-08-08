@@ -1,5 +1,5 @@
 {% comment %} index.html页面中的导航 {% endcomment %}
-{% assign color_hack = 'posts timeline categories about' %}
+{% assign color_hack = 'posts timeline categories links about' %}
 {% assign current_nav = page.url | remove:'/' | remove:'.html' %}
 {% assign color_hack = color_hack | replace:{{current_nav}},'active' %}
 {% assign color_hack = color_hack | split:' ' %}
