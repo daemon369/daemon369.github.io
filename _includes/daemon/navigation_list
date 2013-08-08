@@ -7,4 +7,5 @@
 <li class="{{color_hack[0]}}"><a href="/posts.html">文章</a></li>
 <li class="{{color_hack[1]}}"><a href="/timeline.html">归档</a></li>
 <li class="{{color_hack[2]}}"><a href="/categories.html">目录</a></li>
-<li class="{{color_hack[3]}}"><a href="/about.html">关于</a></li>
+<li class="{{color_hack[3]}}"><a href="/links.html">链接</a></li>
+<li class="{{color_hack[4]}}"><a href="/about.html">关于</a></li>
