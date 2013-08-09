@@ -1,6 +1,6 @@
-{% if site.safe and site.daemon369.sharing.provider and page.daemon369.sharing != false %}
+{% if site.safe and site.daemon.sharing.provider and page.daemon.sharing != false %}
 
-{% case site.daemon369.sharing.provider %}
+{% case site.daemon.sharing.provider %}
 {% when "custom" %}
   {% include custom/sharing %}
 {% endcase %}

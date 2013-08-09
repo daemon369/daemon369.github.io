@@ -1,14 +1,14 @@
-{% if site.safe and site.daemon369.analytics.provider and page.daemon369.analytics != false %}
+{% if site.safe and site.daemon.analytics.provider and page.daemon369.analytics != false %}
 
-{% case site.daemon369.analytics.provider %}
-{% when "google" %}
-  {% include daemon/analytics-providers/google %}
-{% when "getclicky" %}
-  {% include daemon/analytics-providers/getclicky %}
-{% when "mixpanel" %}
-  {% include daemon/analytics-providers/mixpanel %}
-{% when "custom" %}
-  {% include custom/analytics %}
-{% endcase %}
+	{% case site.daemon.analytics.provider %}
+		{% when "google" %}
+			{% include daemon/analytics-providers/google %}
+		{% when "getclicky" %}
+			{% include daemon/analytics-providers/getclicky %}
+		{% when "mixpanel" %}
+		 	{% include daemon/analytics-providers/mixpanel %}
+		{% when "custom" %}
+			{% include custom/analytics %}
+	{% endcase %}
 
 {% endif %}

@@ -1,4 +1,4 @@
-{% if site.daemon369.liquid_raw.provider == "custom" %}
+{% if site.daemon.liquid_raw.provider == "custom" %}
   {% include custom/liquid_raw %}
 {% else %}
   <pre><code>{{text | replace:"|.", "&#123;" | replace:".|", "&#125;" | replace:">", "&gt;" | replace:"<", "&lt;" }}</code></pre>

@@ -2,19 +2,19 @@
   <!--
   - Dynamically set liquid variables for working with URLs/paths
   -->
-  {% if site.daemon.setup.provider == "custom" %}
+  {% if site.JB.setup.provider == "custom" %}
     {% include custom/setup %}
   {% else %}
-    {% if site.safe and site.daemon.BASE_PATH and site.daemon.BASE_PATH != '' %}
-      {% assign BASE_PATH = site.daemon.BASE_PATH %}
-      {% assign HOME_PATH = site.daemon.BASE_PATH %}
+    {% if site.safe and site.JB.BASE_PATH and site.JB.BASE_PATH != '' %}
+      {% assign BASE_PATH = site.JB.BASE_PATH %}
+      {% assign HOME_PATH = site.JB.BASE_PATH %}
     {% else %}
       {% assign BASE_PATH = nil %}
       {% assign HOME_PATH = "/" %}
     {% endif %}
 
-    {% if site.daemon.ASSET_PATH %}
-      {% assign ASSET_PATH = site.daemon.ASSET_PATH %}
+    {% if site.JB.ASSET_PATH %}
+      {% assign ASSET_PATH = site.JB.ASSET_PATH %}
     {% else %}
       {% capture ASSET_PATH %}{{ BASE_PATH }}/assets/themes/{{ page.theme.name }}{% endcapture %}
     {% endif %}  
