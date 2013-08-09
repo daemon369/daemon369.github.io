@@ -1,8 +1,0 @@
-{% if site.safe and site.daemon.sharing.provider and page.daemon.sharing != false %}
-
-{% case site.daemon.sharing.provider %}
-{% when "custom" %}
-  {% include custom/sharing %}
-{% endcase %}
-
-{% endif %}

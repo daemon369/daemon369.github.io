@@ -24,7 +24,7 @@ production_url : http://daemon369.github.io
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
-daemon :
+JB :
   version : 0.3.0
 
   # All links will be namespaced by BASE_PATH if defined.

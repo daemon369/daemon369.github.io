@@ -8,7 +8,7 @@ tags: [Android]
 group: archive
 icon: file-alt
 ---
-{% include daemon/setup %}
+{% include JB/setup %}
 
 我的海信E860手机使用qq手机管家、360等工具都能连接并管理，但是使用adb命令行或者eclipse的android插件都无法找到设备。解决了方法如下：
 

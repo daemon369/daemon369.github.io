@@ -40,8 +40,8 @@
     -->
 
     <!-- atom & rss feed -->
-    <link href="{{ BASE_PATH }}{{ site.daemon369.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="{{ BASE_PATH }}{{ site.daemon369.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+    <link href="{{ BASE_PATH }}{{ site.daemon.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="{{ BASE_PATH }}{{ site.daemon.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 
     <script type="text/javascript">
     </script>
@@ -63,7 +63,7 @@
             <ul class="nav">
               {% assign pages_list = site.pages %}
               {% assign group = 'navigation' %}
-              {% include daemon/navigation_list %}
+              {% include JB/navigation_list %}
             </ul>
           </div>
           <div class="span2">
@@ -86,6 +86,6 @@
       </div>
     </div>
 
-    {% include daemon/analytics %}
+    {% include JB/analytics %}
   </body>
 </html>
