@@ -4,7 +4,7 @@ keywords: adb,android
 description: ADB命令无法连接手机的解决方法
 title: "ADB命令无法连接手机的解决方法"
 categories: [Android]
-tags: [Android]
+tags: [Android, adb]
 group: archive
 icon: file-alt
 ---
