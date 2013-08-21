@@ -1,0 +1,62 @@
+---
+layout: post
+keywords: blog
+description: blog
+title: "编译Android2.3.3源码"
+categories: [Archive]
+tags: [Archive]
+group: archive
+icon: file-alt
+---
+{% include JB/setup %}
+
+<p class="paragraph">编译android源码需要安装一些工具（Ubuntu12.10）：</p>
+<pre class="prettyprint"><code><span class="pln">$ sudo add-apt-repository "deb http://archive.canonical.com/ lucid partner" #安装jdk
+$ sudo apt-get update
+$ sudo apt-get install sun-java6-jdk</span></code></pre>
+<pre class="prettyprint"><code><span class="pln">$ sudo apt-get install git gnupg flex bison gperf build-essential \
+  zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \<br />  libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 \<br />&nbsp; libgl1-mesa-dev g++-multilib mingw32 tofrodos \<br />&nbsp; python-markdown libxml2-utils xsltproc zlib1g-dev:i386 #安装一些工具<br />$ sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so</span></code></pre>
+<pre class="prettyprint"><code><span class="kwd">$ export USE_CCACHE=</span><span class="lit">1 #使用ccache</span></code>
+</pre>
+<p class="paragraph">下载源码：</p>
+<pre class="prettyprint"><span class="pln">$ mkdir </span><span class="pun">~</span><span class="str">/bin #创建目录<br />$ PATH=~/</span><span class="pln">bin</span><span class="pun">:</span><span class="pln">$PATH  #加入环境变量PATH</span>
+<span class="pln">$ curl https</span><span class="pun">:</span><span class="com">//dl-ssl.google.com/dl/googlesource/git-repo/repo > ~/bin/repo  #下载工具repo</span>
+<span class="pln">$ chmod a+x ~/bin/repo  #赋执行权限</span>
+<span class="pln">$ mkdir WORKING_DIRECTORY  #创建工作目录</span>
+<span class="pln">$ cd WORKING_DIRECTORY</span>
+<span class="pln">$ repo init -u https://android.googlesource.com/platform/manifest  #checkout最新代码 或者使用下面的命令</span>
+<span class="pln">$ repo init -u https://android.googlesource.com/platform/manifest -b android-4.0.1_r1 #checkout分支</span>
+<span class="pln">$ repo sync  #同步代码，这个时间比较长</span><code><span class="pln"></span></code></pre>
+<p class="paragraph">android代码比较大，一般都有几G大小。下载android源码最痛苦的就是，你辛辛苦苦的下载配置完各种环境和工具，发现代码下载不了（被墙了）。我就遇到了这种情况。可以使用VPN或者代理工具来下载。我最终使用了GoAgent工具把源码下载了下来。GoAgent的使用可以参考：<a href="http://daemon369.github.io/network/2013/08/11/use-goagent/">http://daemon369.github.io/network/2013/08/11/use-goagent/</a> 或者GoAgent官网：<a href="https://code.google.com/p/goagent/">https://code.google.com/p/goagent/</a> 。 </p>
+<pre><span class="pln">$ source build/envsetup.sh  #初始化一些环境变量</span>
+<span class="pln">$ lunch full-eng  #编译代码</span>
+<span class="pln">$ sudo make -j6  #编译代码</span>
+</pre>
+<p class="paragraph">编译完成后，运行模拟器：</p>
+<pre><span class="pun">$ emulator #使用默认配置</span>
+<span class="pun">$ emulator -kernel ./prebuilt/android-arm/kernel/kernel-qemu -sysdir ./out/target/product/generic -system ./out/target/product/generic/system.img -data ./out/target/product/generic/userdata.img -ramdisk ./out/target/product/generic/ramdisk.img #指定使用的img文件</span>
+</pre>
+<p class="paragraph">注意：</p>
+<p class="paragraph">1.编译代码的过程中遇到了一些编译错误，在网上搜索，很多人给出了各种修改文件的方法。最终发现，其实是gcc和g++的版本的问题。我编译android2.3.3源码，把gcc和g++降级到4.4，就解决了很多问题：</p>
+<pre><span class="pln">$ sudo apt-get install gcc-4.4 g++-4.4 <span>gcc-multilib</span> <span>g++-4.4-multilib </span> #安装低版本gcc g++</span>
+<span class="pln">$ cd /usr/bin</span>
+<span class="pln">$ sudo rm gcc g++  #删除之前的链接文件</span>
+<span class="pln">$ sudo ln -s gcc-4.4 gcc  #建立链接</span>
+<span class="pln">$ sudo ln -s g++-4.4 g++</span>
+</pre>
+<p class="paragraph">2.遇到如下编译错误：</p>
+<pre><span class="pun">host C: sqlite3 <= external/sqlite/dist/shell.c</span>
+<span class="pun">external/sqlite/dist/shell.c:42:32: error: readline/readline.h: No such file or directory</span>
+<span class="pun">external/sqlite/dist/shell.c:43:31: error: readline/history.h: No such file or directory</span></pre>
+<div>解决办法：</div>
+<div>dpkg -l | grep readline</div>
+<div>找出库libreadline6-dev删除</div>
+<div><span>sudo apt-get remove libreadline6-dev</span></div>
+<p class="paragraph">3.安装了Android SDK或者NDK，设置的环境变量可能会影响编译，需要在$PATH中去除SDK和NDK的路径，同时去除环境变量：</p>
+<pre><span class="pun">$ unset NDK_ROOT</span>
+<span class="pun">$ unset ANDROID_SDK_ROOT</span></pre>
+<p class="paragraph">4.repo使用代理，设置环境变量：</p>
+<pre class="prettyprint"><span class="pln">$ export HTTP_PROXY=http://&lt;proxy_user_id&gt;:&lt;proxy_password&gt;@&lt;proxy_server&gt;:&lt;proxy_port&gt;<br />$ export HTTPS_PROXY=http://&lt;proxy_user_id&gt;:&lt;proxy_password&gt;@&lt;proxy_server&gt;:&lt;proxy_port&gt;</span></pre>
+<p class="paragraph">参考：</p>
+<p class="paragraph"><a href="http://blog.csdn.net/luoshengyang/article/details/6559955">http://blog.csdn.net/luoshengyang/article/details/6559955</a></p>
+<p class="paragraph"><a href="http://source.android.com/source/building.html">http://source.android.com/source/building.html</a></p>
