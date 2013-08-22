@@ -27,7 +27,7 @@ $ sudo apt-get install sun-java6-jdk</span></code></pre>
 <span class="pln">$ repo init -u https://android.googlesource.com/platform/manifest  #checkout最新代码 或者使用下面的命令</span>
 <span class="pln">$ repo init -u https://android.googlesource.com/platform/manifest -b android-4.0.1_r1 #checkout分支</span>
 <span class="pln">$ repo sync  #同步代码，这个时间比较长</span><code><span class="pln"></span></code></pre>
-<p class="paragraph">android代码比较大，一般都有几G大小。下载android源码最痛苦的就是，你辛辛苦苦的下载配置完各种环境和工具，发现代码下载不了（被墙了）。我就遇到了这种情况。可以使用VPN或者代理工具来下载。我最终使用了GoAgent工具把源码下载了下来。GoAgent的使用可以参考：<a href="http://daemon369.github.io/network/2013/08/11/use-goagent/">http://daemon369.github.io/network/2013/08/11/use-goagent/</a> 或者GoAgent官网：<a href="https://code.google.com/p/goagent/">https://code.google.com/p/goagent/</a> 。 </p>
+<p class="paragraph">android代码比较大，一般都有几G大小。下载android源码最痛苦的就是，你辛辛苦苦的下载配置完各种环境和工具，发现代码下载不了（被墙了）。我就遇到了这种情况。可以使用VPN或者代理工具来下载。我最终使用了GoAgent工具把源码下载了下来。GoAgent的使用可以参考：<a href="{% post_url 2013-08-11-use-goagent %}">使用GoAgent代理</a> 或者GoAgent官网：<a href="https://code.google.com/p/goagent/">https://code.google.com/p/goagent/</a> 。 </p>
 <pre><span class="pln">$ source build/envsetup.sh  #初始化一些环境变量</span>
 <span class="pln">$ lunch full-eng  #编译代码</span>
 <span class="pln">$ sudo make -j6  #编译代码</span>
