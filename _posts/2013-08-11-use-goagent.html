@@ -10,6 +10,7 @@ icon: file-alt
 ---
 {% include JB/setup %}
 
+<h1>关于GoAgent</h1>
 <p class="paragraph">
 GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google App Engine 的服务器充当代理，帮助用户浏览一些被封锁或被过滤的内容 。
 </p>
@@ -19,6 +20,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 <p class="paragraph">
 你可以花钱买一些付费代理来突破封锁，但目前我用GoAgent已经基本足够了。
 </p>
+<h1>下载及安装</h1>
 <p class="paragraph">
 1.首先申请Google Appengine并创建appid。打开网页<a href="https://appengine.google.com/start">https://appengine.google.com/start</a>注册并登录。
 </p>
@@ -105,8 +107,9 @@ $ sudo python3 goagent-gtk.py</pre>
 <p class="paragraph">
 <span>然后就可以在firefox等浏览器中使用goagent代理。</span>
 </p>
+<h1>在浏览器中使用GoAgent</h1>
 <p class="paragraph">
-9.在firefox中使用goagent代理
+1.在firefox中使用goagent代理
 </p>
 <p class="paragraph">
 首先在firefox中安装autoproxy插件。通过菜单项：工具-&gt;AutoProxy首选项，打开AutoProxy配置。
@@ -126,7 +129,8 @@ $ sudo python3 goagent-gtk.py</pre>
 设置新建的代理服务器为默认代理服务器。
 </p>
 <p>&nbsp;</p>
-<p class="paragraph">10.在google chrome浏览器中使用goagent
+<p class="paragraph">
+2.在google chrome浏览器中使用goagent
 </p>
 <p class="paragraph">
 <span>首先安装</span><a href="https://chrome.google.com/webstore/detail/dpplabbmogkhghncfbfdeeokoefdjegm" rel="nofollow">SwitchySharp</a><span>插件</span>
@@ -138,9 +142,9 @@ $ sudo python3 goagent-gtk.py</pre>
 </p>
 <p><img src="/image/2013-08-11/8.png" alt="" /></p>
 <p>&nbsp;</p>
-<p class="paragraph">
+<h1>
 Tips：
-</p>
+</h1>
 <p class="paragraph">
 1.不是每次升级goagent都需要重新上传服务端。只有你升级的版本带[是]的，或者你的升级跨越了多个版本，其中某个版本带[是]，这样你就需要重新上传服务端。
 </p>
@@ -150,6 +154,34 @@ Tips：
 <p class="paragraph">
 3.别人若知道了你的appid，是可以使用你的帐号的，而每个帐号每天只能有1G的免费流量。因此，你可以设置密码来保护你的流量不被盗用。解决办法就是给你的appid加上密码。在goagent-goagent-365c2c1/server/python/wsgi.py文件中找到__password__字段，在后面的单引号里填入你的密码，然后重新上次服务端。然后在goagent-goagent-365c2c1/local/proxy.ini文件中，在[gae]下的password字段后面输入你的密码，不需要加引号。重启GoAgent客户端即可。
 </p>
+<h1>GoAgent的应用</h1>
+<h2>1.git使用http/https代理</h2>
+<p class="paragraph">
+由于国内的特殊网络环境，我们经常遇到使用git来clone代码的时候无法下载，这时候就可以使用GoAgent来解决这个问题。
+</p>
+<p class="paragraph">
+打开命令行，设置如下环境变量：
+</p>
+<div>
+<pre>
+$ export http_proxy=http://127.0.0.1:8087
+$ export https_proxy=http://127.0.0.1:8087
+</pre>
+</div>
+<p class="paragraph">
+启动GoAgent，然后就可以使用GoAgent代理了。
+</p>
+<div>
+<h2>2.repo使用GoAgent代理</h2>
+<p class="paragraph">
+repo是Google提供的工具，用来下载Android源码。使用GoAgent代理需要设置如下环境变量：
+</p>
+<pre class="prettyprint">
+$ export HTTP_PROXY=http://127.0.0.1:8087
+$ export HTTPS_PROXY=http://127.0.0.1:8087
+</pre>
+</div>
+<h1>GoAgent原理</h1>
 <p class="paragraph">
 GoAgent的原理可用下图来描述：
 </p>
