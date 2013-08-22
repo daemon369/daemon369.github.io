@@ -142,18 +142,6 @@ $ sudo python3 goagent-gtk.py</pre>
 </p>
 <p><img src="/image/2013-08-11/8.png" alt="" /></p>
 <p>&nbsp;</p>
-<h1>
-Tips：
-</h1>
-<p class="paragraph">
-1.不是每次升级goagent都需要重新上传服务端。只有你升级的版本带[是]的，或者你的升级跨越了多个版本，其中某个版本带[是]，这样你就需要重新上传服务端。
-</p>
-<p class="paragraph">
-2.每个帐号可以创建10个appid，在proxy.ini文件里[gae]写的appid字段后面添加所有appid，中间用"|"分隔，就可以使用10个appid来负载均衡，而且每个appid每天有1G免费流量，10个appid保证你能每天使用10G流量。
-</p>
-<p class="paragraph">
-3.别人若知道了你的appid，是可以使用你的帐号的，而每个帐号每天只能有1G的免费流量。因此，你可以设置密码来保护你的流量不被盗用。解决办法就是给你的appid加上密码。在goagent-goagent-365c2c1/server/python/wsgi.py文件中找到__password__字段，在后面的单引号里填入你的密码，然后重新上次服务端。然后在goagent-goagent-365c2c1/local/proxy.ini文件中，在[gae]下的password字段后面输入你的密码，不需要加引号。重启GoAgent客户端即可。
-</p>
 <h1>GoAgent的应用</h1>
 <h2>1.git使用http/https代理</h2>
 <p class="paragraph">
@@ -187,9 +175,39 @@ GoAgent的原理可用下图来描述：
 </p>
 <p><img src="/image/2013-08-11/9.png" alt="" /></p>
 <p>&nbsp;</p>
+<h1>
+Tips：
+</h1>
+<p class="paragraph">
+1.不是每次升级goagent都需要重新上传服务端。只有你升级的版本带[是]的，或者你的升级跨越了多个版本，其中某个版本带[是]，这样你就需要重新上传服务端。
+</p>
+<p class="paragraph">
+2.每个帐号可以创建10个appid，在proxy.ini文件里[gae]写的appid字段后面添加所有appid，中间用"|"分隔，就可以使用10个appid来负载均衡，而且每个appid每天有1G免费流量，10个appid保证你能每天使用10G流量。
+</p>
+<p class="paragraph">
+3.别人若知道了你的appid，是可以使用你的帐号的，而每个帐号每天只能有1G的免费流量。因此，你可以设置密码来保护你的流量不被盗用。解决办法就是给你的appid加上密码。在goagent-goagent-365c2c1/server/python/wsgi.py文件中找到__password__字段，在后面的单引号里填入你的密码，然后重新上次服务端。然后在goagent-goagent-365c2c1/local/proxy.ini文件中，在[gae]下的password字段后面输入你的密码，不需要加引号。重启GoAgent客户端即可。
+</p>
+<p class="paragraph">
+4.Linux下，如果提升CA证书不受信任，可以通过如下方式将GoAgent提供的CA加到系统信任列表里：
+</p>
+<div>
+<pre>
+$ sudo cp path/to/goagent/local/CA.crt /usr/share/ca-certificates/goagent.crt
+$ sudo chmod a+r /usr/share/ca-certificates/goagent.crt
+$ sudo dpkg-reconfigure ca-certificates
+</pre>
+<p class="paragraph">
+在弹出的图形节目里，勾选上GoAgent的CA就可以了。
+</p>
+<div>
 <p class="paragraph">
 <span>使用中遇到问题可以到</span><a href="https://code.google.com/p/goagent/    ">https://code.google.com/p/goagent/</a><span>查看FAQ等</span>
 </p>
 <p class="paragraph">
 Windows下的使用更简单，这里就不介绍了。
 </p>
+<h1>
+参考：
+</h1>
+<a href="https://code.google.com/p/goagent/">GoAgent</a><br/>
+<a href="http://my.oschina.net/tsl0922/blog/134755">linux 下设置 git 使用 http/https 代理（goagent）</a>
