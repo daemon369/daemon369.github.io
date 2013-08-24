@@ -1,0 +1,55 @@
+---
+layout: post
+keywords: Android,module,compile
+description: compile a single module of android source
+title: "编译Android源码单独模块"
+categories: [Android]
+tags: [Android,module]
+group: Android
+icon: file-alt
+---
+{% include JB/setup %}
+
+<p class="paragraph">一次完整的Android源码的编译过程耗时很久，慢点的机器可能需要数个小时甚至更多的时间。实际上Android源代码可以分模块单独编译。一次完全编译后，以后可以根据需要单独编译需要的模块，然后再重新打包成system.img 。</p>
+<p class="paragraph">模块编译需要的工具在Android源码目录下的build/envsetup.sh中，运行这个脚本可以初始化一些环境变量并提供一些额外的命令。</p>
+<div>
+<pre>$ source ./build/envsetup.sh</pre>
+</div>
+<p class="paragraph">提供的命令如下：</p>
+<div>
+<pre>- croot: Changes directory to the top of the tree. &nbsp;#切换工作目录为android源码目录的顶层目录
+- m:       Makes from the top of the tree. &nbsp;#从android源码树的顶部开始编译
+- mm:      Builds all of the modules in the current directory. &nbsp;#编译当前目录下的所有模块
+- mmm:     Builds all of the modules in the supplied directories. &nbsp;#编译指定目录下的所有模块
+- cgrep:   Greps on all local C/C++ files.
+- jgrep:   Greps on all local Java files.
+- resgrep: Greps on all local res/*.xml files.
+- godir:   Go to the directory containing a file. &nbsp;#搜索出指定文件所在目录提供给用户来选择进入
+</pre>
+</div>
+<p class="paragraph">譬如可以使用mmm命令来编译Email模块：</p>
+<div>
+<pre>$ mmm packages/apps/Email/
+....
+Install: out/target/product/generic/system/app/Email.apk
+....
+Install: out/target/product/generic/data/app/EmailTests.apk
+</pre>
+</div>
+<p class="paragraph">编译生成的模块分别放到了out/target/product/generic/下的system/app和data/app下。这个路径可以通过设置环境变量ANDROID_PRODUCT_OUT 来改变。</p>
+<p class="paragraph">打包system.img的方法如下：</p>
+<div>
+<pre>$ make snod
+...
+Install: out/host/linux-x86/bin/mkyaffs2image
+make snod: ignoring dependencies
+Target system fs image: out/target/product/generic/system.img
+</pre>
+</div>
+<p class="paragraph">这样就不需要每次都重新编译完整源码了。</p>
+<p class="paragraph">
+完整编译Android源码，请参考：<a href="{% post_url 2013-08-21-compile-android-source %}">编译Android源码</a>
+</p>
+<p class="paragraph">参考：</p>
+<p class="paragraph"><a href="http://blog.csdn.net/luoshengyang/article/details/6566662">http://blog.csdn.net/luoshengyang/article/details/6566662</a></p>
+<p class="paragraph">&nbsp;</p>
