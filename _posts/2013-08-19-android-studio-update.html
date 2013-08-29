@@ -12,7 +12,10 @@ icon: file-alt
 
 <p class="paragraph"><span>Android Studio是今年5月份</span><a title="Google I/O" href="http://zh.wikipedia.org/wiki/Google_I/O">Google I/O</a><span>&nbsp;2013开发者大会上Google为</span><a title="Android" href="http://zh.wikipedia.org/wiki/Android">Android</a><span>开发者发布的一项全新的基于</span><a title="IntelliJ IDEA" href="http://zh.wikipedia.org/wiki/IntelliJ_IDEA">IntelliJ IDEA</a><span>的Android开发环境。</span></p>
 <p class="paragraph"><span>官方网址：<a href="http://developer.android.com/sdk/installing/studio.html">http://developer.android.com/sdk/installing/studio.html</a>&nbsp;。</span></p>
-<p class="paragraph">目前(2013-08-19)发布的完整安装包版本为：130.737825，可通过patch补丁升级到版本：130.782403。更新信息可查看：<a href="http://tools.android.com/recent">Recent Changes</a>&nbsp;以及：<a href="https://dl.google.com/android/studio/patches/updates.xml">https://dl.google.com/android/studio/patches/updates.xml</a>&nbsp;。</p>
+<p class="paragraph">目前(2013-08-29)发布的完整安装包版本为：0.2.0(130.737825)，可通过patch补丁升级到版本：0.2.6(130.795381)。更新信息可查看：</p>
+<p class="paragraph"><a href="http://tools.android.com/recent">Recent Changes</a>&nbsp;</p>
+<p class="paragraph">以及：</p>
+<p class="paragraph"><a href="https://dl.google.com/android/studio/patches/updates.xml">https://dl.google.com/android/studio/patches/updates.xml</a>&nbsp;。</p>
 <p class="paragraph">可以在官网网址下载Google发布的最新完整安装包，然后通过菜单：Help -&gt; Check for Update 来更新Android Studio。但是遗憾的是由于Android Studio的更新网址<a href="http://dl-sdk.appspot.com">dl-sdk.appspot.com</a>被封锁，所以你很可能看到如下界面：</p>
 <p class="paragraph"><img style="display: block; margin-left: auto; margin-right: auto;" src="/image/2013-08-19/1.png" alt="" /></p>
 <p class="paragraph">常规途径被封锁，因此需要通过其他方法来升级。</p>
@@ -41,21 +44,28 @@ $ java -classpath /path/to/AI-130.687321-130.692269-patch-unix.jar  com.intellij
 <p class="paragraph">&nbsp;</p>
 <div>
 <pre>
-1.如果你可以使用浏览器访问网址<a href="http://dl-sdk.appspot.com">dl-sdk.appspot.com</a>，那么你可以通过File&gt;Settings&gt;HTTP Proxy来配置代理，然后通过Help&gt;Check for updates尝试更   新。<br />
+1.如果你可以使用浏览器访问网址<a href="http://dl-sdk.appspot.com">dl-sdk.appspot.com</a>，那么你可以通过File&gt;Settings&gt;HTTP Proxy来配置代理，然后通过Help&gt;Check for updates尝试更新。<br />
 2.如果appspot网址被重定向，你可以设置环境变量，然后使用代理（我使用的是ubuntu）：<br />
-  $ export REQUIRED_JVM_ARGS="-Didea.updates.url=<a href="http://dl.google.com/android/studio/patches/updates.xml" rel="nofollow">http://dl.google.com/android/studio/patches/updates.xml</a> -Didea.patches.url=<a href="http://dl.google.com/android/studio/patches/" rel="nofollow">http://dl.google.com/android/studio/patches/</a>"<br />
-  $ cd android-studio<br />
+  $ export REQUIRED_JVM_ARGS="-Didea.updates.url=<a href="http://dl.google.com/android/studio/patches/updates.xml" rel="nofollow">http://dl.google.com/android/studio/patches/updates.xml</a> -Didea.patches.url=<a href="http://dl.google.com/android/studio/patches/" rel="nofollow">http://dl.google.com/android/studio/patches/</a>"
+  $ cd android-studio
   $ bin/studio.sh<br />
-  然后在android studio 中使用步骤1的操作来更新。<br />
-  也可以将 export REQUIRED_JVM_ARGS="-Didea.updates.url=<a href="http://dl.google.com/android/studio/patches/updates.xml" rel="nofollow">http://dl.google.com/android/studio/patches/updates.xml</a> -Didea.patches.url=<a href="http://dl.google.com/android/studio/patches/" rel="nofollow">http://dl.google.com/android/studio/patches/</a>" 加入到bin/studio.sh脚本文件中ALL_JVM_ARGS的赋值之前，这样直接执行studio.sh脚本即可
-3.如果更新仍然失败，可以手动下载更新补丁patch，patch通过以下网址下载：<br />
-  <a href="http://dl.google.com/android/studio/patches/AI-130.687321-130.692269-patch-unix.jar" rel="nofollow">http://dl.google.com/android/studio/patches/AI-130.687321-130.692269-patch-unix.jar</a> ，其中的两个版本号，前一个是你当前版本号，后一   个是升级到的版本号。<br />
-  下载文件到本地后，假设与Android Studio程序根目录在同一个子目录内：<br />
-  $ cd android-studio<br />
-  $ java -classpath ../AI-130.687321-130.692269-patch-unix.jar  com.intellij.updater.Runner install $PWD
+  然后在android studio 中使用步骤1的操作来更新。
+  也可以将在bin/studio.sh脚本文件中ALL_JVM_ARGS的赋值之前，加入：
+   export REQUIRED_JVM_ARGS="-Didea.updates.url=<a href="http://dl.google.com/android/studio/patches/updates.xml" rel="nofollow">http://dl.google.com/android/studio/patches/updates.xml</a> -Didea.patches.url=<a href="http://dl.google.com/android/studio/patches/" rel="nofollow">http://dl.google.com/android/studio/patches/</a>" 
+ 这样直接执行studio.sh脚本即可，不用再单独设置环境变量。
+3.如果更新仍然失败，可以手动下载更新补丁patch，patch通过以下网址下载：
+  <a href="http://dl.google.com/android/studio/patches/AI-130.737825-130.795381-patch-unix.jar" rel="nofollow">http://dl.google.com/android/studio/patches/AI-130.737825-130.795381-patch-unix.jar</a> 。
+  patch文件名命名规则为：
+  Linux: AI-$FROM-$TO-patch-unix.jar
+  Windows: AI-$FROM-$TO-patch-win.jar
+  其中的两个版本号，前一个FROM是你当前版本号，后一个TO是升级到的版本号。
+  下载文件到本地后，放到Android Studio程序根目录录内，执行以下命令：<br />
+  $ cd android-studio
+  $ java -classpath ../AI-130.687321-130.692269-patch-unix.jar  com.intellij.updater.Runner install .
 </pre>
 </div>
-<p class="paragraph">&nbsp;我在Ubuntu上使用步骤2配合GoAgent更新成功。但是在WindowsXP上面尝试失败，貌似是由于GoAgent的证书认证的问题，可以考虑试试其它代理或VPN。</p>
+<p class="paragraph">&nbsp;我在Ubuntu上使用步骤2配合GoAgent更新成功。</p>
+<p class="paragraph">使用GoAgent升级Android Studio，在WindowsXP上面尝试失败，貌似是由于GoAgent的证书认证的问题。但是使用步骤3直接下载patch，更新成功。当然，也可以考虑试试其它代理或VPN。</p>
 <p class="paragraph">
 关于GoAgent的使用可以参考我的博文：<a href={% post_url 2013-08-11-use-goagent %}>使用GoAgent代理</a></p>
 <p class="paragraph">参考：</p>
