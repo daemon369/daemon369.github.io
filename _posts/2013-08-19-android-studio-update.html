@@ -46,22 +46,22 @@ $ java -classpath /path/to/AI-130.687321-130.692269-patch-unix.jar  com.intellij
 <pre>
 1.如果你可以使用浏览器访问网址<a href="http://dl-sdk.appspot.com">dl-sdk.appspot.com</a>，那么你可以通过File&gt;Settings&gt;HTTP Proxy来配置代理，然后通过Help&gt;Check for updates尝试更新。<br />
 2.如果appspot网址被重定向，你可以设置环境变量，然后使用代理（我使用的是ubuntu）：<br />
-  $ export REQUIRED_JVM_ARGS="-Didea.updates.url=<a href="http://dl.google.com/android/studio/patches/updates.xml" rel="nofollow">http://dl.google.com/android/studio/patches/updates.xml</a> -Didea.patches.url=<a href="http://dl.google.com/android/studio/patches/" rel="nofollow">http://dl.google.com/android/studio/patches/</a>"
-  $ cd android-studio
+  $ export REQUIRED_JVM_ARGS="-Didea.updates.url=<a href="http://dl.google.com/android/studio/patches/updates.xml" rel="nofollow">http://dl.google.com/android/studio/patches/updates.xml</a> -Didea.patches.url=<a href="http://dl.google.com/android/studio/patches/" rel="nofollow">http://dl.google.com/android/studio/patches/</a>"<br/>
+  $ cd android-studio<br/>
   $ bin/studio.sh<br />
   然后在android studio 中使用步骤1的操作来更新。
   也可以将在bin/studio.sh脚本文件中ALL_JVM_ARGS的赋值之前，加入：
-   export REQUIRED_JVM_ARGS="-Didea.updates.url=<a href="http://dl.google.com/android/studio/patches/updates.xml" rel="nofollow">http://dl.google.com/android/studio/patches/updates.xml</a> -Didea.patches.url=<a href="http://dl.google.com/android/studio/patches/" rel="nofollow">http://dl.google.com/android/studio/patches/</a>" 
- 这样直接执行studio.sh脚本即可，不用再单独设置环境变量。
+   export REQUIRED_JVM_ARGS="-Didea.updates.url=<a href="http://dl.google.com/android/studio/patches/updates.xml" rel="nofollow">http://dl.google.com/android/studio/patches/updates.xml</a> -Didea.patches.url=<a href="http://dl.google.com/android/studio/patches/" rel="nofollow">http://dl.google.com/android/studio/patches/</a>" <br/>
+ 这样直接执行studio.sh脚本即可，不用再单独设置环境变量。<br/>
 3.如果更新仍然失败，可以手动下载更新补丁patch，patch通过以下网址下载：
   <a href="http://dl.google.com/android/studio/patches/AI-130.737825-130.795381-patch-unix.jar" rel="nofollow">http://dl.google.com/android/studio/patches/AI-130.737825-130.795381-patch-unix.jar</a> 。
-  patch文件名命名规则为：
-  Linux: AI-$FROM-$TO-patch-unix.jar
-  Windows: AI-$FROM-$TO-patch-win.jar
+  patch文件名命名规则为：<br/>
+  Linux: AI-$FROM-$TO-patch-unix.jar<br/>
+  Windows: AI-$FROM-$TO-patch-win.jar<br/>
   其中的两个版本号，前一个FROM是你当前版本号，后一个TO是升级到的版本号。
   下载文件到本地后，放到Android Studio程序根目录录内，执行以下命令：<br />
-  $ cd android-studio
-  $ java -classpath ../AI-130.687321-130.692269-patch-unix.jar  com.intellij.updater.Runner install .
+  $ cd android-studio<br/>
+  $ java -classpath AI-130.687321-130.692269-patch-unix.jar  com.intellij.updater.Runner install .
 </pre>
 </div>
 <p class="paragraph">&nbsp;我在Ubuntu上使用步骤2配合GoAgent更新成功。</p>
