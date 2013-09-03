@@ -1,0 +1,136 @@
+---
+layout: post
+keywords: blog
+description: 使用run-as程序来获取debuggable应用的私有数据 
+title: "使用run-as来获取Android应用私有数据"
+categories: [Android]
+tags: [Android, run-as, debuggable, private data]
+group: Android
+icon: file-alt
+---
+{% include JB/setup %}
+
+<p class="paragraph">
+假设我们开发的应用的应用包名为：com.packagename。
+</p>
+<h1>
+关于run-as
+</h1>
+<p class="paragraph">
+run-as是Android系统中的一个小应用，可以辅助我们进行Android程序的开发。
+</p>
+<p class="paragraph">
+我们在开发Android应用的时候，有的时候希望能获取到保存到手机盘应用私有目录/data/data/com.packagename下的数据来验证开发的应用是否达到预期结果，或者获取写到私有目录的log日志文件来进行debug工作。
+</p>
+<p class="paragraph">
+但是在没有root权限的手机中，我们是无法直接使用adb shell来获取到/data/data/com.packagename下的数据，因为我们没有这个目录的访问权限。
+</p>
+<p class="paragraph">
+这个时候，run-as程序就可以派上用场了。
+</p>
+<h1>
+run-as的用法
+</h1>
+<p class="paragraph">见注释：</p>
+<div>
+<pre>
+$ adb shell &nbsp; &nbsp; &nbsp;#执行adb shell命令连接手机设备<br />
+$ run-as com.packagename &nbsp; &nbsp; &nbsp; #执行run-as命令切换当前用户<br />
+$ pwd<br />
+/data/data/com.packagename &nbsp; &nbsp; &nbsp;#run-as命令当前已自动切换到用户目录<br />
+$ ls -l &nbsp; &nbsp; &nbsp; #可以看到，当前目录下文件夹，非应用本身是没有r和w权限的<br />
+drwxrwx--x app_83   app_83            2013-01-17 08:01 files<br />
+drwxrwx--x app_83   app_83            2013-01-17 08:01 databases<br />
+drwxrwx--x app_83   app_83            2013-01-17 08:01 shared_prefs<br />
+drwxr-xr-x system   system            2013-01-17 08:01 lib<br />
+$ ls databases<br />
+test.db<br />
+$ cat databases/test.db &gt; /sdcard/test_sd.db &nbsp; &nbsp; #使用cat命令导出需要的文件到sd卡<br />
+$ ls -l /sdcard/test_sd.db                 <br />
+----rwxr-x system   sdcard_rw     8192 2013-01-17 08:04 test_sd.db<br />
+$ exit<br />
+$ pwd<br />
+/<br />
+</pre>
+</div>
+<h1>
+Tips
+</h1>
+<p class="paragraph">注意：</p>
+<p class="paragraph">1.使用run-as后，是无法使用cp命令将应用数据拷贝到sd卡的，没有权限</p>
+<p class="paragraph">2.<span>如果apk已经签名，并且设置了android:debuggable="false"，将无法使用该命令。</span></p>
+<p class="paragraph"><span>3.如果无法使用run-as来直接获取应用数据，可以在自己的应用里实现读取应用数据到sd卡的功能，应用本身对自己的数据是有访问权限的。</span></p>
+<p class="paragraph"><span>4./data/data/com.packagename/lib目录不需要执行run-as就拥有访问权限，<span>为apk间共享so提供了便利</span></span></p>
+<p />
+<h1>
+run-as代码分析
+</h1>
+<p class="paragraph"><span>android2.3.3_r1中run-as.c中主要代码：</span></p>
+<div>
+<pre>
+/* 没有传入包名则退出 */
+if (argc &lt; 2)<br />
+    usage();<br/>
+/* 非'shell'用户或'root'用户则退出 */
+myuid = getuid();<br />
+if (myuid != AID_SHELL &amp;&amp; myuid != AID_ROOT) {<br />
+    panic("only 'shell' or 'root' users can run this program\n");<br />
+}<br/>
+/* 根据传入包名获取应用信息，失败则退出 */
+pkgname = argv[1];<br />
+if (get_package_info(pkgname, &amp;info) &lt; 0) {<br />
+    panic("Package '%s' is unknown\n", pkgname);<br />
+    return 1;<br />
+}<br/>
+/* reject system packages */
+if (info.uid &lt; AID_APP) {<br />
+    panic("Package '%s' is not an application\n", pkgname);<br />
+    return 1;<br />
+}<br/>
+/* 如果设置了android:debuggable="false"，则退出 */
+if (!info.isDebuggable) {<br />
+    panic("Package '%s' is not debuggable\n", pkgname);<br />
+    return 1;<br />
+}<br/>
+/* 检查/data/data/com.packagename目录是否可用 */
+if (check_data_path(info.dataDir, info.uid) &lt; 0) {<br />
+    panic("Package '%s' has corrupt installation\n", pkgname);<br />
+    return 1;<br />
+}<br/>
+/* 切换当前工作目录为/data/data/com.packagename，失败则退出 */
+{<br />
+    int ret;<br />
+    do {<br />
+        ret = chdir(info.dataDir);<br />
+    } while (ret &lt; 0 &amp;&amp; errno == EINTR);
+    if (ret &lt; 0) {<br />
+        panic("Could not cd to package's data directory: %s\n", strerror(errno));<br />
+        return 1;<br />
+    }<br />
+}<br/>
+/* Ensure that we change all real/effective/saved IDs at the
+ * same time to avoid nasty surprises.
+ */<br />
+/* 切换真实/有效/saved 用户ID和组ID*/
+uid = gid = info.uid;<br />
+if(setresgid(gid,gid,gid) || setresuid(uid,uid,uid)) {<br />
+    panic("Permission denied\n");<br />
+    return 1;<br />
+}<br/>
+/* 用户在包名参数后指定了要执行的命令，就执行这个命令 */
+if (argc &gt;= 3 ) {<br />
+    if (execvp(argv[2], argv+2) &lt; 0) {<br />
+        panic("exec failed for %s Error:%s\n", argv[2], strerror(errno));<br />
+        return -errno;<br />
+    }<br />
+}<br/>
+/* 用户没有传入要执行的命令，执行默认的shell命令子进程，此时可以执行exit命令退出 */
+execlp("/system/bin/sh", "sh", NULL);<br/>
+panic("exec failed\n");<br />
+return 1;
+</pre>
+</div>
+<p class="paragraph">&nbsp;</p>
+<p class="paragraph"><span>参考：</span></p>
+<p><a href="http://www.iandroid.cn/bbs/android-1506-1-1.html"><span>http://www.iandroid.cn/bbs/android-1506-1-1.html</span></a></p>
+<p><span><a href="http://www.cnblogs.com/over140/archive/2012/06/13/2547706.html">http://www.cnblogs.com/over140/archive/2012/06/13/2547706.html</a></span></p>
