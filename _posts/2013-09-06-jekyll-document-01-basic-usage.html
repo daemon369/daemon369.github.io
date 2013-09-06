@@ -1,0 +1,96 @@
+---
+layout: post
+keywords: blog, jekyll
+description: blog
+title: "jekyll文档(一)--BasicUsage"
+categories: [blog]
+tags: [blog, jekyll]
+group: blog
+icon: file-alt
+---
+{% include JB/setup %}
+
+<br/>
+<h1>
+jekyll安装
+</h1>
+<p class="paragraph">
+执行以下命令安装jekyll：
+</p>
+<div>
+<pre>
+$ gem install jekyll
+</pre>
+</div>
+<p class="paragraph">
+jekyll所有的gem依赖都会自动的安装完成。然后将jekyll的可执行程序路径加入PATH环境变量。
+</p>
+<br/>
+<h1>
+jekyll的使用
+</h1>
+<p class="paragraph">
+jekyll命令有以下用法：
+</p>
+<div>
+<pre>
+$ jekyll build
+# => 根据当前目录里的内容生成静态网页，网页存放到目录 ./_site
+
+$ jekyll build --destination <destination>
+# => 生成的网页存放到指定目录 <destination>
+
+$ jekyll build --source <source> --destination <destination>
+# => 从源目录 <source> 生成网页放到目标目录 <destination>
+
+$ jekyll build --watch
+# => 监听源目录里内容的变化，有修改后就会自动重新生成网页，放置到目标目录
+</pre>
+</div>
+<p class="paragraph">
+jekyll有内置的用来协助开发的服务端程序，可以将你构建的博客内容部署到本地，这样你就可以实时预览博客的效果，更为快捷的开发博客网站。
+</p>
+<div>
+<pre>
+$ jekyll serve
+# => 启动服务端部署_site内的网站到 http://localhost:4000 。你可以在浏览器里输入这个URL来预览你的博客网站的效果
+$ jekyll serve --watch
+$ jekyll serve -w
+# => 实时监听源目录的内容变化，有修改则重新产生网页并部署到本地
+</pre>
+</div>
+<p class="paragraph">
+上面之给出了部分可用的配置项。很多配置项不仅可以通过命令行传入程序，也可以写入配置文件中，这样不需要每次部署都在命令行中输入大量的配置参数。jekyll的配置文件为 <source>/_config.yml ，放置到源目录的根目录下。jekyll会在运行的时候自动读取配置项然后运行命令。
+</p>
+<p class="paragraph">
+例如在_config.yml中加入如下配置项：
+</P>
+<div>
+<pre>
+source:       _source
+destination:  _deploy
+</pre>
+</div>
+<p class="paragraph">
+这样以下两个命令就是等同的了：
+</P>
+<div>
+<pre>
+$ jekyll build
+$ jekyll build --source _source --destination _deploy
+</pre>
+</div>
+<br/>
+<h1>
+PS:
+</h1>
+<p class="paragraph">
+文章翻译自jekyll官方文档(2013-09-06)：
+</p>
+<p>
+<a href="http://jekyllrb.com/docs/installation/">Installation</a>
+</p>
+<p>
+<a href="http://jekyllrb.com/docs/usage/">Basic Usage</a>
+</p>
+<br/>
