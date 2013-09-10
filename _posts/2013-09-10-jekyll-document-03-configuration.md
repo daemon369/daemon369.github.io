@@ -15,9 +15,10 @@ icon: file-alt
 
 jekyll有两种配置参数的方法：
 
-1. 通过命令行输入
-
-2. 通过编辑配置文件_config.yml
+<ol>
+  <li>通过命令行输入</li>
+  <li>通过编辑配置文件_config.yml</li>
+</ol>
 
 ***
 #全局配置项
@@ -211,7 +212,7 @@ jekyll有两种配置参数的方法：
 ***
 #默认设置
 
-jekyll有很多默认的设置项。除非用户在命令行或者配置文件中显示的改变了这些选项，否则jekyll都是按照默认设置项来提供服务。
+jekyll有很多默认的设置项。除非用户在命令行或者配置文件中显式的改变了这些选项，否则jekyll都是按照默认设置项来提供服务。
 
 ###!!有两个kramdown选项目前还不支持
 这两个选项是：*remove_block_html_tags* 和 *remove_span_html_tags* 。因为kramdown HTML转换器目前还不包含这两个选项。
