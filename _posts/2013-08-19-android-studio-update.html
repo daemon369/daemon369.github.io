@@ -10,8 +10,12 @@ icon: file-alt
 ---
 {% include JB/setup %}
 
-<p class="paragraph"><span>Android Studio是今年5月份</span><a title="Google I/O" href="http://zh.wikipedia.org/wiki/Google_I/O">Google I/O</a><span>&nbsp;2013开发者大会上Google为</span><a title="Android" href="http://zh.wikipedia.org/wiki/Android">Android</a><span>开发者发布的一项全新的基于</span><a title="IntelliJ IDEA" href="http://zh.wikipedia.org/wiki/IntelliJ_IDEA">IntelliJ IDEA</a><span>的Android开发环境。</span></p>
-<p class="paragraph"><span>官方网址：<a href="http://developer.android.com/sdk/installing/studio.html">http://developer.android.com/sdk/installing/studio.html</a>&nbsp;。</span></p>
+<p class="paragraph">
+<span>Android Studio是今年5月份</span><a title="Google I/O" href="http://zh.wikipedia.org/wiki/Google_I/O">Google I/O</a><span>&nbsp;2013开发者大会上Google为</span><a title="Android" href="http://zh.wikipedia.org/wiki/Android">Android</a><span>开发者发布的一项全新的基于</span><a title="IntelliJ IDEA" href="http://zh.wikipedia.org/wiki/IntelliJ_IDEA">IntelliJ IDEA</a><span>的Android开发环境。</span>
+</p>
+<p class="paragraph">
+<span>官方网址：<a href="http://developer.android.com/sdk/installing/studio.html">http://developer.android.com/sdk/installing/studio.html</a>&nbsp;。</span>
+</p>
 <p class="paragraph">目前(2013-09-12)发布的完整安装包版本为：0.2.0(130.737825)，可通过patch补丁升级到版本：0.2.8(132.809981)。更新信息可查看：</p>
 <p class="paragraph"><a href="http://tools.android.com/recent">Recent Changes</a>&nbsp;</p>
 <p class="paragraph">以及：</p>
@@ -58,6 +62,7 @@ $ java -classpath /path/to/AI-130.687321-130.692269-patch-unix.jar  com.intellij
   patch文件名命名规则为：<br/>
   Linux: AI-$FROM-$TO-patch-unix.jar<br/>
   Windows: AI-$FROM-$TO-patch-win.jar<br/>
+  MacOS: AI-$FROM-$TO-patch-mac.jar<br/>
   其中的两个版本号，前一个FROM是你当前版本号，后一个TO是升级到的版本号。
   下载文件到本地后，放到Android Studio程序根目录录内，执行以下命令：<br />
   $ cd android-studio<br/>
@@ -69,7 +74,7 @@ $ java -classpath /path/to/AI-130.687321-130.692269-patch-unix.jar  com.intellij
 <p class="paragraph">
 关于GoAgent的使用可以参考我的博文：<a href={% post_url 2013-08-11-use-goagent %}>使用GoAgent代理</a></p>
 <p class="paragraph">
-用Python写了个更新的脚本，适用与Windows和Linux平台，代码是网上google出来的Python函数拼凑的，很乱，以后有时间我再修改。有需要的可以自己下载下来修改。
+用Python写了个更新的脚本，适用与Windows,Linux以及MacOS平台，代码是网上google出来的Python函数拼凑的，很乱，以后有时间我再修改。有需要的可以自己下载下来修改。
 </p>
 <p class="paragraph">
 <a href="https://github.com/daemon369/Demo/tree/master/20130830">Android Studio 更新脚本</a>
