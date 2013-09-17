@@ -43,15 +43,15 @@ jekyll是"blog aware"的，就是说写博客被设计成jekyll的固有功能�
 在post中添加图片资源：
 
     … which is shown in the screenshot below:
-    ![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
+    ![My helpful screenshot]({% raw %}{{ site.url }}{% endraw %}/assets/screenshot.jpg)
     
 在post中添加pdf文件的链接提供下载：
 
-    … you can [get the PDF]({{ site.url }}/assets/mydoc.pdf) directly.
+    … you can [get the PDF]({% raw %}{{ site.url }}{% endraw %}/assets/mydoc.pdf) directly.
 
 ###链接仅使用网站root URL
 
-如果你明确知道你的网站只会展示到你的域名的根URL是，你可以省略掉*\{\{ site.url \}\}*变量的使用。例如，你可以使用*/path/file.jpg*直接链接到图片。
+如果你明确知道你的网站只会展示到你的域名的根URL是，你可以省略掉*{% raw %}{{ site.url }}{% endraw %}*变量的使用。例如，你可以使用*/path/file.jpg*直接链接到图片。
 
 ##显示posts的索引
 
