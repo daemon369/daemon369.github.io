@@ -1,7 +1,7 @@
 ---
 layout: post
 keywords: blog, jekyll
-description: jekyll front-matter
+description: jekyll writing posts
 title: "jekyll文档(五) -- Writing posts"
 categories: [Blog]
 tags: [Blog, jekyll]

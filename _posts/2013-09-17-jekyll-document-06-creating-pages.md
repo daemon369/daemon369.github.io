@@ -1,7 +1,7 @@
 ---
 layout: post
 keywords: blog, jekyll
-description: jekyll front-matter
+description: jekyll creating pages
 title: "jekyll文档(六) -- Creating pages"
 categories: [Blog]
 tags: [Blog, jekyll]
