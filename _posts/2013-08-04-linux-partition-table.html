@@ -13,6 +13,9 @@ icon: file-alt
 <p class="paragraph">1.主引导记录(Master Boot Record, MBR)：446字节，用来安装启动管理程序</p>
 <p class="paragraph">2.硬盘分区表(partition table)：64字节，记录硬盘分区状态</p>
 <p class="paragraph">3.引导扇区结束标记AA55H</p>
+
+<!--excerpt-->
+
 <p class="paragraph">硬盘分区表占据主引导扇区的64个字节(偏移01BEH--偏移01FDH)，可以对四个分区的信息进行描述，其中每个分区的信息占据16个字节。每个硬盘可分为</span>主分区(Primary)(1~4个)和扩展分区(Extended)(0~1个)。主分区和扩展名称为：(IDE)/dev/hda1到/dev/hda4或者(SATA)/dev/sda1到/dev/sda4。</p>
 <p class="paragraph">其中扩展分区可划分为多个逻辑分区。逻辑分区命名从5开始，例如sda5，即使主分区和扩展分区数目不够4个也是这样。</p>
 <p class="paragraph">硬盘分区表记录的信息如下：&nbsp;</p>

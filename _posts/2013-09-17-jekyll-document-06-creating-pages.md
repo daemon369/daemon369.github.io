@@ -2,7 +2,7 @@
 layout: post
 keywords: blog, jekyll
 description: jekyll creating pages
-title: "jekyll文档(六) -- Creating pages"
+title: "Jekyll文档(六) -- Creating pages"
 categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
@@ -10,10 +10,9 @@ icon: file-alt
 ---
 {% include JB/setup %}
 
-***
-#主页
-
 很多网站默认启动服务会找HTML文件*index.html*作为网站的首页来展示。Jekyll也一样，除非你自己在web服务器上配置了其他文件，否则Jekyll也会默认将*index.html*文件作为首页。
+
+<!--excerpt-->
 
 ###在首页中使用布局layouts
 Jekyll项目中的任何HTML文件都可以使用布局(layouts)和包含文件(includes)，包括首页。一些通用的元素，例如头部和尾部，可以抽取出来做到布局中，这样方便开发，网站的风格也能统一。

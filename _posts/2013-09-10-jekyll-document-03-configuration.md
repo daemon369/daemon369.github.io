@@ -2,7 +2,7 @@
 layout: post
 keywords: blog, jekyll
 description: jekyll configuration
-title: "jekyll文档(三) -- Configuration"
+title: "Jekyll文档(三) -- Configuration"
 categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
@@ -10,7 +10,6 @@ icon: file-alt
 ---
 {% include JB/setup %}
 
-***
 #jekyll配置
 
 jekyll有两种配置参数的方法：
@@ -19,6 +18,8 @@ jekyll有两种配置参数的方法：
   <li>通过命令行输入</li>
   <li>通过编辑配置文件_config.yml</li>
 </ol>
+
+<!--excerpt-->
 
 ***
 #全局配置项

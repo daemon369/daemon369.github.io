@@ -2,17 +2,17 @@
 layout: post
 keywords: blog, jekyll
 description: jekyll front-matter
-title: "jekyll文档(四) -- Front-matter"
+title: "Jekyll文档(四) -- Front-matter"
 categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
 ---
 {% include JB/setup %}
-***
-#介绍
 
 jekyll项目中，包含YAML front matter代码区块的所有文件都会被jekyll进行特殊处理。Front-matter能够使得jekyll真正的变酷起来。文件中需要把front-matter到文件的最前端，格式是上下两行三个短横线，中间包裹合法的YAML代码。下面给出一个简单的例子：
+
+<!--excerpt-->
 
     ---
     layout: post

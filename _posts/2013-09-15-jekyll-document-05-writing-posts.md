@@ -2,7 +2,7 @@
 layout: post
 keywords: blog, jekyll
 description: jekyll writing posts
-title: "jekyll文档(五) -- Writing posts"
+title: "Jekyll文档(五) -- Writing posts"
 categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
@@ -10,10 +10,9 @@ icon: file-alt
 ---
 {% include JB/setup %}
 
-***
-#介绍
-
 jekyll是"blog aware"的，就是说写博客被设计成jekyll的固有功能。用户需要写博客以及发布博客到网络，只需要在本地管理一个文件夹，文件夹里包含一些文本文件即可。相比在数据库中配置保存博客以及使用基于网页的CMS系统来管理操作，这是个饱受欢迎的改变。
+
+<!--excerpt-->
 
 ##Posts文件夹
 

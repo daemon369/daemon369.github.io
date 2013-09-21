@@ -2,7 +2,7 @@
 layout: post
 keywords: blog, jekyll
 description: jekyll variables
-title: "jekyll文档(七) -- Variables"
+title: "Jekyll文档(七) -- Variables"
 categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
@@ -10,9 +10,9 @@ icon: file-alt
 ---
 {% include JB/setup %}
 
-***
-
 Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matter](http://jekyllrb.com/docs/frontmatter/)的文件都会被Jekyll处理。对于每个一文件，Jekyll都会通过[Liquid templating system](https://github.com/shopify/liquid/wiki/liquid-for-designers)来创建很多可供使用的数据。下面是一些可用的数据。
+
+<!--excerpt-->
 
 ***
 #全局变量

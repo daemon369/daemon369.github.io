@@ -13,6 +13,9 @@ icon: file-alt
 
 <p class="paragraph">主引导记录(Master Boot Record, MBR)，用来引导系统的启动。</p>
 <p class="paragraph">计算机在启动时首先会加载BIOS(basic input/output system, 基本输入输出系统)，进行机器的自检，读取CMOS中的各项硬件参数，然后会依据用户配置的顺序去找寻能够启动的设备，例如启动光盘，启动U盘，硬盘等。这些设备能否启动，就是看其第一个扇区是否存在MBR。</p>
+
+<!--excerpt-->
+
 <p class="paragraph">以硬盘为例，在硬盘的0柱面，0磁道，1扇区的位置，512字节的扇区有三部分内容：</p>
 <p class="paragraph">1.MBR，446字节。</p>
 <p class="paragraph">2.DPT(Disk Partition Table)，硬盘分区表，64字节。</p>

@@ -2,7 +2,7 @@
 layout: post
 keywords: blog
 description: 
-title: "jekyll文档(二) -- Directory structure"
+title: "Jekyll文档(二) -- Directory structure"
 categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
@@ -10,11 +10,13 @@ icon: file-alt
 ---
 {% include JB/setup %}
 
-***
 # 目录结构
+
 jekyll是一个文本转换引擎，其原理为：
 
 用户提供一些固定格式的文本，jekyll可以按设定好的规则将其转换为HTML文件等，然后就可以部署成网站给其他人观看；有很多种书写文本的格式可供选择，例如：Markdown，Textile，甚至是普通的HTML。用户还可以自己定义网站的布局，只要用户使用jekyll定义好的规则来编写布局文件，jekyll就会按照用户的设计生成对应的静态网页。
+
+<!--excerpt-->
 
 jekyll项目的基本组织结构一般如下：
 

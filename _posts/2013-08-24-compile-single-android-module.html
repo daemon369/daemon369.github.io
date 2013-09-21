@@ -11,6 +11,7 @@ icon: file-alt
 {% include JB/setup %}
 
 <p class="paragraph">一次完整的Android源码的编译过程耗时很久，慢点的机器可能需要数个小时甚至更多的时间。实际上Android源代码可以分模块单独编译。一次完全编译后，以后可以根据需要单独编译需要的模块，然后再重新打包成system.img 。</p>
+<!--excerpt-->
 <p class="paragraph">模块编译需要的工具在Android源码目录下的build/envsetup.sh中，运行这个脚本可以初始化一些环境变量并提供一些额外的命令。</p>
 <div>
 <pre>$ source ./build/envsetup.sh</pre>
