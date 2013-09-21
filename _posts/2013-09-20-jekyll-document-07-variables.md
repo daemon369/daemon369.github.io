@@ -26,15 +26,15 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
   </tr>
   <tr>
     <td>
-      <p>*site*</p>
+      <p>site</p>
     </td>
     <td>
-      <p>*_config.yml*文件中配置的全网站范围的信息和配置项。更详细的内容参考下面。</p>
+      <p><em>_config.yml</em>文件中配置的全网站范围的信息和配置项。更详细的内容参考下面。</p>
     </td>
   </tr>
   <tr>
     <td>
-      <p>*page*</p>
+      <p>page</p>
     </td>
     <td>
       <p>page专用的信息以及[YAML Front Matter](http://jekyllrb.com/docs/frontmatter/)。用户在YAML front matter中设置的自定义变量也可以在这里使用。更详细的内容参考下面。</p>
@@ -42,7 +42,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
   </tr>
   <tr>
     <td>
-      <p>*content*</p>
+      <p>content</p>
     </td>
     <td>
       <p>在布局文件中，post和page的内容会被封装起来。这个变量在post和page文件中没有定义。</p>
@@ -50,10 +50,10 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
   </tr>
   <tr>
     <td>
-      <p>*paginator*</p>
+      <p>paginator</p>
     </td>
     <td>
-      <p>这个变量再变量*paginate*变量被设置后才产生作用。详细内容参考[Pagination](http://jekyllrb.com/docs/pagination/)</p>
+      <p>这个变量再变量<em>paginate</em>变量被设置后才产生作用。详细内容参考<a href="http://jekyllrb.com/docs/pagination/">Pagination</a></p>
     </td>
   </tr>
 </table>
@@ -73,7 +73,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>site.time</p>
     </td>
     <td>
-      <p>当前时间(当你运行*jekyll*时)</p>
+      <p>当前时间(当你运行<em>jekyll</em>时)</p>
     </td>
   </tr>
   <tr>
@@ -105,7 +105,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>site.categories.CATEGORY</p>
     </td>
     <td>
-      <p>所有指定分类*CATEGORY*中的posts的列表。</p>
+      <p>所有指定分类<em>CATEGORY</em>中的posts的列表。</p>
     </td>
   </tr>
   <tr>
@@ -113,7 +113,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>site.tags.TAG</p>
     </td>
     <td>
-      <p>所有包含标签*TAG*的posts的列表。</p>
+      <p>所有包含标签<em>TAG</em>的posts的列表。</p>
     </td>
   </tr>
   <tr>
@@ -121,7 +121,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>site.[CONFIGURATION_DATA]</p>
     </td>
     <td>
-      <p>所有通过命令行以及通过*_config.yml*设置的变量都可以通过变量*site*来访问。例如，在配置文件中设置了*url:http://mysite.com*，那么在posts和pages中可以通过变量*site.url*来使用设置的变量值。在*watch*模式下，Jekyll并不会去解析*_config.yml*文件，只在Jeykll服务启动的时候才会解析，因此如果你改变了配置项的值，你需要重新启动Jekyll来使改变生效。</p>
+      <p>所有通过命令行以及通过<em>_config.yml</em>设置的变量都可以通过变量<em>site</em>来访问。例如，在配置文件中设置了<em>url:http://mysite.com</em>，那么在posts和pages中可以通过变量<em>site.url</em>来使用设置的变量值。在<em>watch</em>模式下，Jekyll并不会去解析<em>_config.yml</em>文件，只在Jeykll服务启动的时候才会解析，因此如果你改变了配置项的值，你需要重新启动Jekyll来使改变生效。</p>
     </td>
   </tr>
 </table>
@@ -165,7 +165,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>page.url</p>
     </td>
     <td>
-      <p>post的URL，不包含域名，以"/"开头。例如：*/2008/12/14/my-post.html*</p>
+      <p>post的URL，不包含域名，以"/"开头。例如：<em>/2008/12/14/my-post.html</em></p>
     </td>
   </tr>
   <tr>
@@ -173,7 +173,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>page.date</p>
     </td>
     <td>
-      <p>post指定的日期。这个变量可以在post的front matter中指定一个新的日期/时间来覆盖已有的日期，格式为：*YYYY-MM-DD HH:MM:SS*(假定是UTC世界标准时间)，或者：*YYYY-MM-DD HH:MM:SS +/-TTTT*(使用一个相对UTC的偏移量来指定时区，例如：*2008-12-14 10:30:00）。 +0900*。</p>
+      <p>post指定的日期。这个变量可以在post的front matter中指定一个新的日期/时间来覆盖已有的日期，格式为：<em>YYYY-MM-DD HH:MM:SS</em>(假定是UTC世界标准时间)，或者：<em>YYYY-MM-DD HH:MM:SS +/-TTTT</em>(使用一个相对UTC的偏移量来指定时区，例如：<em>2008-12-14 10:30:00 +0900</em>）。</p>
     </td>
   </tr>
   <tr>
@@ -181,7 +181,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>page.id</p>
     </td>
     <td>
-      <p>post的唯一标识ID(对RSS feeds有用)。例如：*/2008/12/14/my-post*。</p>
+      <p>post的唯一标识ID(对RSS feeds有用)。例如：<em>/2008/12/14/my-post</em>。</p>
     </td>
   </tr>
   <tr>
@@ -189,7 +189,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>page.categories</p>
     </td>
     <td>
-      <p>post所属的类别的列表。类别(categories)派生于*_posts*之上的目录结构。例如，一个设置*page.categories*变量为['work, 'code']的post将位于*/work/code/_posts/2008-12-24-closures.md*。这些可以在YAML Front Matter中进行设置。</p>
+      <p>post所属的类别的列表。类别(categories)派生于<em>_posts</em>之上的目录结构。例如，一个设置<em>page.categories</em>变量为['work, 'code']的post将位于<em>/work/code/_posts/2008-12-24-closures.md</em>。这些可以在YAML Front Matter中进行设置。</p>
     </td>
   </tr>
   <tr>

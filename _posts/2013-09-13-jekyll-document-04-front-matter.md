@@ -33,8 +33,8 @@ jekyll项目中，包含YAML front matter代码区块的所有文件都会被jek
 jekyll中预先定义了一些全局变量，用户可以在page或post的front-matter中进行设置。
 
 <table cellpadding="10">
-  <col width="75%" />
   <col width="25%" />
+  <col width="75%" />
   <tr>
     <th>变量</th>     
     <th>描述</th>
@@ -102,8 +102,8 @@ These are available out-of-the-box to be used in the front-matter for a post.
 
 
 <table cellpadding="10">
-  <col width="75%" />
   <col width="25%" />
+  <col width="75%" />
   <tr>
     <th>变量</th>     
     <th>描述</th>
