@@ -19,7 +19,7 @@ Jekyll使用[Liquid](http://wiki.shopify.com/Liquid)模板语言来处理模板�
 
 <table cellpadding="10">
   <col width="45%" />
-  <col width="65%" />
+  <col width="55%" />
   <tr>
     <th>描述</th>     
     <th>过滤器(FILTER)和输出(OUTPUT)</th>
