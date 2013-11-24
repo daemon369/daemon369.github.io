@@ -90,7 +90,7 @@ Front-matter中定义的所有非预定义变量在jekyll转换文件时，都�
     <!DOCTYPE HTML>
     <html>
       <head>
-        <title>{{ page.title }}</title>
+        <title>{% raw %}{{ page.title }}{% endraw %}</title>
       </head>
       <body>
         ...

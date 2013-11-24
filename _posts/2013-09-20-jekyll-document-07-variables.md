@@ -37,7 +37,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>page</p>
     </td>
     <td>
-      <p>page专用的信息以及[YAML Front Matter](http://jekyllrb.com/docs/frontmatter/)。用户在YAML front matter中设置的自定义变量也可以在这里使用。更详细的内容参考下面。</p>
+      <p>page专用的信息以及<a href="http://jekyllrb.com/docs/frontmatter/">YAML Front Matter</a>。用户在YAML front matter中设置的自定义变量也可以在这里使用。更详细的内容参考下面。</p>
     </td>
   </tr>
   <tr>
@@ -53,7 +53,7 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
       <p>paginator</p>
     </td>
     <td>
-      <p>这个变量再变量<em>paginate</em>变量被设置后才产生作用。详细内容参考<a href="http://jekyllrb.com/docs/pagination/">Pagination</a></p>
+      <p>这个变量在变量<em>paginate</em>变量被设置后才产生作用。详细内容参考<a href="http://jekyllrb.com/docs/pagination/">Pagination</a></p>
     </td>
   </tr>
 </table>
