@@ -55,7 +55,7 @@ jekyll项目中的每一部分的功能如下：
   </tr>
   <tr>
     <td>_includes</td>
-    <td>这里面可以放置一些可重用的模块来加速开发，你可以方便的将里面的内容在多个文件里复用。譬如你也可以在多个页面中加入一块固定的模块，这个模块存放在文件 _includes/file.ext，只需要在文件中插入liquid标签： {% include file.ext %} 。</td>
+    <td>这里面可以放置一些可重用的模块来加速开发，你可以方便的将里面的内容在多个文件里复用。譬如你也可以在多个页面中加入一块固定的模块，这个模块存放在文件_includes/file.ext，只需要在文件中插入liquid标签： {% raw %}{% include file.ext %}{% endraw %} 。</td>
   </tr>
   <tr>
     <td>_layouts</td>
