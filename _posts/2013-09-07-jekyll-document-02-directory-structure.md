@@ -59,7 +59,7 @@ jekyll项目中的每一部分的功能如下：
   </tr>
   <tr>
     <td>_layouts</td>
-    <td>这个目录存放的是一些布局文件，我们的post文章里面可以使用YAML前缀格式来设置我们使用的布局。我们可以使用liquid标签 {{ content }} 在我们的web页中插入内容。</td>
+    <td>这个目录存放的是一些布局文件，我们的post文章里面可以使用YAML前缀格式来设置我们使用的布局。我们可以使用liquid标签 {% raw %}{{ content }}{% endraw %} 在我们的web页中插入内容。</td>
   </tr>
   <tr>
     <td>_posts</td>
