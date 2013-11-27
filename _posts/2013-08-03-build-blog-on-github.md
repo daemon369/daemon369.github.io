@@ -10,7 +10,7 @@ icon: file-alt
 ---
 {% include JB/setup %}
 
-最开始是看到[阮一峰](http://www.ruanyifeng.com/blog/)的博客[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)，才知道可以使用github来搭建个人博客的。因为刚在github上面创建了一个repository用来放一些自己的学习过程中写的demo，那么再创建个博客来记录自己的学习过程，也是个不错的事情。因此开始折腾这个博客。
+最开始是看到[阮一峰](http://www.ruanyifeng.com/blog/)的博客[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门][1]，才知道可以使用github来搭建个人博客的。因为刚在github上面创建了一个repository用来放一些自己的学习过程中写的demo，那么再创建个博客来记录自己的学习过程，也是个不错的事情。因此开始折腾这个博客。
 
 <!--excerpt-->
 
@@ -52,14 +52,20 @@ icon: file-alt
 当前直接clone的别人的博客，很多地方显示的都是不符合个人要求的，网址链接有可能也是链到原作者的博客，所以后面需要自己修改，_posts目录下面的文章也要都替换成自己的文章。
 
 参考：
-[1]:[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
+1.[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门][1]
+2.[Github Pages极简教程][2]
+3.[使用Github Pages建独立博客][3]
 
-[2]:[Github Pages极简教程](http://yanping.me/cn/blog/2012/03/18/github-pages-step-by-step/)
-
-[3]:[使用Github Pages建独立博客](http://beiyuu.com/github-pages/)
 
 我的博客初始模板：
 
 博客：[http://codepiano.github.io/](http://codepiano.github.io/)
 
 github：[https://github.com/codepiano/codepiano.github.com](https://github.com/codepiano/codepiano.github.com)
+
+
+[1]:http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html "搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门"
+
+[2]:http://yanping.me/cn/blog/2012/03/18/github-pages-step-by-step/ "Github Pages极简教程"
+
+[3]:http://beiyuu.com/github-pages/ "使用Github Pages建独立博客"
