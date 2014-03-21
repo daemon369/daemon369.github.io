@@ -371,5 +371,6 @@ SparseBooleanArray是设计用来替换HashMap&lt;Integer, Boolean&gt;，而Spar
 ***
 #参考:
 
-[Android编程之SparseArray<E>详解](http://blog.csdn.net/xyz_fly/article/details/7931943)
+[Android编程之SparseArray&lt;E&gt;详解](http://blog.csdn.net/xyz_fly/article/details/7931943)
+
 [Android应用性能优化之使用SparseArray替代HashMap](http://liuzhichao.com/p/832.html)
