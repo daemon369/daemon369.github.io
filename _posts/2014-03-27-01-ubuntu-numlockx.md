@@ -26,7 +26,7 @@ numlockx程序有3个可用命令：
 
 设置Ubuntu启动时执行命令：
 
-    sudo gedit /etc/lightdm/lightdm.conf
+    sudo vim /etc/lightdm/lightdm.conf
 
 打开lightdm.conf 文件后在文件最后一行加入：
 
