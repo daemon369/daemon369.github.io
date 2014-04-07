@@ -21,13 +21,87 @@ icon: file-alt
     4.在运行时调用任意一个对象的方法（注意：前提都是在运行时，而不是在编译时）
 
 ***
-#Java 反射相关的API简介：(java.lang.reflect)
+#Java 反射相关的API简介：
 
-    Class类：代表一个类
-    Filed类：代表类的成员变量
-    Method类：代表类的方法
-    Constructor类：代表类的构造方法
-    Array类：提供了动态创建数组，以及访问数组的元素的静态方法。该类中的所有方法都是静态方法
+与反射有关的所有接口以及类都在java.lang.reflect包里。
+
+###接口
+<table>
+    <tr>接口摘要</tr>
+    <tr>
+        <td>AnnotatedElement</td>
+        <td>表示目前正在此 VM 中运行的程序的一个已注释元素。</td>
+    </tr>
+    <tr>
+        <td>GenericArrayType</td>
+        <td>GenericArrayType 表示一种数组类型，其组件类型为参数化类型或类型变量。</td>
+    </tr>
+    <tr>
+        <td>GenericDeclaration</td>
+        <td>声明类型变量的所有实体的公共接口。</td>
+    </tr>
+    <tr>
+        <td>InvocationHandler</td>
+        <td>InvocationHandler 是代理实例的调用处理程序 实现的接口。</td>
+    </tr>
+    <tr>
+        <td>Member</td>
+        <td>成员是一种接口，反映有关单个成员（字段或方法）或构造方法的标识信息。</td>
+    </tr>
+    <tr>
+        <td>ParameterizedType</td>
+        <td>ParameterizedType 表示参数化类型，如 Collection&lt;String&gt;。</td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>Type 是 Java 编程语言中所有类型的公共高级接口。</td>
+    </tr>
+    <tr>
+        <td>TypeVariable&lt;D extends GenericDeclaration&gt;</td>
+        <td>TypeVariable 是各种类型变量的公共高级接口。</td>
+    </tr>
+    <tr>
+        <td>WildcardType</td>
+        <td>WildcardType 表示一个通配符类型表达式，如 ?、? extends Number 或 ? super Integer。</td>
+    </tr>
+</table>
+
+###类
+<table>
+    <tr>类摘要</tr>
+    <tr>
+        <td>AccessibleObject</td>
+        <td>AccessibleObject 类是 Field、Method 和 Constructor 对象的基类。</td>
+    </tr>
+    <tr>
+        <td>Array</td>
+        <td>Array 类提供了动态创建和访问 Java 数组的方法。</td>
+    </tr>
+    <tr>
+        <td>Constructor&lt;T&gt;</td>
+        <td>Constructor 提供关于类的单个构造方法的信息以及对它的访问权限。</td>
+    </tr>
+    <tr>
+        <td>Field</td>
+        <td>Field 提供有关类或接口的单个字段的信息，以及对它的动态访问权限。</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td>Method 提供关于类或接口上单独某个方法（以及如何访问该方法）的信息。</td>
+    </tr>
+    <tr>
+        <td>Modifier</td>
+        <td>Modifier 类提供了 static 方法和常量，对类和成员访问修饰符进行解码。</td>
+    </tr>
+    <tr>
+        <td>Proxy</td>
+        <td>Proxy 提供用于创建动态代理类和实例的静态方法，它还是由这些方法创建的所有动态代理类的超类。</td>
+    </tr>
+    <tr>
+        <td>ReflectPermission</td>
+        <td>反射操作的 Permission 类。</td>
+    </tr>
+</table>
 
 <!--excerpt-->
 
@@ -40,6 +114,34 @@ Class类十分的特殊，它和其它的类一样继承自Object，其实体用
 
 Java允许我们从多种途径为一个类class生成对应的Class对象。
 
+    class TestClass {
+        private int a;
+        public String b;
+        
+        public TestClass() {
+            a = 1;
+            b = "b";
+        }
+        
+        public TestClass(int a, String b) {
+            this.a = a;
+            this.b = b;
+        }
+        
+        private void fun1() {
+            System.out.println("fun1");
+        }
+        
+        public void fun2() {
+            System.out.println("fun2");
+        }
+        
+        @Override
+        public String toString() {
+            return "a:[" + a + "] b:[" + b + "]";
+        }
+    }
+
 1.运用 getClass（）：Object类中的方法，每个类都拥有此方法
  
     String str="abc";
@@ -49,7 +151,14 @@ Java允许我们从多种途径为一个类class生成对应的Class对象。
 
 3.运用 Class.forName（）静态方法：
 
+    Class.forName("java.lang.String");
+    Class.forName("com.javatest.TestClass");
+
 4.运用 类名.class
+
+    int.class
+    String.class
+    TestClass.class
 
 5.运用primitive wrapper classes的TYPE语法： 基本类型包装类的TYPE，如：Integer.TYPE
 注意：TYPE的使用，只适合原生（基本）数据类型
@@ -70,25 +179,118 @@ Java允许我们从多种途径为一个类class生成对应的Class对象。
 
 例:
 
-    Class c=Class.forName("DynTest");
-    Class[] ptype=new Class[]{double.class,int.class}；
-    Constructor ctor=c.getConstructor(ptypr);
-    Object[] obj=new Object[]{new Double(3.1415),new Integer(123)};
-    Object object=ctor.newInstance(obj);
-    System.out.println(object);
+    Class c = Class.forName("com.javatest.TestClass");
+    //无参构造函数
+    Object object1 = c.newInstance();
+    System.out.println(object1);//a:[1] b:[b]
+    //有参构造函数
+    Class[] ptype=new Class[]{int.class, String.class};
+    Constructor ctor=c.getConstructor(ptype);
+    Object[] obj=new Object[]{new Integer(3),new String("abc")};
+    Object object2=ctor.newInstance(obj);
+    System.out.println(object2);//a:[3] b:[abc]
 
 ***
 #运行时调用Method
 
 首先准备一个Class[]{}作为getMethod(String name，Class[])方法的参数类型，接下来准备一个Obeject[]放置自变量，然后调用Method对象的invoke(Object obj，Object[])方法。
 
+###获取Method
+
+1. public Method getMethod(String name, Class&lt;?&gt;... parameterTypes);
+
+name是方法名称；parameterTypes是Class对象的数组，标识了参数的类型，顺序与方法中参数的声明顺序一致，为null代表无参方法。方法的搜索顺序：class -> super class -> super interface。Java语言不允许声明参数相同、返回值类型不同的多个方法，但是JVM却没有这个限制，因此搜索结果可能有多个。如果name为&lt;init&gt;或者&lt;clinit&gt;，或者方法没有找到，则抛出*NoSuchMethodException*。
+搜索不到，
+
+2. public Method[] getMethods();
+
+返回所有public的方法的数组，包括类本身的方法以及其实现的接口的方法。不排序。
+
+3. public Method getDeclaredMethod(String name, Class&lt;?&gt;... parameterTypes);
+
+用法同getMethod，但是可以访问包括private、default(package)和protected的方法。注意，如果需要调用private的方法，需要先调用Method.setAccessible(true)，使得私有方法可访问，否则会抛出IllegalAccessException异常。
+
+4. public Method[] getDeclaredMethods();
+
+用法同getMethods，返回包括public、protected、package和private的所有方法。
+
+###示例
+
+    Class c = Class.forName("com.yc.javatest.TestClass");
+    Object object1 = c.newInstance();
+    //访问private方法
+    Method m1 = c.getDeclaredMethod("fun1", null);
+    m1.setAccessible(true);
+    m1.invoke(object1, null);
+    //访问public方法
+    Method m2 = c.getDeclaredMethod("fun1", null);
+    m2.invoke(object1, null);
+
 ***
 #运行时调用Field内容
 
 变更Field不需要参数和自变量，首先调用Class的getField()并指定field名称，获得特定的Field对象后便可以直接调用Field的 get(Object obj)和set(Object obj,Object value)方法
 
+###获取Field
+
+1. public Field getField(String name);
+
+根据给定的field的名称来反射该类或给类实现的接口的public的成员变量。查找的顺序是：class -> interface -> super class。查找不到则抛出NoSuchFieldException异常。
+
+    Class c = TestClass.newInstance();
+    Field f = c.getField("member1");
+
+2. public Field[] getFields();
+
+返回Class或Class实现的接口的所有可访问成员的数组，数组不排序。没有则返回长度为0的数组。
+
+3. public Field getDeclaredField(String name);
+
+用法同getField，可以访问private修饰符修饰的field。同getDeclaredMethod一样，访问private的field，调用Field.setAccessible(true)方法来修改field的访问权限，否则会抛出IllegalAccessException异常。
+
+4. public Field[] getDeclaredFields();
+
+用法同getFields()，可以获取所有类型的field。
+
+###访问Field
+
+对field的访问可用getxxx(Object)方法和setxxx(Object, Object)方法。其中，引用类型使用:
+
+    public Object get(Object obj);
+    public void set(Object obj, Object value);
+
+八个基本类型使用：
+
+    public boolean getBoolean(Object obj);
+    public byte getByte(Object obj);
+    public char getChar(Object obj);
+    public short getShort(Object obj);
+    public int getInt(Object obj);
+    public long getLong(Object obj);
+    public float getFloat(Object obj);
+    public double getDouble(Object obj);
+    
+    public void setBoolean(Object obj, boolean z);
+    public void setByte(Object obj, byte b);
+    public void setChar(Object obj, char c);
+    public void setShort(Object obj, short s);
+    public void setInt(Object obj, int i);
+    public void setLong(Object obj, long l);
+    public void setFloat(Object obj, float f);
+    public void setDouble(Object obj, double d);
+
+###示例
+
+    Field f1 = c.getDeclaredField("a");
+    f1.setAccessible(true);
+    Field f2 = c.getField("b");
+    System.out.println(object1);
+    f1.set(object1, 2);
+    f2.set(object1, "abc");
+    System.out.println(object1);
+
 ***
-#示例
+#DEMO
 
     package cn.com.reflection;   
 
@@ -224,3 +426,7 @@ Java允许我们从多种途径为一个类class生成对应的Class对象。
 #参考:
 
 [JAVA反射机制的学习](http://hejianjie.iteye.com/blog/136205)
+
+[菜鸟学Java（十四）——Java反射机制（一）](http://blog.csdn.net/liushuijinger/article/details/14223459)
+
+[菜鸟学Java（十五）——Java反射机制（二）](http://blog.csdn.net/liushuijinger/article/details/15378475)
