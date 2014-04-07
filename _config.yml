@@ -4,6 +4,7 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 pygments: true
 paginate: 4
 excerpt_separator: <!--excerpt-->
+markdown: kramdown
 
 title : Step By Step 
 tagline: Just Learn It
