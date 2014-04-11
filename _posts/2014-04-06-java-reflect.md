@@ -13,6 +13,7 @@ icon: file-alt
 在Java 运行时 环境中，对于任意一个类，能否知道这个类有哪些属性和方法？对于任意一个对象，能否调用他的方法？这些答案是肯定的，这种动态获取类的信息，以及动态调用类的方法的功能来源于JAVA的反射。从而使java具有动态语言的特性。
 
 ***
+
 #JAVA反射机制主要提供了以下功能：
 
     1.在运行时判断任意一个对象所属的类
@@ -21,6 +22,7 @@ icon: file-alt
     4.在运行时调用任意一个对象的方法（注意：前提都是在运行时，而不是在编译时）
 
 ***
+
 #Java 反射相关的API简介：
 
 与反射有关的所有接口以及类都在java.lang.reflect包里。
@@ -106,6 +108,7 @@ icon: file-alt
 <!--excerpt-->
 
 ***
+
 #Class类
 
 在 java 的Object类中的申明了数个应该在所有的java类中被改写的methods：hashCode(), equals(),clone(),toString(),getClass()等，其中的getClass()返回一个Class 类型的对象。
@@ -164,6 +167,7 @@ Java允许我们从多种途径为一个类class生成对应的Class对象。
 注意：TYPE的使用，只适合原生（基本）数据类型
 
 ***
+
 #运行时生成Class的实例
 
 运行时通过反射机制生成Class的实例，有两种方法，
@@ -191,6 +195,7 @@ Java允许我们从多种途径为一个类class生成对应的Class对象。
     System.out.println(object2);//a:[3] b:[abc]
 
 ***
+
 #运行时调用Method
 
 首先准备一个Class[]{}作为getMethod(String name，Class[])方法的参数类型，接下来准备一个Obeject[]放置自变量，然后调用Method对象的invoke(Object obj，Object[])方法。
@@ -227,6 +232,7 @@ name是方法名称；parameterTypes是Class对象的数组，标识了参数的
     m2.invoke(object1, null);
 
 ***
+
 #运行时调用Field内容
 
 变更Field不需要参数和自变量，首先调用Class的getField()并指定field名称，获得特定的Field对象后便可以直接调用Field的 get(Object obj)和set(Object obj,Object value)方法
@@ -290,6 +296,7 @@ name是方法名称；parameterTypes是Class对象的数组，标识了参数的
     System.out.println(object1);
 
 ***
+
 #DEMO
 
     package cn.com.reflection;   
@@ -423,6 +430,7 @@ name是方法名称；parameterTypes是Class对象的数组，标识了参数的
     }
 
 ***
+
 #参考:
 
 [JAVA反射机制的学习](http://hejianjie.iteye.com/blog/136205)

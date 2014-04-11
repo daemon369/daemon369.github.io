@@ -12,6 +12,8 @@ icon: file-alt
 
 再Android中可用使用TextView来显示HTML文本：
 
+***
+
 #TextView中显示HTML文本：
 
     final String htmlString = "<font color="#00ff0000">abcdefg</font>";
@@ -19,6 +21,8 @@ icon: file-alt
     tv.setText(Html.fromHtml(htmlString));
 
 如上可以显示一串红色文本。
+
+***
 
 #去除HTML标签
 
