@@ -39,6 +39,10 @@ icon: file-alt
         return LayoutInflater;
     }
 
+***
+
+#使用LayoutInflaters实例加载布局
+
 得到了LayoutInflater的实例之后就可以调用它的inflate()方法来加载布局了，如下所示：
 
     layoutInflater.inflate(resourceId, root);
@@ -147,6 +151,7 @@ Button在界面上显示出来了！说明我们确实是借助LayoutInflater成
     }
 
 从这里我们就可以清楚地看出，LayoutInflater其实就是使用Android提供的pull解析方式来解析布局文件的。不熟悉pull解析方式的朋友可以网上搜一下，教程很多，我就不细讲了，这里我们注意看下第23行，调用了createViewFromTag()这个方法，并把节点名和参数传了进去。看到这个方法名，我们就应该能猜到，它是用于根据节点名来创建View对象的。确实如此，在createViewFromTag()方法的内部又会去调用createView()方法，然后使用反射的方式创建出View的实例并返回。
+
 当然，这里只是创建出了一个根布局的实例而已，接下来会在第31行调用rInflate()方法来循环遍历这个根布局下的子元素，代码如下所示：
 
     private void rInflate(XmlPullParser parser, View parent, final AttributeSet attrs)  
@@ -180,21 +185,19 @@ Button在界面上显示出来了！说明我们确实是借助LayoutInflater成
     }
 
 可以看到，在第21行同样是createViewFromTag()方法来创建View的实例，然后还会在第24行递归调用rInflate()方法来查找这个View下的子元素，每次递归完成后则将这个View添加到父布局当中。
+
 这样的话，把整个布局文件都解析完成后就形成了一个完整的DOM结构，最终会把最顶层的根布局返回，至此inflate()过程全部结束。
 
-比较细心的朋友也许会注意到，inflate()方法还有个接收三个参数的方法重载，结构如下：
+inflate()方法还有个接收三个参数的方法重载，结构如下：
 
-inflate(int resource, ViewGroup root, boolean attachToRoot)
+    inflate(int resource, ViewGroup root, boolean attachToRoot)
  
 那么这第三个参数attachToRoot又是什么意思呢？其实如果你仔细去阅读上面的源码应该可以自己分析出答案，这里我先将结论说一下吧，感兴趣的朋友可以再阅读一下源码，校验我的结论是否正确。
 
-1. 如果root为null，attachToRoot将失去作用，设置任何值都没有意义。
-
-2. 如果root不为null，attachToRoot设为true，则会在加载的布局文件的最外层再嵌套一层root布局。
-
-3. 如果root不为null，attachToRoot设为false，则root参数失去作用。
-
-4. 在不设置attachToRoot参数的情况下，如果root不为null，attachToRoot参数默认为true。
+    1. 如果root为null，attachToRoot将失去作用，设置任何值都没有意义。
+    2. 如果root不为null，attachToRoot设为false，则root参数失去作用。
+    3. 如果root不为null，attachToRoot设为true，则会在加载的布局文件的最外层再嵌套一层root布局，并返回最外层root
+    4. 在不设置attachToRoot参数的情况下，如果root不为null，attachToRoot参数默认为true。
 
 好了，现在对LayoutInflater的工作原理和流程也搞清楚了，你该满足了吧。额。。。。还嫌这个例子中的按钮看起来有点小，想要调大一些？那简单的呀，修改button_layout.xml中的代码，如下所示：
 
@@ -256,9 +259,18 @@ inflate(int resource, ViewGroup root, boolean attachToRoot)
 
 说到这里，虽然setContentView()方法大家都会用，但实际上Android界面显示的原理要比我们所看到的东西复杂得多。任何一个Activity中显示的界面其实主要都由两部分组成，标题栏和内容布局。标题栏就是在很多界面顶部显示的那部分内容，比如刚刚我们的那个例子当中就有标题栏，可以在代码中控制让它是否显示。而内容布局就是一个FrameLayout，这个布局的id叫作content，我们调用setContentView()方法时所传入的布局其实就是放到这个FrameLayout中的，这也是为什么这个方法名叫作setContentView()，而不是叫setView()。
 
+***
+
+#Activity窗口布局结构
+
 最后再附上一张Activity窗口的组成图吧，以便于大家更加直观地理解：
 
 ![图片1](/image/2014-04-13/2.png)
+
+最上层的DecorView是真正保持窗口背景drawable的view。我们可以再Activity中通过如下方法来改变DectorView的背景drawable（即窗口的背景）：
+
+    getWindow().setBackgroundDrawable()
+    getWindow().setBackgroundDrawableResource()
 
 ***
 
