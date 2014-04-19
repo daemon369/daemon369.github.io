@@ -403,4 +403,4 @@ measure和layout的过程都结束后，接下来就进入到draw的过程了。
 
 #参考:
 
-[Android LayoutInflater原理分析，带你一步步深入了解View(二)](http://blog.csdn.net/guolin_blog/article/details/16330267)
+[Android视图绘制流程完全解析，带你一步步深入了解View(二)](http://blog.csdn.net/guolin_blog/article/details/16330267)

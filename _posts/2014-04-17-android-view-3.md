@@ -10,8 +10,6 @@ icon: file-alt
 ---
 {% include JB/setup %}
 
-<!--excerpt-->
-
 相信大家在平时使用View的时候都会发现它是有状态的，比如说有一个按钮，普通状态下是一种效果，但是当手指按下的时候就会变成另外一种效果，这样才会给人产生一种点击了按钮的感觉。当然了，这种效果相信几乎所有的Android程序员都知道该如何实现，但是我们既然是深入了解View，那么自然也应该知道它背后的实现原理应该是什么样的，今天就让我们来一起探究一下吧。
 
 ***
@@ -20,6 +18,8 @@ icon: file-alt
 视图状态的种类非常多，一共有十几种类型，不过多数情况下我们只会使用到其中的几种，因此这里我们也就只去分析最常用的几种视图状态。
 
 ###1. enabled
+
+<!--excerpt-->
 
 表示当前视图是否可用。可以调用setEnable()方法来改变视图的可用状态，传入true表示可用，传入false表示不可用。它们之间最大的区别在于，不可用的视图是无法响应onTouch事件的。
 
@@ -368,4 +368,4 @@ View类正是实现了Callback接口，所以刚才其实调用的就是View中�
 
 #参考:
 
-[Android LayoutInflater原理分析，带你一步步深入了解View(三)](http://blog.csdn.net/guolin_blog/article/details/17045157)
+[Android视图状态及重绘流程分析，带你一步步深入了解View(三)](http://blog.csdn.net/guolin_blog/article/details/17045157)
