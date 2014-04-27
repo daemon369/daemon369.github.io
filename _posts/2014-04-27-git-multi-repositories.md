@@ -33,4 +33,6 @@ github是使用最为广泛的git远程仓库管理平台，很多优秀的开�
 
 #参考:
 
-[Android自定义View的实现方法，带你一步步深入了解View(四)](http://blog.csdn.net/guolin_blog/article/details/17357967)
+[Git一键推送多个远程仓库](http://my.oschina.net/chinesedragon/blog/81483)
+
+[推送git项目到多个远程仓库](http://blog.codepiano.com/2013/07/03/push-multi-remote-repositories/)
