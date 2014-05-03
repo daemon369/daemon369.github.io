@@ -14,29 +14,53 @@ icon: file-alt
 
 <!--excerpt-->
 
-首先来看一下如何创建Handler对象。你可能会觉得挺纳闷的，创建Handler有什么好看的呢，直接new一下不就行了？确实，不过即使只是简单new一下，还是有不少地方需要注意的，我们尝试在程序中创建两个Handler对象，一个在主线程中创建，一个在子线程中创建，代码如下所示：
+***
 
-    public class MainActivity extends Activity {  
-          
-        private Handler handler1;  
-          
-        private Handler handler2;  
-      
-        @Override  
-        protected void onCreate(Bundle savedInstanceState) {  
-            super.onCreate(savedInstanceState);  
-            setContentView(R.layout.activity_main);  
-            handler1 = new Handler();  
-            new Thread(new Runnable() {  
-                @Override  
-                public void run() {  
-                    handler2 = new Handler();  
-                }  
-            }).start();  
-        }  
+#创建Handler对象
+
+首先来看一下如何创建Handler对象。Handler提供了4个构造函数：
+
+    Handler()；
+    Handler(Callback callback)；
+    Handler(Looper looper)；
+    Handler(Looper looper, Callback callback)；
+
+这4个构造函数分别对应了是否传入Looper实例和是否传入Callback实例。其中前两个函数不传入Looper实例，则此Handler绑定当前线程的Looper对象实例，如Looper实例为空则抛出异常：
+
+    mLooper = Looper.myLooper();
+    if (mLooper == null) {
+        throw new RuntimeException(
+            "Can't create handler inside thread that has not called Looper.prepare()");
     }
 
-如果现在运行一下程序，你会发现，在子线程中创建的Handler是会导致程序崩溃的，提示的错误信息为 Can't create handler inside thread that has not called Looper.prepare() 。说是不能在没有调用Looper.prepare() 的线程中创建Handler，那我们尝试在子线程中先调用一下Looper.prepare()呢，代码如下所示：
+如下代码，创建了两个Handler，其中一个在UI主线程中创建，一个在匿名子线程中创建：
+
+    public class MainActivity extends Activity {  
+
+        private Handler handler1;
+        private Handler handler2;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            handler1 = new Handler();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    handler2 = new Handler();
+                }
+            }).start();
+        }
+    }
+
+如果现在运行一下程序，你会发现，在子线程中创建的Handler是会导致程序崩溃的，提示的错误信息为 Can't create handler inside thread that has not called Looper.prepare() 。说是不能在没有调用Looper.prepare() 的线程中创建Handler。从Handler构造函数源码可以看出来当Looper.myLooper()返回为空时就会抛出这个异常，先看看Looper.myLooper()函数：
+
+    public static final Looper myLooper() {
+        return (Looper)sThreadLocal.get();
+    }
+
+这里可看出myLooper()函数会从sThreadLocal中获取一个Looper的实例，这个实例为空会导致程序崩溃。那我们尝试在子线程中先调用一下Looper.prepare()呢，代码如下所示：
 
     new Thread(new Runnable() {  
         @Override  
@@ -46,46 +70,28 @@ icon: file-alt
         }  
     }).start();
 
-果然这样就不会崩溃了，不过只满足于此显然是不够的，我们来看下Handler的源码，搞清楚为什么不调用Looper.prepare()就不行呢。Handler的无参构造函数如下所示：
+果然这样就不会崩溃了，那么Looper.prepare()中做了什么了？
 
-    public Handler() {  
-        if (FIND_POTENTIAL_LEAKS) {  
-            final Class<? extends Handler> klass = getClass();  
-            if ((klass.isAnonymousClass() || klass.isMemberClass() || klass.isLocalClass()) &&  
-                    (klass.getModifiers() & Modifier.STATIC) == 0) {  
-                Log.w(TAG, "The following Handler class should be static or leaks might occur: " +  
-                    klass.getCanonicalName());  
-            }  
-        }  
-        mLooper = Looper.myLooper();  
-        if (mLooper == null) {  
-            throw new RuntimeException(  
-                "Can't create handler inside thread that has not called Looper.prepare()");  
-        }  
-        mQueue = mLooper.mQueue;  
-        mCallback = null;  
+    public static final void prepare() {
+        if (sThreadLocal.get() != null) {
+            throw new RuntimeException("Only one Looper may be created per thread");
+        }
+        sThreadLocal.set(new Looper());
     }
 
-可以看到，在第10行调用了Looper.myLooper()方法获取了一个Looper对象，如果Looper对象为空，则会抛出一个运行时异常，提示的错误正是 Can't create handler inside thread that has not called Looper.prepare()！那什么时候Looper对象才可能为空呢？这就要看看Looper.myLooper()中的代码了，如下所示：
+可以看出，prepare()函数里new了一个Looper对象的实例set到sThreadLocal中，这样再调用myLooper()就会返回这个Looper实例了。Looper构造函数为：
 
-    public static final Looper myLooper() {  
-        return (Looper)sThreadLocal.get();  
+    private Looper() {
+        mQueue = new MessageQueue();
+        mRun = true;
+        mThread = Thread.currentThread();
     }
 
-这个方法非常简单，就是从sThreadLocal对象中取出Looper。如果sThreadLocal中有Looper存在就返回Looper，如果没有Looper存在自然就返回空了。因此你可以想象得到是在哪里给sThreadLocal设置Looper了吧，当然是Looper.prepare()方法！我们来看下它的源码：
+可以看出这里Looper是绑定当前线程的，这样Handler再不传入Looper实例的情况下，也是绑定Handler所在的线程的。因此当前线程在创建Handler前必需先调用Looper.prepare()方法，而且每个线程只能调用一次，否则就会报"Only one Looper may be created per thread"错误。
 
-    public static final void prepare() {  
-        if (sThreadLocal.get() != null) {  
-            throw new RuntimeException("Only one Looper may be created per thread");  
-        }  
-        sThreadLocal.set(new Looper());  
-    }
+那么为什么我们再UI主线程中创建的Handler没有调用Looper.prepare()方法，却没有报错呢？这是由于在程序启动的时候，系统已经帮我们自动在主线程里调用了Looper.prepare()方法。查看ActivityThread中的main()方法，代码如下所示：
 
-可以看到，首先判断sThreadLocal中是否已经存在Looper了，如果还没有则创建一个新的Looper设置进去。这样也就完全解释了为什么我们要先调用Looper.prepare()方法，才能创建Handler对象。同时也可以看出每个线程中最多只会有一个Looper对象。
-
-咦？不对呀！主线程中的Handler也没有调用Looper.prepare()方法，为什么就没有崩溃呢？细心的朋友我相信都已经发现了这一点，这是由于在程序启动的时候，系统已经帮我们自动调用了Looper.prepare()方法。查看ActivityThread中的main()方法，代码如下所示：
-
-    public static void main(String[] args) {  
+    public static void main(String[] args) {
         SamplingProfilerIntegration.start();  
         CloseGuard.setEnabled(false);  
         Environment.initForCurrentUser();  
@@ -118,6 +124,10 @@ icon: file-alt
 因此我们应用程序的主线程中会始终存在一个Looper对象，从而不需要再手动去调用Looper.prepare()方法了。
 
 这样基本就将Handler的创建过程完全搞明白了，总结一下就是在主线程中可以直接创建Handler对象，而在子线程中需要先调用Looper.prepare()才能创建Handler对象。
+
+***
+
+#发送消息
 
 看完了如何创建Handler之后，接下来我们看一下如何发送消息，这个流程相信大家也已经非常熟悉了，new出一个Message对象，然后可以使用setData()方法或arg参数等方式为消息携带一些数据，再借助Handler将消息发送出去就可以了，示例代码如下：
 
@@ -251,6 +261,20 @@ sendMessageAtTime()方法接收两个参数，其中msg参数就是我们发送�
     }
 
 那么我们还是要来继续分析一下，为什么使用异步消息处理的方式就可以对UI进行操作了呢？这是由于Handler总是依附于创建时所在的线程，比如我们的Handler是在主线程中创建的，而在子线程中又无法直接对UI进行操作，于是我们就通过一系列的发送消息、入队、出队等环节，最后调用到了Handler的handleMessage()方法中，这时的handleMessage()方法已经是在主线程中运行的，因而我们当然可以在这里进行UI操作了。
+
+那么在子线程中创建的Handler能不能直接对UI进行操作呢？也是可以的，只要通过构造函数将UI主线程的Looper对象传入Handler即可：
+
+    class Looper2Thread extends Thread {  
+      public Handler mHandler;  
+
+      public void run() {
+          mHandler = new Handler(Looper.getMainLooper()) {  
+              public void handleMessage(Message msg) {  
+                  // process incoming messages here  
+              }  
+          };  
+      }  
+    }
 
 另外除了发送消息之外，我们还有以下几种方法可以在子线程中进行UI操作：
 
