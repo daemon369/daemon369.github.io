@@ -12,7 +12,7 @@ icon: file-alt
 
 ***
 
-#关于GoAgent
+#一.关于GoAgent
 
 GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google App Engine 的服务器充当代理，帮助我们浏览一些被封锁或被过滤的内容。由于GFW等的封锁，很多的技术资料网站或某些资源网站都无法访问或访问困难。免费的GoAgent在这方面给予了很大的帮助。
 
@@ -20,7 +20,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#GoAgent原理
+#二.GoAgent原理
 
 下面是GoAgent开发者提供的GoAgent原理图：
 
@@ -30,7 +30,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#创建GAE应用
+#三.创建GAE应用
 
 1.首先申请Google Appengine并创建appid。打开网页[ https://appengine.google.com/start](https://appengine.google.com/start)注册或使用Google账号登录。
 
@@ -51,7 +51,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#安装GoAgent依赖环境
+#四.安装GoAgent依赖环境
 
 以Ubuntu14.04为例安装GoAgent：
 
@@ -116,7 +116,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#浏览器中使用GoAgent代理
+#五.浏览器中使用GoAgent代理
 
 ###在google chrome浏览器中使用goagent
 
@@ -172,7 +172,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#Tips：
+#六.Tips：
 
 1.不是每次升级goagent都需要重新上传服务端。只有你升级的版本带[是]的，或者你的升级跨越了多个版本，其中某个版本带[是]，这样你就需要重新上传服务端。
 
@@ -190,7 +190,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#参考：
+#七.参考：
 
 [GaAgent FAQ](https://code.google.com/p/goagent/wiki/FAQ)
 
