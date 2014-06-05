@@ -29,11 +29,11 @@ APT工具集使用的默认配置文件是/etc/apt/apt.conf，打开后发现文
 
 <!--excerpt-->
 
-1. 使用*-o*选项
+###1. 使用*-o*选项
 
     sudo apt-get -o Acquire::http::proxy="http://127.0.0.1:8000/" update
 
-2. 使用*-c*选项
+###2. 使用*-c*选项
 
 创建个人配置文件~/apt_proxy.conf，内容：
 
@@ -44,7 +44,7 @@ APT工具集使用的默认配置文件是/etc/apt/apt.conf，打开后发现文
 
     sudo apt-get -c ~/apt_proxy.conf update
 
-3. 如果我们设置了环境变量APT_CONFIG，那么APT工具集将使用APT_CONFIG指向的配置文件。
+###3. 如果我们设置了环境变量APT_CONFIG，那么APT工具集将使用APT_CONFIG指向的配置文件。
 
     export APT_CONFIG=~/apt_proxy.conf
     sudo apt-get update
