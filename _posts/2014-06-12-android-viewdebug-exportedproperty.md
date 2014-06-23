@@ -148,7 +148,7 @@ public boolean isFocused() {
 
 ![](/image/2014-06-12/1.png)
 
-##1.resolveId
+##2.resolveId
 
 当resolveId为true时，如果使用注解的变量或方法的值为int数据，那么这个值会被转化为对应的Android资源的名称。
 
@@ -167,7 +167,7 @@ int b = 0x7f030000;
 
 ![](/image/2014-06-12/2.png)
 
-##2.mapping
+##3.mapping
 
 mapping可以将int值映射到指定的字符串值，例如View.getVisibility()返回的值是int值，View中使用注解将其映射为字符串，其中0为"VISIBLE"，4为"INVISIBLE"，8为"GONE"。我们重载View.getVisibility()并加上我们自己定制的映射：
 
@@ -188,7 +188,7 @@ public int getVisibility() {
 
 ![](/image/2014-06-12/3.png)
 
-##3.indexMapping
+##4.indexMapping
 
 indexMapping可以将数组的序号映射为字符串。
 
