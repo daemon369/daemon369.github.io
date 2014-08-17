@@ -2,7 +2,7 @@
 layout: post
 keywords: andrid, onInterceptTouchEvent, onTouchEvent
 description: onInterceptTouchEvent & onTouchEvent
-title: "onInterceptTouchEvent & onTouchEvent -- Android事件传递机制"
+title: "Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent"
 categories: [Android]
 tags: [android, onInterceptTouchEvent, onTouchEvent]
 group: Android
@@ -39,7 +39,7 @@ public boolean onTouchEvent(MotionEvent event);
 
 <!--excerpt-->
 
-实现onTouchEvent方法可以处理View的触屏事件，返回true表明事件已被处理，否则返回false。
+实现onTouchEvent方法可以处理View的触屏事件，返回true表明事件已被处理，不需要继续派发，否则返回false。
 
 ###Demo
 
@@ -64,7 +64,7 @@ public boolean onTouchEvent(MotionEvent event);
 
     08-17 05:59:46.521      799-799/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:false action:ACTION_DOWN
     
-可以看到onTouchEvent返回false时，只会收到第一次的down事件，后续的move、up事件都不再传递给MyView
+可以看到onTouchEvent返回false时，只会收到第一次的down事件，后续的move、up事件都不再派发给MyView
 
 ###2. MyView中onTouchEvent返回true
 
@@ -77,11 +77,11 @@ public boolean onTouchEvent(MotionEvent event);
     08-17 06:04:15.521      850-850/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
     08-17 06:04:15.698      850-850/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_UP
 
-可以看到onTouchEvent返回true时，所有的down、move、up事件都会传递给MyView处理
+可以看到onTouchEvent返回true时，所有的down、move、up事件都会派发给MyView处理
 
 ###总结
 
-1. onTouchEvent返回true，父ViewGroup传递过来的touch事件已被该View消费，不会再向上传递给父ViewGroup；后续的touch事件都将继续传递给View
+1. onTouchEvent返回true，父ViewGroup派发过来的touch事件已被该View消费，不会再向上传递给父ViewGroup；后续的touch事件都将继续传递给View
 
 2. onTouchEvent返回false，表明View并不消费父ViewGroup传递来的down事件，而是向上传递给父ViewGroup来处理；后续的move、up等事件将不再传递给View，直接由父ViewGroup处理掉
 
