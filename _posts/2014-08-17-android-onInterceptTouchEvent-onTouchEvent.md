@@ -81,9 +81,9 @@ public boolean onTouchEvent(MotionEvent event);
 
 ###总结
 
-1. onTouchEvent返回false，表明View不处理touch事件，交由父ViewGroup来处理，只有第一次的down事件会传递给View，后续的事件将不再传递给View
+1. onTouchEvent返回true，父ViewGroup传递过来的touch事件已被该View消费，不会再向上传递给父ViewGroup；后续的touch事件都将继续传递给View
 
-2. onTouchEvent返回true，表明View将处理父ViewGroup传递过来的touch事件，因此后续的touch事件都将继续传递给View
+2. onTouchEvent返回false，表明View并不消费父ViewGroup传递来的down事件，而是向上传递给父ViewGroup来处理；后续的move、up等事件将不再传递给View，直接由父ViewGroup处理掉
 
 ***
 
@@ -502,6 +502,12 @@ MyLayout的onTouchEvent返回了true，表示MyLayout消费了down事件，不�
 
 ***
 
+#Demo代码
+
+demo代码可以在我的github上下载：[Android触屏事件传递演示Demo](https://github.com/daemon369/Demo/tree/master/20140815)
+
+***
+
 #MyView、MyLayout、MyLayout2关键代码
 
 {% highlight java %}
@@ -570,12 +576,6 @@ public class MyLayout2 extends FrameLayout {
     }
 }
 {% endhighlight %}
-
-***
-
-#代码
-
-[Android触屏事件传递演示Demo](https://github.com/daemon369/Demo/tree/master/20140815)
 
 ***
 
