@@ -38,6 +38,8 @@ icon: file-alt
 
 设置OnTouchListener：
 
+<!--excerpt-->
+
 {% highlight java %}
 MyView view = (MyView) findViewById(R.id.my_view);
 
