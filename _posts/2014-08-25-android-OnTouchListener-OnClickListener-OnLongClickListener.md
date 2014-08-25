@@ -248,10 +248,12 @@ onLongClick方法返回true再看下：
 
 #Demo代码
 
-demo代码可以在我的github上下载：[Android触屏事件传递演示Demo](https://github.com/daemon369/Demo/tree/master/20140815)
+demo代码可以在我的github上下载：[Android触屏事件传递演示Demo](https://github.com/daemon369/Demo/tree/master/20140825)
 
 ***
 
 #参考
 
-[onInterceptTouchEvent和onTouchEvent调用时序](http://blog.csdn.net/ddna/article/details/5473293)
+[Android onTouchEvent, onClick及onLongClick的调用机制](http://blog.csdn.net/ddna/article/details/5451722)
+
+[Android事件分发机制完全解析，带你从源码的角度彻底理解(上)](http://blog.csdn.net/guolin_blog/article/details/9097463)
