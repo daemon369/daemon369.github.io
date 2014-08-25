@@ -12,6 +12,8 @@ icon: file-alt
 
 ***
 
+(本文基于android-2.3.3_r1代码研究)
+
 #onTouchEvent
 
 onTouchEvent是View类提供的方法，其说明如下：
@@ -62,20 +64,20 @@ public boolean onTouchEvent(MotionEvent event);
 
 ###1. MyView中onTouchEvent返回false
 
-    08-17 05:59:46.521      799-799/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyView﹕ onTouchEvent:false action:ACTION_DOWN
     
 可以看到onTouchEvent返回false时，只会收到第一次的down事件，后续的move、up事件都不再派发给MyView
 
 ###2. MyView中onTouchEvent返回true
 
-    08-17 06:04:14.861      850-850/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_DOWN
-    08-17 06:04:15.099      850-850/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 06:04:15.117      850-850/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyView﹕ onTouchEvent:true action:ACTION_DOWN
+    E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
 
     ......
 
-    08-17 06:04:15.521      850-850/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 06:04:15.698      850-850/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_UP
+    E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyView﹕ onTouchEvent:true action:ACTION_UP
 
 可以看到onTouchEvent返回true时，所有的down、move、up事件都会派发给MyView处理
 
@@ -159,8 +161,8 @@ onInterceptTouchEvent方法对触屏事件的拦截处理需要和onTouchEvent�
 
 #####1. MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回false
 
-    08-17 06:32:03.527      942-942/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 06:32:03.527      942-942/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -170,15 +172,15 @@ onTouchEvent返回了false，表示MyLayout不处理touch事件，down事件传�
 
 #####2. MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回true
 
-    08-17 06:36:52.668      986-986/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 06:36:52.668      986-986/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
-    08-17 06:36:52.962      986-986/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 06:36:52.979      986-986/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
 
     ......
 
-    08-17 06:36:53.297      986-986/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 06:36:53.379      986-986/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_UP
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_UP
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -188,8 +190,8 @@ onTouchEvent返回true，down事件不再向上传递，后续move、up等事件
 
 #####3. MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回false
 
-    08-17 06:43:21.618    1037-1037/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
-    08-17 06:43:21.618    1037-1037/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -199,15 +201,15 @@ onTouchEvent返回了false，表示MyLayout不处理touch事件，down事件传�
 
 #####4. MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回true
 
-    08-17 07:37:42.828    1131-1131/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
-    08-17 07:37:42.828    1131-1131/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
-    08-17 07:37:42.988    1131-1131/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 07:37:42.998    1131-1131/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
 
     ......
 
-    08-17 07:37:43.108    1131-1131/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 07:37:43.268    1131-1131/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_UP
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_UP
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -245,9 +247,9 @@ MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回false
 
 MyView的onTouchEvent返回false
 
-    08-17 07:46:23.898    1179-1179/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 07:46:23.898    1179-1179/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:false action:ACTION_DOWN
-    08-17 07:46:23.898    1179-1179/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyView﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -263,17 +265,17 @@ MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回true/false
 
 MyView的onTouchEvent返回true
 
-    08-17 07:50:04.827    1230-1230/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 07:50:04.827    1230-1230/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_DOWN
-    08-17 07:50:04.989    1230-1230/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
-    08-17 07:50:04.989    1230-1230/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyView﹕ onTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
+    E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
     
     ......
     
-    08-17 07:50:05.038    1230-1230/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
-    08-17 07:50:05.038    1230-1230/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 07:50:05.248    1230-1230/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_UP
-    08-17 07:50:05.248    1230-1230/com.daemon.demo.touchdemo E/MyView﹕ onTouchEvent:true action:ACTION_UP
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
+    E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_UP
+    E/MyView﹕ onTouchEvent:true action:ACTION_UP
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -289,8 +291,8 @@ MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回false
 
 MyView的onTouchEvent返回true/false
 
-    08-17 07:56:17.008    1277-1277/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
-    08-17 07:56:17.008    1277-1277/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -304,15 +306,15 @@ MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回true
 
 MyView的onTouchEvent返回true/false
 
-    08-17 07:58:51.528    1325-1325/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
-    08-17 07:58:51.528    1325-1325/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
-    08-17 07:58:51.558    1325-1325/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 07:58:51.589    1325-1325/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
 
     ......
 
-    08-17 07:58:51.718    1325-1325/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 07:58:51.848    1325-1325/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_UP
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_UP
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -352,10 +354,10 @@ MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回false
 
 MyLayout2的onInterceptTouchEvent返回false，onTouchEvent返回false
 
-    08-17 08:09:14.028    1463-1463/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 08:09:14.028    1463-1463/com.daemon.demo.touchdemo E/MyLayout2﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 08:09:14.028    1463-1463/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:false action:ACTION_DOWN
-    08-17 08:09:14.028    1463-1463/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyLayout2﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyLayout2﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -373,20 +375,20 @@ MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回true/false
 
 MyLayout2的onInterceptTouchEvent返回false，的onTouchEvent返回true
 
-    08-17 08:13:40.541    1511-1511/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 08:13:40.547    1511-1511/com.daemon.demo.touchdemo E/MyLayout2﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 08:13:40.547    1511-1511/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_DOWN
-    08-17 08:13:40.557    1511-1511/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
-    08-17 08:13:40.557    1511-1511/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 08:13:40.567    1511-1511/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
-    08-17 08:13:40.567    1511-1511/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyLayout2﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
     
     ...
     
-    08-17 08:13:40.667    1511-1511/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
-    08-17 08:13:40.667    1511-1511/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 08:13:40.788    1511-1511/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_UP
-    08-17 08:13:40.788    1511-1511/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_UP
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_UP
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_UP
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -404,10 +406,10 @@ MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回false
 
 MyLayout2的onInterceptTouchEvent返回true，onTouchEvent返回false
 
-    08-17 08:19:39.858    1557-1557/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 08:19:39.858    1557-1557/com.daemon.demo.touchdemo E/MyLayout2﹕ onInterceptTouchEvent:true action:ACTION_DOWN
-    08-17 08:19:39.858    1557-1557/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:false action:ACTION_DOWN
-    08-17 08:19:39.858    1557-1557/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyLayout2﹕ onInterceptTouchEvent:true action:ACTION_DOWN
+    E/MyLayout2﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -425,20 +427,20 @@ MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回true/false
 
 MyLayout2的onInterceptTouchEvent返回true，onTouchEvent返回true
 
-    08-17 08:22:58.473    1605-1605/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
-    08-17 08:22:58.478    1605-1605/com.daemon.demo.touchdemo E/MyLayout2﹕ onInterceptTouchEvent:true action:ACTION_DOWN
-    08-17 08:22:58.478    1605-1605/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_DOWN
-    08-17 08:22:58.478    1605-1605/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
-    08-17 08:22:58.488    1605-1605/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 08:22:58.558    1605-1605/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
-    08-17 08:22:58.558    1605-1605/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
+    E/MyLayout2﹕ onInterceptTouchEvent:true action:ACTION_DOWN
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
     
     ......
     
-    08-17 08:22:58.678    1605-1605/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
-    08-17 08:22:58.678    1605-1605/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 08:22:58.762    1605-1605/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_UP
-    08-17 08:22:58.768    1605-1605/com.daemon.demo.touchdemo E/MyLayout2﹕ onTouchEvent:true action:ACTION_UP
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_UP
+    E/MyLayout2﹕ onTouchEvent:true action:ACTION_UP
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -456,8 +458,8 @@ MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回false
 
 MyLayout2的onInterceptTouchEvent返回true/false，onTouchEvent返回true/false
 
-    08-17 08:37:29.209    1654-1654/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
-    08-17 08:37:29.209    1654-1654/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
+    E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
@@ -471,15 +473,15 @@ MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回true
 
 MyLayout2的onInterceptTouchEvent返回true/false，onTouchEvent返回true/false
 
-    08-17 08:48:12.588    1701-1701/com.daemon.demo.touchdemo E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
-    08-17 08:48:12.588    1701-1701/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
-    08-17 08:48:12.618    1701-1701/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 08:48:12.627    1701-1701/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
 
     ......
 
-    08-17 08:48:12.680    1701-1701/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
-    08-17 08:48:12.748    1701-1701/com.daemon.demo.touchdemo E/MyLayout﹕ onTouchEvent:true action:ACTION_UP
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_MOVE
+    E/MyLayout﹕ onTouchEvent:true action:ACTION_UP
 
 MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
