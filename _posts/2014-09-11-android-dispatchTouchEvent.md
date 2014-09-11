@@ -242,7 +242,7 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
 }
 {% endhighlight %}
 
-11行代码判断是否允许当前ViewGroup拦截touch事件；当允许拦截touch事件时，onInterceptTouchEvent方法才会起到拦截touch事件的作用
+11行代码判断是否允许当前ViewGroup拦截touch事件；当允许拦截touch事件时，onInterceptTouchEvent方法才会起到拦截touch事件的作用；使用requestDisallowInterceptTouchEvent方法可以设置是否允许拦截touch事件
 
 19行代码处，down事件在允许ViewGroup拦截touch事件时，先将down事件分发给ViewGroup的onInterceptTouchEvent方法处理；
 
