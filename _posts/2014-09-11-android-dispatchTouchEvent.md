@@ -268,8 +268,9 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
 
 #参考
 
-[onInterceptTouchEvent和onTouchEvent调用时序](http://blog.csdn.net/ddna/article/details/5473293)
+[Android事件分发机制完全解析，带你从源码的角度彻底理解(上)](http://blog.csdn.net/guolin_blog/article/details/9097463)
 
+[Android事件分发机制完全解析，带你从源码的角度彻底理解(下)](http://blog.csdn.net/guolin_blog/article/details/9153747)
 
 [1]: {% post_url 2014-08-17-android-onInterceptTouchEvent-onTouchEvent %} "Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent"
 
