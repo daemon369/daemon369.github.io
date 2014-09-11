@@ -581,6 +581,18 @@ public class MyLayout2 extends FrameLayout {
 
 ***
 
+#相关文章
+
+[Android Touch事件传递机制(二) -- OnTouchListener & OnClickListener & OnLongClickListener][1]
+
+[Android Touch事件传递机制(三) -- Touch事件分发(dispatchTouchEvent)][2]
+
+***
+
 #参考
 
 [onInterceptTouchEvent和onTouchEvent调用时序](http://blog.csdn.net/ddna/article/details/5473293)
+
+[1]: {% post_url 2014-08-25-android-OnTouchListener-OnClickListener-OnLongClickListener %} "Android Touch事件传递机制(二) -- OnTouchListener & OnClickListener & OnLongClickListener"
+
+[2]: {% post_url 2014-09-11-android-dispatchTouchEvent %} "Android Touch事件传递机制(三) -- Touch事件分发(dispatchTouchEvent)"

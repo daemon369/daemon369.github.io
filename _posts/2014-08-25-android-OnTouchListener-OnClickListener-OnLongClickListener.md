@@ -14,7 +14,7 @@ icon: file-alt
 
 (本文基于android-2.3.3_r1代码研究)
 
-在[Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent](http://daemon369.github.io/android/2014/08/17/android-onInterceptTouchEvent-onTouchEvent/)这篇文章中研究了Android触屏事件的分发机制；本文继续深入研究。
+在[Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent][1]这篇文章中研究了Android触屏事件的分发机制；本文继续深入研究。
 
 ***
 
@@ -254,8 +254,21 @@ demo代码可以在我的github上下载：[Android触屏事件传递演示Demo]
 
 ***
 
+#相关文章
+
+[Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent][1]
+
+[Android Touch事件传递机制(三) -- Touch事件分发(dispatchTouchEvent)][2]
+
+***
+
 #参考
 
 [Android onTouchEvent, onClick及onLongClick的调用机制](http://blog.csdn.net/ddna/article/details/5451722)
 
 [Android事件分发机制完全解析，带你从源码的角度彻底理解(上)](http://blog.csdn.net/guolin_blog/article/details/9097463)
+
+
+[1]: {% post_url 2014-08-17-android-onInterceptTouchEvent-onTouchEvent %} "Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent"
+
+[2]: {% post_url 2014-09-11-android-dispatchTouchEvent %} "Android Touch事件传递机制(三) -- Touch事件分发(dispatchTouchEvent)"
