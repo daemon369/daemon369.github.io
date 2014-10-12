@@ -587,6 +587,8 @@ public class MyLayout2 extends FrameLayout {
 
 [Android Touch事件传递机制(三) -- Touch事件分发(dispatchTouchEvent)][2]
 
+[Android Touch事件传递机制(四) -- Touch事件处理(onTouchEvent)][3]
+
 ***
 
 #参考
@@ -596,3 +598,5 @@ public class MyLayout2 extends FrameLayout {
 [1]: {% post_url 2014-08-25-android-OnTouchListener-OnClickListener-OnLongClickListener %} "Android Touch事件传递机制(二) -- OnTouchListener & OnClickListener & OnLongClickListener"
 
 [2]: {% post_url 2014-09-11-android-dispatchTouchEvent %} "Android Touch事件传递机制(三) -- Touch事件分发(dispatchTouchEvent)"
+
+[3]: {% post_url 2014-10-12-android-onTouchEvent %} "Android Touch事件传递机制(四) -- Touch事件处理(onTouchEvent)"

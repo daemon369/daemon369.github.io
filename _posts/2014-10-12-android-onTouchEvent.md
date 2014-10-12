@@ -16,13 +16,13 @@ icon: file-alt
 
 前面研究了Android触屏事件的分发机制；本文继续从源码角度研究触屏事件的处理机制。
 
-<!--excerpt-->
-
 ***
 
 #一. View.onTouchEvent
 
 Android的触屏事件，最终分发给View的onTouchEvent方法来处理，我们来看看它是怎么处理的：
+
+<!--excerpt-->
 
 {% highlight java linenos %}
 /**

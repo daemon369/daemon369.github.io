@@ -260,6 +260,8 @@ demo代码可以在我的github上下载：[Android触屏事件传递演示Demo]
 
 [Android Touch事件传递机制(三) -- Touch事件分发(dispatchTouchEvent)][2]
 
+[Android Touch事件传递机制(四) -- Touch事件处理(onTouchEvent)][3]
+
 ***
 
 #参考
@@ -272,3 +274,5 @@ demo代码可以在我的github上下载：[Android触屏事件传递演示Demo]
 [1]: {% post_url 2014-08-17-android-onInterceptTouchEvent-onTouchEvent %} "Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent"
 
 [2]: {% post_url 2014-09-11-android-dispatchTouchEvent %} "Android Touch事件传递机制(三) -- Touch事件分发(dispatchTouchEvent)"
+
+[3]: {% post_url 2014-10-12-android-onTouchEvent %} "Android Touch事件传递机制(四) -- Touch事件处理(onTouchEvent)"

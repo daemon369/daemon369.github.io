@@ -502,6 +502,8 @@ DecorView是FrameLayout的子类，这样最终touch事件分发给ViewGroup的d
 
 [Android Touch事件传递机制(二) -- OnTouchListener & OnClickListener & OnLongClickListener][2]
 
+[Android Touch事件传递机制(四) -- Touch事件处理(onTouchEvent)][3]
+
 ***
 
 #参考
@@ -513,3 +515,5 @@ DecorView是FrameLayout的子类，这样最终touch事件分发给ViewGroup的d
 [1]: {% post_url 2014-08-17-android-onInterceptTouchEvent-onTouchEvent %} "Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent"
 
 [2]: {% post_url 2014-08-25-android-OnTouchListener-OnClickListener-OnLongClickListener %} "Android Touch事件传递机制(二) -- OnTouchListener & OnClickListener & OnLongClickListener"
+
+[3]: {% post_url 2014-10-12-android-onTouchEvent %} "Android Touch事件传递机制(四) -- Touch事件处理(onTouchEvent)"
