@@ -54,6 +54,8 @@ public final class ViewRoot extends Handler implements ViewParent,
 
 ViewRoot接收到触屏事件，调用deliverPointerEvent方法。deliverPointerEvent方法关键代码如下：
 
+<!--excerpt-->
+
 {% highlight java linenos %}
 private void deliverPointerEvent(MotionEvent event) {
 
