@@ -19,6 +19,8 @@ icon: file-alt
 
 然后是 */etc/hosts* 文件：
 
+<!--excerpt-->
+
     $ cat /etc/hosts
     127.0.0.1	localhost
     127.0.1.1	myhostname
