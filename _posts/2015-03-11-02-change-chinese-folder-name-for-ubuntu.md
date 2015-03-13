@@ -19,6 +19,8 @@ icon: file-alt
 
 这些目录可以在如下配置文件找到：
 
+<!--excerpt-->
+
     $ cat ~/.config/user-dirs.dirs
     # This file is written by xdg-user-dirs-update
     # If you want to change or add directories, just edit the line you're
@@ -35,8 +37,6 @@ icon: file-alt
     XDG_MUSIC_DIR="$HOME/音乐"
     XDG_PICTURES_DIR="$HOME/图片"
     XDG_VIDEOS_DIR="$HOME/视频"
-
-<!--excerpt-->
 
 我们在这里将对应的中文目录修改为英文，同时将用户主目录下的对应文件夹名称也修改为英文：
 

@@ -16,6 +16,8 @@ icon: file-alt
 
     https://dl-ssl.google.com/linux/linux_signing_key.pub
 
+<!--excerpt-->
+
 也可以直接使用命令安装：
 
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -

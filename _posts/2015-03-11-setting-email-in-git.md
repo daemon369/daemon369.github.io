@@ -21,6 +21,8 @@ icon: file-alt
     $ git config --global user.name gitaccount
     $ git config --global user.email gitaccount@example.com
 
+<!--excerpt-->
+
 其中 *gitaccount* 是我们的 git 账户， *gitaccount@example.com* 是我们的 git 邮箱。
 
 修改配置后，可以查看本地 git 配置文件：
