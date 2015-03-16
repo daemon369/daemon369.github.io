@@ -63,9 +63,9 @@ SSH 默认端口号22，可以使用 p 参数来指定端口号：
 第一次登录到远程主机时，系统会出现如下提示：
 
     $ ssh user@host
-　　The authenticity of host 'host (***.***.***.***)' can't be established.
-　　RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.
-　　Are you sure you want to continue connecting (yes/no)?
+    The authenticity of host 'host (***.***.***.***)' can't be established.
+    RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.
+    Are you sure you want to continue connecting (yes/no)?
 
 这段话提示用户无法确认远程主机的真实性，只知道 RSA 公钥的指纹，询问用户是否继续。
 
@@ -123,7 +123,7 @@ SSH 默认端口号22，可以使用 p 参数来指定端口号：
     $ cat /etc/ssh/sshd_config | grep PubkeyAuthentication
     PubkeyAuthentication yes
     $ cat /etc/ssh/sshd_config | grep AuthorizedKeysFile
-    AuthorizedKeysFile	%h/.ssh/authorized_keys
+    AuthorizedKeysFile %h/.ssh/authorized_keys
 
 上传公钥：
 
