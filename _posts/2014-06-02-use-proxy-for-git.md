@@ -14,7 +14,12 @@ git使用http/https代理的方法如下：
 
 打开命令行，设置如下环境变量：
 
-$ export http_proxy=http://127.0.0.1:8087
-$ export https_proxy=http://127.0.0.1:8087
+    $ export http_proxy=http://127.0.0.1:8087
+    $ export https_proxy=http://127.0.0.1:8087
 
 <!--excerpt-->
+
+取消使用代理：
+
+    $ unset http_proxy
+    $ unset https_proxy
