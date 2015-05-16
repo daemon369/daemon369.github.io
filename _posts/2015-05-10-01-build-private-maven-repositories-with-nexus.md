@@ -144,15 +144,17 @@ maven 仓库有以下几种常用类型：
 </dependencies>
 {% endhighlight %}
 
-## 2. gradle 
+## 2. gradle
 
 build.gradle文件中添加：
 
 {% highlight java linenos %}
 allprojects {
     repositories {
-//        jcenter()
-          maven{ url 'http://127.0.0.1:8081/nexus/content/repositories/thirdparty/' // 个人仓库
+//      jcenter()
+        maven{
+          url 'http://127.0.0.1:8081/nexus/content/repositories/thirdparty/' // 个人仓库
+        }
     }
 }
 
