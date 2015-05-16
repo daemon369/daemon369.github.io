@@ -1,29 +1,29 @@
-<div class="row-fluid post-full typo">
-  <div class="span2"></div>
-  <div class="span8 typo">
+<div class="row post-full typo">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 typo">
     <h2>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h2>
     <div class="post_info">
       {% unless page.categories == empty %}
-      <ul class="tag_box inline">
-        <li><i class="icon-calendar"></i></li>
+      <ul id="post_info" class="tag_box inline">
+        <li><i class="fa fa-calendar"></i></li>
         <li>{{ page.date | date: " %Y 年 %m 月 %d 日" }}</li>
-        <li><i class="icon-folder-open"></i></li>
+        <li><i class="fa fa-folder-open"></i></li>
         {% assign post_categories = page.categories %}
         {% include JB/post_categories_info %}
       </ul>
-      {% endunless %}  
+      {% endunless %}
     </div>
     <div class="content">
       {{ content }}
     </div>
 
     {% unless page.tags == empty %}
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
+    <ul id="tag_info" class="tag_box inline">
+      <li><i class="fa fa-tags"></i></li>
       {% assign tags_list = page.tags %}
       {% include JB/tags_list %}
     </ul>
-    {% endunless %}  
+    {% endunless %}
 
     <!-- 将此标记放置在你希望显示+1 按钮的位置。 -->
     <div class="g-plusone" data-annotation="inline" data-width="300"></div>
@@ -40,8 +40,7 @@
     </script>
 
     <hr>
-    <div class="pagination pull-right">
-      <ul>
+      <ul class="pagination pull-right">
         {% if page.previous %}
         <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a></li>
         {% else %}
@@ -54,10 +53,9 @@
         <li class="next disabled"><a>Next &rarr;</a>
         {% endif %}
       </ul>
-    </div>
     <br />
     <div id="comment-hook"></div>
     {% include JB/comments %}
   </div>
-  <div class="span2"></div>
+  <div class="col-md-2"></div>
 </div>

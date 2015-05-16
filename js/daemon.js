@@ -6,6 +6,12 @@
 #   LastChange: 2013-08-02 12:04:30
 #      History:
 ============================================================================= */
+/* tooltip设置 */
+var tooltipConfig = {
+  "placement": "right",
+  "delay": { show: 200, hide: 100 }
+};
+
 /* 页面加载后执行 */
 !function ($) {
   $(function(){
@@ -25,7 +31,7 @@
     if(url.indexOf('categories.html') > -1){
       $('#categories-nav a').click(function (e){
         $(this).tab('show');
-      })
+      });
 
       /* 自动打开链接中的锚点 */
       var matches = url.match(/categories\.html(#.*)/);
@@ -34,16 +40,16 @@
       }else{
         $('#categories-nav a:first').tab('show');
       }
-    } 
+    }
 
     /* 自动根据标签过滤table */
     if(url.indexOf('posts.html') > -1){
       var matches = url.match(/posts\.html#(.*)/);
       if(matches && tableReference){
         tableReference.fnFilter(matches[1],2);
+        $('#post-data_filter input').val(matches[1])
       }
 
-      $('#post-data_filter input').val(matches[1])
 
       $("#post-data_filter input").keyup( function () {
         tableReference.fnFilter('', 2);
@@ -63,7 +69,7 @@ function toggleSupport(){
 /* datatables设置 */
 datatablesConfig = {
   "aaSorting": [[ 0, "desc" ],[ 1, "asc" ],[ 2, "asc" ]],
-  "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+  "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
   "sWrapper": "dataTables_wrapper form-inline",
   "sPaginationType": "bootstrap",
   "oLanguage":{
@@ -83,10 +89,5 @@ datatablesConfig = {
       "sLast":     "末页"
     }
   }
-}
+};
 
-/* tooltip设置 */
-tooltipConfig = {
-  "placement": "right",
-  "delay": { show: 200, hide: 100 }
-}
