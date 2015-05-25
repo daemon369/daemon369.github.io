@@ -51,8 +51,6 @@
     function setTimeSpan(){
     	var date = new Date();
     	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
-
-      setTimeout("setTimeSpan", 1000);
     }
 
     Date.prototype.format = function(format)
@@ -76,7 +74,7 @@
 		}
   </script>
 
-  <body id="scroll-pane" data-spy="scroll" data-target="#time-list-nav" onLoad="setTimeSpan();">
+  <body id="scroll-pane" data-spy="scroll" data-target="#time-list-nav" onLoad="setTimeSpan();setInterval(setTimeSpan, 1000)">
     <div class="wrapper">
       <!-- 导航条 -->
       <div class="nav navbar-nav" id="nav-wrap">
