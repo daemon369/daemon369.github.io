@@ -8,7 +8,6 @@ tags: [Blog, github pages, jekyll]
 group: Blog
 icon: file-alt
 ---
-{% include JB/setup %}
 
 最开始是看到[阮一峰](http://www.ruanyifeng.com/blog/)的博客[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门][1]，才知道可以使用github来搭建个人博客的。因为刚在github上面创建了一个repository用来放一些自己的学习过程中写的demo，那么再创建个博客来记录自己的学习过程，也是个不错的事情。因此开始折腾这个博客。
 
