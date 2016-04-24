@@ -71,6 +71,7 @@ task :post do
     post.puts "tags: [Archive]"
     post.puts 'group: archive'
     post.puts 'icon: file-alt'
+    post.puts 'date: {date}
     post.puts "---"
     post.puts "{% include JB/setup %}"
   end
