@@ -7,8 +7,8 @@ categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
+date: 2013-09-17 00:00:00
 ---
-{% include JB/setup %}
 
 很多网站默认启动服务会找HTML文件*index.html*作为网站的首页来展示。Jekyll也一样，除非你自己在web服务器上配置了其他文件，否则Jekyll也会默认将*index.html*文件作为首页。
 

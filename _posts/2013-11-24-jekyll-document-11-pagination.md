@@ -7,8 +7,8 @@ categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
+date: 2013-11-24 00:00:00
 ---
-{% include JB/setup %}
 
 对于很多网站来说，尤其是对于博客，我们很常见的将我们的posts的很长的列表分成多个小的列表并分多页进行展示。Jekyll有内置的分页，我们可以自行为分页的列表产生合适的文件和目录。
 

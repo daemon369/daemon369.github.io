@@ -24,7 +24,7 @@
     <link href="/css/daemon.css" rel="stylesheet">
 
     <!-- javascript files -->
-    <script type="text/javascript" src="/js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-2.2.3.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="/js/datatables-bootstrap.js"></script>
@@ -47,34 +47,7 @@
 
   </head>
 
-  <script type="text/javascript">
-    function setTimeSpan(){
-    	var date = new Date();
-    	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
-    }
-
-    Date.prototype.format = function(format)
-		{
-    var o =
-    	{
-    	    "M+" : this.getMonth()+1, //month
-    	    "d+" : this.getDate(),    //day
-    	    "h+" : this.getHours(),   //hour
-    	    "m+" : this.getMinutes(), //minute
-    	    "s+" : this.getSeconds(), //second
-    	    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
-    	    "S" : this.getMilliseconds() //millisecond
-    	}
-    	if(/(y+)/.test(format))
-    	format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
-    	for(var k in o)
-    	if(new RegExp("("+ k +")").test(format))
-    	format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
-    	return format;
-		}
-  </script>
-
-  <body id="scroll-pane" data-spy="scroll" data-target="#time-list-nav" onLoad="setTimeSpan();setInterval(setTimeSpan, 1000)">
+  <body id="scroll-pane" data-spy="scroll" data-target="#time-list-nav">
     <div class="wrapper">
       <!-- 导航条 -->
       <div class="nav navbar-nav" id="nav-wrap">
@@ -114,5 +87,37 @@
 
     {% include JB/analytics %}
     {% include JB/share/baidu-share %}
+
+
+  <script type="text/javascript">
+    function setTimeSpan(){
+    	var date = new Date();
+    	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
+    }
+
+    Date.prototype.format = function(format)
+    {
+        var o =
+        {
+    	    "M+" : this.getMonth()+1, //month
+    	    "d+" : this.getDate(),    //day
+    	    "h+" : this.getHours(),   //hour
+    	    "m+" : this.getMinutes(), //minute
+    	    "s+" : this.getSeconds(), //second
+    	    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+    	    "S" : this.getMilliseconds() //millisecond
+    	}
+    	if(/(y+)/.test(format))
+            format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    	for(var k in o)
+    	    if(new RegExp("("+ k +")").test(format))
+    	        format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+    	return format;
+    }
+
+    setTimeSpan();
+    setInterval(setTimeSpan, 1000);
+  </script>
+
   </body>
 </html>

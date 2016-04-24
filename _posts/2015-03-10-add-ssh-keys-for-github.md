@@ -7,8 +7,8 @@ categories: [Git]
 tags: [git, github, SSH keys]
 group: Git
 icon: file-alt
+date: 2015-03-10 00:00:00
 ---
-{% include JB/setup %}
 
 ***
 [上文][1]中介绍了 SSH 密钥对的生成，下面介绍下如何在 GitHub 中使用 SSH 密钥对。

@@ -7,8 +7,8 @@ categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
+date: 2013-10-11 00:00:00
 ---
-{% include JB/setup %}
 
 Jekyll允许你灵活定义你的URL。你可以通过[配置项](http://jekyllrb.com/docs/configuration/)或者在每篇post的[YAML Front Matter](http://jekyllrb.com/docs/frontmatter/)中指定网站的静态链接。Jekyll有一些URL的内置样式可选，你也可以自己定义。默认的样式是日期样式*date*。
 

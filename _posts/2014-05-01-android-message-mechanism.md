@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, handler, message, messagequeue, looper]
 group: Android
 icon: file-alt
+date: 2014-05-01 00:00:00
 ---
-{% include JB/setup %}
 
 我们都知道，Android UI是线程不安全的，如果在子线程中尝试进行UI操作，程序就有可能会崩溃。相信大家在日常的工作当中都会经常遇到这个问题，解决的方案应该也是早已烂熟于心，即创建一个Message对象，然后借助Handler发送出去，之后在Handler的handleMessage()方法中获得刚才发送的Message对象，然后在这里进行UI操作就不会再出现崩溃了。
 

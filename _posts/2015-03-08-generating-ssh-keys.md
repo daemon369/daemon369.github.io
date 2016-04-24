@@ -7,8 +7,8 @@ categories: [ssh]
 tags: [ssh, ssh keys， ssh-keygen, ssh-add]
 group: ssh
 icon: file-alt
+date: 2015-03-08 00:00:00
 ---
-{% include JB/setup %}
 
 SSH 密钥对可以让用户无需输入密码即可登录到 SSH 服务器中。由于登录的过程不需要密码，因此可以防止由于密码被拦截、破解造成的账户密码泄露。再加上密码短语(passphrase)的使用，使得 SSH 的安全性更高一层。
 

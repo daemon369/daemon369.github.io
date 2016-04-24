@@ -7,8 +7,8 @@ categories: [android]
 tags: [android, http, httpclient, httpurlconnection]
 group: Android
 icon: file-alt
+date: 2015-09-04 00:00:00
 ---
-{% include JB/setup %}
 
 Android 客户端开发中，我们通常使用 HTTP 来收发网络数据。
 

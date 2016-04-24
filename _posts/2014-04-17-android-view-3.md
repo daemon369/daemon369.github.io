@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, View]
 group: Android
 icon: file-alt
+date: 2014-04-17 00:00:00
 ---
-{% include JB/setup %}
 
     基于 android 2.3.3_r1 代码研究
 

@@ -7,8 +7,8 @@ categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
+date: 2013-09-25 00:00:00
 ---
-{% include JB/setup %}
 
 如果你想从其他博客系统转换到Jekyll，Jekyll的导入功能能够对你有所帮助。下面列出的一些方法都需要你对你的旧的博客系统的数据库有访问权限，这样Jekyll才能够从这些数据库中获取数据产生posts。每种方法都会根据外部系统入口产生*.markdown* posts存放到*\_posts*文件夹中。
 

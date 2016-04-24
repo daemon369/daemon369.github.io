@@ -7,8 +7,8 @@ categories: [Linux]
 tags: [ubuntu, host name, linux]
 group: Linux
 icon: file-alt
+date: 2015-03-11 00:00:00
 ---
-{% include JB/setup %}
 
 在 Ubuntu 中修改主机名，需修改两个文件。
 

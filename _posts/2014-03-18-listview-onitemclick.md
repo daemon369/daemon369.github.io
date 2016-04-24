@@ -7,8 +7,8 @@ categories: [Android]
 tags: [Android, ListView]
 group: Android
 icon: file-alt
+date: 2014-03-18 00:00:00
 ---
-{% include JB/setup %}
 
 我们在使用ListView时，可以会遇到点击列表项时，onItemClick事件没有被调用，我们的点击没有响应，这种情况往往是由于列表项点击事件被列表项中的其他控件截获的原因：
 

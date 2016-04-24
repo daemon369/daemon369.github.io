@@ -7,8 +7,8 @@ categories: [Java]
 tags: [java, reflect]
 group: Java
 icon: file-alt
+date: 2014-04-06 00:00:00
 ---
-{% include JB/setup %}
 
 在Java 运行时 环境中，对于任意一个类，能否知道这个类有哪些属性和方法？对于任意一个对象，能否调用他的方法？这些答案是肯定的，这种动态获取类的信息，以及动态调用类的方法的功能来源于JAVA的反射。从而使java具有动态语言的特性。
 

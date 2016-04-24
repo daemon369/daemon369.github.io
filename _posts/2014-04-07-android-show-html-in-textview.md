@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, TextView, html]
 group: Android
 icon: file-alt
+date: 2014-04-07 00:00:00
 ---
-{% include JB/setup %}
 
 再Android中可用使用TextView来显示HTML文本：
 

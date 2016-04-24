@@ -7,8 +7,8 @@ categories: [Git]
 tags: [git, github, email, git config]
 group: Git
 icon: file-alt
+date: 2015-03-11 02:00:00
 ---
-{% include JB/setup %}
 
 当我们在 GitHub 中提交修改时， GitHub 通过我们本地 git 配置文件中配置的邮箱地址，与我们的 GitHub账户相关联，这样 GitHub 提交记录就可以关联提交者的 GitHub 账户。
 

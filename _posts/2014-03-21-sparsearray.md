@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, SparseArray]
 group: Android
 icon: file-alt
+date: 2014-03-21 00:00:00
 ---
-{% include JB/setup %}
 
 SparseArray（稀疏数组）是android提供的建议替换HashMap&lt;Integer, E&gt;的用来存储整型、对象键值对的类。它比HashMap&lt;Integer, E&gt;要高效轻量。其内部使用了两个数组来分别缓存key和value，查找使用折半通过key来查找。
 

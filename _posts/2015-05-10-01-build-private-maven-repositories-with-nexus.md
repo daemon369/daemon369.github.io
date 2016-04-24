@@ -7,8 +7,8 @@ categories: [Maven]
 tags: [maven, nexus]
 group: Maven
 icon: file-alt
+date: 2015-05-10 00:00:00
 ---
-{% include JB/setup %}
 
 搭建个人 maven 仓库有以下好处：
 

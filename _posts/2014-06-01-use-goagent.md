@@ -7,8 +7,8 @@ categories: [Network]
 tags: [GoAgent, agent, Network, Linux]
 group: Network
 icon: file-alt
+date: 2014-06-01 00:00:00
 ---
-{% include JB/setup %}
 
 ***
 

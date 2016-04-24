@@ -7,8 +7,8 @@ categories: [Linux]
 tags: [linux, google chrome]
 group: Linux
 icon: file-alt
+date: 2015-03-12 00:00:00
 ---
-{% include JB/setup %}
 
 我们在 Ubuntu 的软件中心无法找到 Google Chrome 浏览器，使用 *apt-get  install* 命令也无法直接安装 chrome。要在　Linux　中安装 chrome ，首先需要安装谷歌 Linux 软件仓库签名 Key。
 

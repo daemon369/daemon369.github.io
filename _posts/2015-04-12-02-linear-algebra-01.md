@@ -7,8 +7,8 @@ categories: [note]
 tags: [note, linear algebra, 线性代数, 行列式]
 group: note
 icon: file-alt
+date: 2015-04-12 01:00:00
 ---
-{% include JB/setup %}
 
 # 二阶行列式
 

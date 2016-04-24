@@ -7,8 +7,8 @@ categories: [SSH]
 tags: [ssh, config file]
 group: SSH
 icon: file-alt
+date: 2015-03-21 00:00:00
 ---
-{% include JB/setup %}
 
 SSH 的介绍及使用参看：[SSH 简介][2]、[创建 SSH 密钥对][1]。
 

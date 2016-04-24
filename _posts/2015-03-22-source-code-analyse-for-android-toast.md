@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, toast]
 group: Android
 icon: file-alt
+date: 2015-03-22 00:00:00
 ---
-{% include JB/setup %}
 
 Android Toast 的通常用法为：
 

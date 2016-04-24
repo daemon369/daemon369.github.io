@@ -13,52 +13,49 @@ var tooltipConfig = {
 };
 
 /* 页面加载后执行 */
-!function ($) {
-  $(function(){
+$(function(){
 
-    var tableReference;
-    /* 初始化dataTable */
-    if($('#post-data')[0]){
-      tableReference = $('#post-data').dataTable(datatablesConfig);
+  var tableReference;
+  /* 初始化dataTable */
+  if($('#post-data')[0]){
+    tableReference = $('#post-data').dataTable(datatablesConfig);
+  }
+  /* 初始化tooltip */
+  if($('#support a')[0]){
+    $('#support a').tooltip(tooltipConfig);
+  }
+
+  /* 目录页导航 */
+  var url = window.location.href;
+  if(url.indexOf('categories.html') > -1){
+    $('#categories-nav a').click(function (e){
+      $(this).tab('show');
+    });
+
+    /* 自动打开链接中的锚点 */
+    var matches = url.match(/categories\.html(#.*)/);
+    if(matches){
+      $('#categories-nav a[href="' + matches[1] + '"]').tab('show');
+    }else{
+      $('#categories-nav a:first').tab('show');
     }
-    /* 初始化tooltip */
-    if($('#support a')[0]){
-      $('#support a').tooltip(tooltipConfig);
+  }
+
+  /* 自动根据标签过滤table */
+  if(url.indexOf('posts.html') > -1){
+    var matches = url.match(/posts\.html#(.*)/);
+    if(matches && tableReference){
+      tableReference.fnFilter(matches[1],2);
+      $('#post-data_filter input').val(matches[1])
     }
 
-    /* 目录页导航 */
-    var url = window.location.href;
-    if(url.indexOf('categories.html') > -1){
-      $('#categories-nav a').click(function (e){
-        $(this).tab('show');
-      });
 
-      /* 自动打开链接中的锚点 */
-      var matches = url.match(/categories\.html(#.*)/);
-      if(matches){
-        $('#categories-nav a[href="' + matches[1] + '"]').tab('show');
-      }else{
-        $('#categories-nav a:first').tab('show');
-      }
-    }
-
-    /* 自动根据标签过滤table */
-    if(url.indexOf('posts.html') > -1){
-      var matches = url.match(/posts\.html#(.*)/);
-      if(matches && tableReference){
-        tableReference.fnFilter(matches[1],2);
-        $('#post-data_filter input').val(matches[1])
-      }
-
-
-      $("#post-data_filter input").keyup( function () {
-        tableReference.fnFilter('', 2);
-        tableReference.fnFilter( this.value, 2);
-      } );
-    }
-  });
-
-}(window.jQuery);
+    $("#post-data_filter input").keyup( function () {
+      tableReference.fnFilter('', 2);
+      tableReference.fnFilter( this.value, 2);
+    } );
+  }
+});
 
 /* 切换技术支持列表的样式 */
 function toggleSupport(){

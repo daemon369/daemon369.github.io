@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, OnTouchListener, onTouch, onTouchEvent]
 group: Android
 icon: file-alt
+date: 2014-10-12 00:00:00
 ---
-{% include JB/setup %}
 
 ***
 

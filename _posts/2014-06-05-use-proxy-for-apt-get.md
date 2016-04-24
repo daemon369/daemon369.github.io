@@ -7,8 +7,8 @@ categories: [Network]
 tags: [apt-get, proxy, Network]
 group: Network
 icon: file-alt
+date: 2014-06-05 00:00:00
 ---
-{% include JB/setup %}
 
 ***
 

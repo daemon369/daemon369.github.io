@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, viewdebug, exportedproperty, monitor]
 group: Android
 icon: file-alt
+date: 2014-06-12 00:00:00
 ---
-{% include JB/setup %}
 
 ***
 

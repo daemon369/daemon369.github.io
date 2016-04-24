@@ -7,8 +7,8 @@ categories: [Ubuntu]
 tags: [ubuntu, numlockx]
 group: Ubuntu
 icon: file-alt
+date: 2014-03-27 00:00:00
 ---
-{% include JB/setup %}
 
 Ubuntu12.04开启后数字小键盘默认是关闭的，不方便使用。可以使用numlocxk程序在Ubuntu启动后自动将小键盘打开：
 

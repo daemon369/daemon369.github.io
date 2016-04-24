@@ -7,8 +7,8 @@ categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
+date: 2014-01-16 00:00:00
 ---
-{% include JB/setup %}
 
 摘要是博客的一个重要部分，有助于使读者对博文有个简要的直观认识。我看到很多使用Jekyll的博客，有的是自己定义变量并使用代码来提取摘要，也有使用其他方法的。这可能是早期的Jekyll没有提供摘要的缘故，现在这些已经是不必要的了。Jekyll从1.0版本开始，提供了两种使用摘要的方法：
 

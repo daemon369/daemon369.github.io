@@ -7,8 +7,8 @@ categories: [Network]
 tags: [Linux, PHP]
 group: Network
 icon: file-alt
+date: 2014-10-15 01:00:00
 ---
-{% include JB/setup %}
 
 ***
 

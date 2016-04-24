@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, onInterceptTouchEvent, onTouchEvent]
 group: Android
 icon: file-alt
+date: 2014-08-17 00:00:00
 ---
-{% include JB/setup %}
 
 ***
 

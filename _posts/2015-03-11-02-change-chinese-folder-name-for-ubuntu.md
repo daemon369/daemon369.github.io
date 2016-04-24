@@ -7,8 +7,8 @@ categories: [Ubuntu]
 tags: [ubuntu, chinese folder name]
 group: Ubuntu
 icon: file-alt
+date: 2015-03-11 01:00:00
 ---
-{% include JB/setup %}
 
 安装中文版 Ubuntu 后，我们可以看到在我们的用户目录下，有一些中文名称的文件夹：
 

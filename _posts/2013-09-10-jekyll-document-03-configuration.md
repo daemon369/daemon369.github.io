@@ -7,8 +7,8 @@ categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
+date: 2013-09-10 00:00:00
 ---
-{% include JB/setup %}
 
 #jekyll配置
 

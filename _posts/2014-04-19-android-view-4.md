@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, View]
 group: Android
 icon: file-alt
+date: 2014-04-19 00:00:00
 ---
-{% include JB/setup %}
 
 自定义 View 的实现方式大概可以分为三种，自绘控件、组合控件、以及继承控件。
 

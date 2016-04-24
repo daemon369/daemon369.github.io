@@ -7,8 +7,8 @@ categories: [Network]
 tags: [git, proxy, Network]
 group: Network
 icon: file-alt
+date: 2014-06-02 00:00:00
 ---
-{% include JB/setup %}
 
 git使用http/https代理的方法如下：
 

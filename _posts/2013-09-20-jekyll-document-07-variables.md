@@ -7,8 +7,8 @@ categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
+date: 2013-09-20 00:00:00
 ---
-{% include JB/setup %}
 
 Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matter](http://jekyllrb.com/docs/frontmatter/)的文件都会被Jekyll处理。对于每个一文件，Jekyll都会通过[Liquid templating system](https://github.com/shopify/liquid/wiki/liquid-for-designers)来创建很多可供使用的数据。下面是一些可用的数据。
 

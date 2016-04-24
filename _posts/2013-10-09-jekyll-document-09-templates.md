@@ -7,8 +7,8 @@ categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
+date: 2013-10-09 00:00:00
 ---
-{% include JB/setup %}
 
 Jekyll使用[Liquid](http://wiki.shopify.com/Liquid)模板语言来处理模板，它支持Liquid的所有[标签tags](http://wiki.shopify.com/Logic)和[过滤器filters](http://wiki.shopify.com/Filters)。Jekyll还增加了一些自身独有的标签和过滤器，用来简化通用任务。
 

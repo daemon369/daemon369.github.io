@@ -7,8 +7,8 @@ categories: [Android]
 tags: [android, LayoutInflater, inflate]
 group: Android
 icon: file-alt
+date: 2014-05-08 00:00:00
 ---
-{% include JB/setup %}
 
 在Android中，我们使用LayoutInflater来解析布局xml文件并生成对应的View对象的继承树。LayoutInflater提供了两个常用的方法：
 

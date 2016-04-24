@@ -7,8 +7,8 @@ categories: [Ubuntu]
 tags: [ubuntu, passwd, root]
 group: Ubuntu
 icon: file-alt
+date: 2015-03-13 00:00:00
 ---
-{% include JB/setup %}
 
 Ubuntu 安装的时候并没有设置 root 用户的密码，第一次登录也无法使用 root 用户登录。如果我们需要启用 root 用户，首先需要设置 root 用户密码：
 

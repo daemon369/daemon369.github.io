@@ -7,8 +7,8 @@ categories: [Ubuntu]
 tags: [ubuntu, svn server]
 group: Ubuntu
 icon: file-alt
+date: 2014-07-13 00:00:00
 ---
-{% include JB/setup %}
 
 ***
 

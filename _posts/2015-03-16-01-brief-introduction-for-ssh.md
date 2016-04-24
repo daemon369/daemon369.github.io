@@ -7,8 +7,8 @@ categories: [SSH]
 tags: [ssh]
 group: SSH
 icon: file-alt
+date: 2015-03-16 00:00:00
 ---
-{% include JB/setup %}
 
 SSH(即 Secure Shell)，是一项创建在应用层和传输层基础上的安全协议，为计算机 Shell 提供安全的传输和使用环境。
 

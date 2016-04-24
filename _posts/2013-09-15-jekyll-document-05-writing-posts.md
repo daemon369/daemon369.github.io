@@ -7,8 +7,8 @@ categories: [Blog]
 tags: [Blog, jekyll]
 group: Blog
 icon: file-alt
+date: 2013-09-15 00:00:00
 ---
-{% include JB/setup %}
 
 jekyll是"blog aware"的，就是说写博客被设计成jekyll的固有功能。用户需要写博客以及发布博客到网络，只需要在本地管理一个文件夹，文件夹里包含一些文本文件即可。相比在数据库中配置保存博客以及使用基于网页的CMS系统来管理操作，这是个饱受欢迎的改变。
 
@@ -43,7 +43,7 @@ jekyll是"blog aware"的，就是说写博客被设计成jekyll的固有功能�
 
     … which is shown in the screenshot below:
     ![My helpful screenshot]({% raw %}{{ site.url }}{% endraw %}/assets/screenshot.jpg)
-    
+
 在post中添加pdf文件的链接提供下载：
 
     … you can [get the PDF]({% raw %}{{ site.url }}{% endraw %}/assets/mydoc.pdf) directly.
