@@ -43,9 +43,12 @@ date: 2013-08-03 00:00:00
 
 当前直接clone的别人的博客，很多地方显示的都是不符合个人要求的，网址链接有可能也是链到原作者的博客，所以后面需要自己修改，_posts目录下面的文章也要都替换成自己的文章。
 
-参考：
+# 参考
+
 1.[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门][1]
+
 2.[Github Pages极简教程][2]
+
 3.[使用Github Pages建独立博客][3]
 
 [1]:http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html "搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门"
