@@ -2,7 +2,11 @@ permalink: /:categories/:year/:month/:day/:title
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
+
+gems: [jekyll-paginate]
 paginate: 5
+paginate_path: "page:num"
+
 excerpt_separator: <!--excerpt-->
 markdown: kramdown
 
