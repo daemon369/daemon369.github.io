@@ -7,25 +7,20 @@ categories: [Blog]
 tags: [Blog, github pages, jekyll]
 group: Blog
 icon: file-alt
+date: 2013-08-03 00:00:00
 ---
 
 最开始是看到[阮一峰](http://www.ruanyifeng.com/blog/)的博客[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门][1]，才知道可以使用github来搭建个人博客的。因为刚在github上面创建了一个repository用来放一些自己的学习过程中写的demo，那么再创建个博客来记录自己的学习过程，也是个不错的事情。因此开始折腾这个博客。
 
 <!--excerpt-->
 
-我对github不是很熟悉，对Jekyll，Markdown也是之后查资料才知道的，虽然开始很麻烦，但是能够接触点新东西来充实自己，也是一件愉快的事情。
+首先申请个github帐号，这个很简单。我的账户名为：daemon369，因此我的个人首页为：[https://github.com/daemon369](https://github.com/daemon369)。
 
-最开始，我是跟着阮一峰的[文章][1]一步步做的，新手可以照着这个步骤跟着做，做完后对整个流程也就有了大致的了解了。
+然后就是创建 GitHub Pages。有两种类型：用户/组织页面以及项目页面，这两种类型基本上是一致的，只有部分区别：用户/组织页面每个账户只能创建一个，可以使用<code>http://&lt;username&gt;.github.io</code>链接直接访问；项目页面是针对项目，每个项目可以创建一个对应的项目页面，通过<code>http://github.com/&lt;projectname&gt;</code>链接访问。
 
-自己一步步写的终究比较慢，而且我对这方面没什么功底，还是直接clone别人的模板，替换上自己的文章，然后在此基础上进行修改比较快些。对于我这种菜鸟来说，这样能最迅速的搭建一个比较漂亮丰富的博客。
+创建一个repository，名称为：daemon369.github.com，这样创建的博客直接通过网址[http://daemon369.github.com](http://daemon369.github.com)可以直接访问。
 
-下面给出我目前的博客搭建的简要过程。当然，实际我折腾的时候，费了很多力气，走了不少弯路。
-
-首先申请个github帐号，这个很简单。我的账户名为：daemon369，因此我的个人首页为：<a href="https://github.com/daemon369">https://github.com/daemon369</a>。
-
-创建一个repository，名称为：daemon369.github.com，这样创建的博客直接通过网址http://daemon369.github.com可以直接访问，每个用户只可以创建一个。还有一种方式是与repository相关连的博客或主页，每个项目可以关联一个，访问地址需要在前面的网站的基础上加上repository名称。我选择的是第一种方式。阮一峰的[文章][1]中介绍的方法使用的是第二种方式。
-
-然后clone一个现有的模板，我使用了codepiano的博客作为模板，链接见文章末尾。
+然后clone一个现有的模板，我使用了[codepiano的博客](http://codepiano.github.io/)作为模板：
 
     git clone https://github.com/codepiano/codepiano.github.com.git
 
@@ -34,11 +29,9 @@ icon: file-alt
 可以现在本地看看是否能够正常显示：
 
     $ cd daemon369.github.com
-    $ jekyll serve
+    $ jekyll serve -w
 
 打开浏览器，输入网站：http://localhost:4000，就可以本地查看网站的显示情况。如果显示正常就可以上传github，有问题就可以实时修改。
-
-很多博客给出的是旧版本的命令：jekyll --server，目前我使用的1.1.2版本的jeykll已经废弃了旧的命令。
 
 上传到github：
 
@@ -54,14 +47,6 @@ icon: file-alt
 1.[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门][1]
 2.[Github Pages极简教程][2]
 3.[使用Github Pages建独立博客][3]
-
-
-我的博客初始模板：
-
-博客：[http://codepiano.github.io/](http://codepiano.github.io/)
-
-github：[https://github.com/codepiano/codepiano.github.com](https://github.com/codepiano/codepiano.github.com)
-
 
 [1]:http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html "搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门"
 
