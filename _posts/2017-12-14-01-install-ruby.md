@@ -20,6 +20,8 @@ date: 2017-12-14 21:11:00
 
     $ brew install rbenv
 
+<!--excerpt-->
+
 在`~/.bash_profile`文件中加入：
 
     export PATH=$HOME/.rbenv/bin:$PATH
