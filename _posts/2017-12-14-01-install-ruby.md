@@ -167,8 +167,11 @@ date: 2017-12-14 21:11:00
 2. 删除`rbenv`安装目录：
 
     $ rm -rf `rbenv root`
+
 # 参看
 
 [rbenv](https://github.com/rbenv/rbenv)
 
 [rbenv-install-and-using](https://gist.github.com/sandyxu/8aceec7e436a6ab9621f)
+
+[How To Install Ruby on Rails with rbenv on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04)
