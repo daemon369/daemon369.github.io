@@ -37,7 +37,22 @@ date: 2017-12-14 21:11:00
 
 ## Ubuntu
 
-TODO
+下载`rbenv`到本地：
+
+    $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+
+增加脚本文件配置：
+
+    $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    $ echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+
+重新打开终端或者输入：
+
+    $ . ~/.bashrc
+
+安装`ruby-build`：
+
+    $ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 # 安装`Ruby`
 
@@ -127,18 +142,20 @@ TODO
 
 ## 关闭`rbenv`
 
-若要关闭`rbenv`，使其对`Ruby`的版本管理失效，只需要将`~/.bash_profile`文件中加入的`rbenv init`行删除即可
+若要关闭`rbenv`，使其对`Ruby`的版本管理失效，只需要将`~/.bash_profile`(macOs)或`~/.bashrc`(Ubuntu)文件中加入的`rbenv init`行删除即可
 
 ## 完全卸载
 
-### 手动
+### macOs
+
+#### 手动
 
 1. 删除`~/.bash_profile`中添加的配置行
 2. 删除`rbenv`安装目录：
 
     $ rm -rf `rbenv root`
 
-### macOs
+#### brew
 
 如果使用`brew`安装的`rbenv`，可以使用命令：
 
@@ -146,8 +163,10 @@ TODO
 
 ### Ubuntu
 
-TODO
+1. 删除`~/.bashrc`中添加的配置行
+2. 删除`rbenv`安装目录：
 
+    $ rm -rf `rbenv root`
 # 参看
 
 [rbenv](https://github.com/rbenv/rbenv)
