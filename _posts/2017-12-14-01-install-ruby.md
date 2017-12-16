@@ -72,6 +72,14 @@ date: 2017-12-14 21:11:00
 
 `rbenv`安装时会自动安装其依赖的`ruby-build`。
 
+添加脚本配置：
+
+    $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+
+重新打开终端窗口使配置生效，或者运行以下命令：
+
+    $ . ~/.bash_profile
+
 ### 更新`rbenv`：
 
     $ brew update && brew upgrade rbenv ruby-build
