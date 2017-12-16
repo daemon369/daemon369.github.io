@@ -10,8 +10,6 @@ icon: file-alt
 date: 2017-12-14 21:11:00
 ---
 
-[TOC]
-
 常见的`Ruby`版本管理工具有`rbenv`、`RVM`等，这里介绍在`macOs`及`Ubuntu 16.04LTS`中使用轻量的`rbenv`来安装`Ruby`的方法。
 
 # 安装`rbenv`
@@ -20,7 +18,7 @@ date: 2017-12-14 21:11:00
 
 ### 安装`rbenv`
 
-也可以直接从`Github`上将`rbenv` checkout 到本地，这样就不需要系统范围的安装，而且能够及时获取最新版本：
+采用`Github`上将`rbenv` checkout 到本地的方式，这样就不需要系统范围的安装，而且能够及时获取最新版本：
 
     $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
     $ cd ~/.rbenv && src/configure && make -C src
