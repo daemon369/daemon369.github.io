@@ -168,9 +168,17 @@ date: 2017-12-14 21:11:00
 
 # 卸载`Ruby`：
 
-直接删除`Ruby`安装目录：
+使用如下命令查看当前版本`Ruby`安装目录：
 
-    $ rm -rf ~/.rbenv/versions/2.4.3
+    $ rbenv prefix
+
+超找指定版本`Ruby`安装目录：
+
+    $ rbenv prefix 2.4.3
+
+删除使用`rbenv`安装的`Ruby`，可以直接删除`Ruby`安装目录：
+
+    $ rm -rf `rbenv prefix 2.4.3`
 
 还可以使用命令：
 
