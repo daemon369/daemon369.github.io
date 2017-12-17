@@ -185,3 +185,5 @@ date: 2017-12-14 21:11:00
 [How To Install Ruby on Rails with rbenv on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04)
 
 [ruby-build](https://github.com/rbenv/ruby-build)
+
+[bundler vs RVM vs gems vs RubyGems vs gemsets vs system ruby](https://stackoverflow.com/questions/15586216/bundler-vs-rvm-vs-gems-vs-rubygems-vs-gemsets-vs-system-ruby#15586667)
