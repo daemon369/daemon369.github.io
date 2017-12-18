@@ -3,9 +3,9 @@ layout: post
 keywords: ssh, ssh keys， ssh-keygen, ssh-add
 description: generating ssh keys
 title: "创建 SSH 密钥对"
-categories: [ssh]
+categories: [SSH]
 tags: [ssh, ssh keys， ssh-keygen, ssh-add]
-group: ssh
+group: SSH
 icon: file-alt
 date: 2015-03-08 00:00:00
 ---
