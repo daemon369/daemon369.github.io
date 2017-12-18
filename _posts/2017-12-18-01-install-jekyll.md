@@ -70,6 +70,22 @@ RubyGems是Ruby的一个包管理器，提供了分发Ruby程序和函式库的�
 
 使用浏览器打开网址`http://127.0.0.1:4000/`即可在本地查看博客内容。
 
+# GitHub Pages
+
+如果需要将博客部署到`GitHub Pages`上，需要修改`Gemfile`配置文件，将
+
+    gem "jekyll", "~> 3.6.2"
+    # gem "github-pages", group: :jekyll_plugins
+
+修改为：
+
+    # gem "jekyll", "~> 3.6.2"
+    gem "github-pages", group: :jekyll_plugins
+
+更新`gems`：
+
+    $ bundle update
+
 # 参看
 
 [RubyGems](https://zh.wikipedia.org/wiki/RubyGems)
