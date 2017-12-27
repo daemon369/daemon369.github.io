@@ -3,7 +3,7 @@ layout: post
 keywords: android, http, httpclient, httpurlconnection
 description: brief introduction of android http
 title: "Android HTTP 请求：HttpClient & HttpURLConnection"
-categories: [android]
+categories: [Android]
 tags: [android, http, httpclient, httpurlconnection]
 group: Android
 icon: file-alt
