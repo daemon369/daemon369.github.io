@@ -33,7 +33,7 @@ date: 2018-01-07 19:59:00
 
 在`VMWare Fusion`中为虚拟机`Ubuntu 12.04.5LTS`增加一块新的硬盘，然后重启或启动虚拟机`Ubuntu`系统。
 
-查看硬盘：
+再次查看已有硬盘：
 
     $ lsblk  -d
     NAME MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
