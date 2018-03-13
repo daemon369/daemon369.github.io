@@ -10,10 +10,10 @@ paginate_path: "page:num"
 excerpt_separator: <!--excerpt-->
 markdown: kramdown
 
-title : Step By Step
+title : 上下求索
 tagline: Just Learn It
 author :
-  name : Daemon
+  name : 不忘初心 方得始终
   email : daemon336699@gmail.com
   github : https://github.com/daemon369
   twitter : daemon_yang
