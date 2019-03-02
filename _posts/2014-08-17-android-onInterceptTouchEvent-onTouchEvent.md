@@ -14,7 +14,7 @@ date: 2014-08-17 00:00:00
 
 (本文基于android-2.3.3_r1代码研究)
 
-#onTouchEvent
+# onTouchEvent
 
 onTouchEvent是View类提供的方法，其说明如下：
 
@@ -43,7 +43,7 @@ public boolean onTouchEvent(MotionEvent event);
 
 实现onTouchEvent方法可以处理View的触屏事件，返回true表明事件已被处理，不需要继续派发，否则返回false。
 
-###Demo
+### Demo
 
 如下自定义View布局文件
 
@@ -62,13 +62,13 @@ public boolean onTouchEvent(MotionEvent event);
 
 在MyView上按下触屏并滑动
 
-###1. MyView中onTouchEvent返回false
+### 1. MyView中onTouchEvent返回false
 
     E/MyView﹕ onTouchEvent:false action:ACTION_DOWN
-    
+
 可以看到onTouchEvent返回false时，只会收到第一次的down事件，后续的move、up事件都不再派发给MyView
 
-###2. MyView中onTouchEvent返回true
+### 2. MyView中onTouchEvent返回true
 
     E/MyView﹕ onTouchEvent:true action:ACTION_DOWN
     E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
@@ -89,7 +89,7 @@ public boolean onTouchEvent(MotionEvent event);
 
 ***
 
-#onInterceptTouchEvent
+# onInterceptTouchEvent
 
 onInterceptTouchEvent()方法是ViewGoup中的方法，其注释如下：
 
@@ -144,7 +144,7 @@ onInterceptTouchEvent方法对触屏事件的拦截处理需要和onTouchEvent�
 
 3. onInterceptTouchEvent返回ture，down事件将转交该ViewGroup的onTouchEvent来处理；若onTouchEvent返回true，后续事件将不再经过该ViewGroup的onInterceptTouchEvent方法，直接交由该ViewGroup的onTouchEvent方法处理；若onTouchEvent方法返回false，后续事件都将交由父ViewGroup处理，不再经过该ViewGroup的onInterceptTouchEvent方法和onTouchEvent方法
 
-###一. 没有子View的ViewGroup
+### 一. 没有子View的ViewGroup
 
 {% highlight java %}
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -159,7 +159,7 @@ onInterceptTouchEvent方法对触屏事件的拦截处理需要和onTouchEvent�
 </RelativeLayout>
 {% endhighlight %}
 
-#####1. MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回false
+##### 1. MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回false
 
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
     E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
@@ -170,7 +170,7 @@ MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
 onTouchEvent返回了false，表示MyLayout不处理touch事件，down事件传递给父ViewGroup的onTouchEvent方法处理，后续的move、up等事件都不再传递给MyLayout，直接交由父ViewGroup处理。
 
-#####2. MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回true
+##### 2. MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回true
 
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_DOWN
     E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
@@ -188,7 +188,7 @@ MyLayout的down事件首先传递到onInterceptTouchEvent方法；
 
 onTouchEvent返回true，down事件不再向上传递，后续move、up等事件不再传递给onInterceptTouchEvent方法，直接交由onTouchEvent处理
 
-#####3. MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回false
+##### 3. MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回false
 
     E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
     E/MyLayout﹕ onTouchEvent:false action:ACTION_DOWN
@@ -199,7 +199,7 @@ onInterceptTouchEvent方法返回true，down事件直接传递给MyLayout的onTo
 
 onTouchEvent返回了false，表示MyLayout不处理touch事件，down事件传递给父ViewGroup的onTouchEvent方法处理，后续的move、up等事件都不再传递给MyLayout，直接交由父ViewGroup处理。
 
-#####4. MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回true
+##### 4. MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回true
 
     E/MyLayout﹕ onInterceptTouchEvent:true action:ACTION_DOWN
     E/MyLayout﹕ onTouchEvent:true action:ACTION_DOWN
@@ -217,7 +217,7 @@ onInterceptTouchEvent方法返回true，down事件直接传递给MyLayout的onTo
 
 onTouchEvent返回true，down事件不再向上传递，后续move、up等事件不再传递给onInterceptTouchEvent方法，直接交由onTouchEvent处理
 
-###二. ViewGroup嵌套View
+### 二. ViewGroup嵌套View
 
 布局如下：
 
@@ -241,7 +241,7 @@ onTouchEvent返回true，down事件不再向上传递，后续move、up等事件
 </RelativeLayout>
 {% endhighlight %}
 
-#####1.
+##### 1.
 
 MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回false
 
@@ -259,7 +259,7 @@ MyView的onTouchEvent返回了false，表示MyView不处理down事件，down事�
 
 MyLayout的onTouchEvent返回false，down事件继续传递给其父ViewGroup的onTouchEvent方法处理，后续的move、up等事件都不再传递给MyLayout，直接交由父ViewGroup处理。
 
-#####2.
+##### 2.
 
 MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回true/false
 
@@ -269,9 +269,9 @@ MyView的onTouchEvent返回true
     E/MyView﹕ onTouchEvent:true action:ACTION_DOWN
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
     E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
-    
+
     ......
-    
+
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
     E/MyView﹕ onTouchEvent:true action:ACTION_MOVE
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_UP
@@ -285,7 +285,7 @@ MyView的onTouchEvent返回了true，表示MyView消费了down事件，不再向
 
 后续的move、up等事件继续由MyLayout的onInterceptTouchEvent方法传递到MyView的onTouchEvent方法进行处理
 
-#####3.
+##### 3.
 
 MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回false
 
@@ -300,7 +300,7 @@ onInterceptTouchEvent方法返回true，down直接传递给MyLayout的onTouchEve
 
 MyLayout的onTouchEvent返回false，down事件继续传递给其父ViewGroup的onTouchEvent方法处理，后续的move、up等事件都不再传递给MyLayout，直接交由父ViewGroup处理。
 
-#####4.
+##### 4.
 
 MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回true
 
@@ -324,7 +324,7 @@ MyLayout的onTouchEvent返回true，down事件由MyLayout消费，不再向上�
 
 后续的move、up等事件将不再传递给MyLayout的onInterceptTouchEvent方法，而是直接传递给MyLayout的onTouchEvent方法来处理
 
-###二. ViewGroup嵌套ViewGroup
+### 二. ViewGroup嵌套ViewGroup
 
 布局如下：
 
@@ -348,7 +348,7 @@ MyLayout的onTouchEvent返回true，down事件由MyLayout消费，不再向上�
 </RelativeLayout>
 {% endhighlight %}
 
-#####1.
+##### 1.
 
 MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回false
 
@@ -369,7 +369,7 @@ MyLayout2的onTouchEvent返回了false，表示MyLayout2不处理down事件，do
 
 MyLayout的onTouchEvent返回false，down事件继续传递给其父ViewGroup的onTouchEvent方法处理，后续的move、up等事件都不再传递给MyLayout，直接交由父ViewGroup处理。
 
-#####2.
+##### 2.
 
 MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回true/false
 
@@ -382,9 +382,9 @@ MyLayout2的onInterceptTouchEvent返回false，的onTouchEvent返回true
     E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
     E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
-    
+
     ...
-    
+
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
     E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_UP
@@ -400,7 +400,7 @@ MyLayout2的onTouchEvent返回了true，表示MyLayout2消费了down事件，不
 
 后续的move、up等事件继续由MyLayout的onInterceptTouchEvent方法传递到MyLayout2，不再经过MyLayout2的onInterceptTouchEvent方法，直接传递给MyLayout2的onTouchEvent方法进行处理
 
-#####3.
+##### 3.
 
 MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回false
 
@@ -421,7 +421,7 @@ MyLayout2的onTouchEvent返回了false，表示MyLayout2不处理down事件，do
 
 MyLayout的onTouchEvent返回false，down事件继续传递给其父ViewGroup的onTouchEvent方法处理，后续的move、up等事件都不再传递给MyLayout，直接交由父ViewGroup处理。
 
-#####4.
+##### 4.
 
 MyLayout的onInterceptTouchEvent返回false，onTouchEvent返回true/false
 
@@ -434,9 +434,9 @@ MyLayout2的onInterceptTouchEvent返回true，onTouchEvent返回true
     E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
     E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
-    
+
     ......
-    
+
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_MOVE
     E/MyLayout2﹕ onTouchEvent:true action:ACTION_MOVE
     E/MyLayout﹕ onInterceptTouchEvent:false action:ACTION_UP
@@ -452,7 +452,7 @@ MyLayout2的onTouchEvent返回了true，表示MyLayout2消费了down事件，不
 
 后续的move、up等事件继续由MyLayout的onInterceptTouchEvent方法传递到MyLayout2，不再经过MyLayout2的onInterceptTouchEvent方法，直接传递给MyLayout2的onTouchEvent方法进行处理
 
-#####5.
+##### 5.
 
 MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回false
 
@@ -467,7 +467,7 @@ onInterceptTouchEvent方法返回true，down直接传递给MyLayout的onTouchEve
 
 MyLayout的onTouchEvent返回false，down事件继续传递给其父ViewGroup的onTouchEvent方法处理，后续的move、up等事件都不再传递给MyLayout，直接交由父ViewGroup处理。
 
-#####6.
+##### 6.
 
 MyLayout的onInterceptTouchEvent返回true，onTouchEvent返回true
 
@@ -491,7 +491,7 @@ MyLayout的onTouchEvent返回了true，表示MyLayout消费了down事件，不�
 
 后续的move、up等事件直接由父ViewGroup传递给MyLayout的onTouchEvent方法处理，不在经过MyLayout的onInterceptTouchEvent方法。
 
-###总结
+### 总结
 
 1. touch事件在onInterceptTouchEvent方法中的传递由父ViewGroup到子ViewGroup，在onTouchEvent方法中传递则相反。
 
@@ -504,13 +504,13 @@ MyLayout的onTouchEvent返回了true，表示MyLayout消费了down事件，不�
 
 ***
 
-#Demo代码
+# Demo代码
 
 demo代码可以在我的github上下载：[Android触屏事件传递演示Demo](https://github.com/daemon369/Demo/tree/master/20140815)
 
 ***
 
-#MyView、MyLayout、MyLayout2关键代码
+# MyView、MyLayout、MyLayout2关键代码
 
 {% highlight java %}
 public class MyView extends View {
@@ -581,7 +581,7 @@ public class MyLayout2 extends FrameLayout {
 
 ***
 
-#相关文章
+# 相关文章
 
 [Android Touch事件传递机制(二) -- OnTouchListener & OnClickListener & OnLongClickListener][1]
 
@@ -591,7 +591,7 @@ public class MyLayout2 extends FrameLayout {
 
 ***
 
-#参考
+# 参考
 
 [onInterceptTouchEvent和onTouchEvent调用时序](http://blog.csdn.net/ddna/article/details/5473293)
 
