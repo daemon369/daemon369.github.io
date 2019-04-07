@@ -10,22 +10,22 @@ icon: file-alt
 date: 2015-03-11 02:00:00
 ---
 
-当我们在 GitHub 中提交修改时， GitHub 通过我们本地 git 配置文件中配置的邮箱地址，与我们的 GitHub账户相关联，这样 GitHub 提交记录就可以关联提交者的 GitHub 账户。
+当我们在`GitHub`中提交修改时，`GitHub`通过我们本地`git`配置文件中配置的邮箱地址，与我们的`GitHub`账户相关联，这样`GitHub`提交记录就可以关联提交者的`GitHub`账户。
 
-那么我们怎么在本地配置我们的 git 邮箱呢？
+那么我们怎么在本地配置我们的`git`邮箱呢？
 
 #全局 git 配置
 
-我们可以使用 *git config* 命令来修改本地 git 配置。设置全局用户及邮箱：
+我们可以使用`git config`命令来修改本地`git`配置。设置全局用户及邮箱：
 
     $ git config --global user.name gitaccount
     $ git config --global user.email gitaccount@example.com
 
 <!--excerpt-->
 
-其中 *gitaccount* 是我们的 git 账户， *gitaccount@example.com* 是我们的 git 邮箱。
+其中`gitaccount`是我们的`git`账户，`gitaccount@example.com`是我们的`git`邮箱。
 
-修改配置后，可以查看本地 git 配置文件：
+修改配置后，可以查看本地`git`配置文件：
 
     $ cat ~/.gitconfig
     [user]
@@ -39,9 +39,9 @@ date: 2015-03-11 02:00:00
     $ git config --global user.email
     gitaccount@example.com
 
-这里修改的是全局的 git 配置项，配置完成后，我们在所有的代码仓库中提交的修改，默认都将关联全局配置的账户及邮箱，除非我们为每个代码仓库单独配置账户及邮箱。
+这里修改的是全局的`git 配置项，配置完成后，我们在所有的代码仓库中提交的修改，默认都将关联全局配置的账户及邮箱，除非我们为每个代码仓库单独配置账户及邮箱。
 
-#代码仓库 git 配置
+# 代码仓库`git`配置
 
 我们可以为每个代码仓库配置单独配置账户及邮箱。
 
