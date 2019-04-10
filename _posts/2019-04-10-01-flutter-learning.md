@@ -16,4 +16,4 @@ date: 2019-04-10 22:11:27
 2. Flutter 02
 3. Flutter 03
 
-[1]: {% post_url 2019-04-10-02-flutter-01-install.md %} "Flutter 01 - 安装"
+[1]: {% post_url 2019-04-10-02-flutter-01-install %} "Flutter 01 - 安装"
