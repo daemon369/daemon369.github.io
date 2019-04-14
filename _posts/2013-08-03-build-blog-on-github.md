@@ -14,24 +14,24 @@ date: 2013-08-03 00:00:00
 
 <!--excerpt-->
 
-首先申请个github帐号，这个很简单。我的账户名为：daemon369，因此我的个人首页为：[https://github.com/daemon369](https://github.com/daemon369)。
+首先申请个`GitHub`帐号，这个很简单。我的账户名为：`daemon369`，因此我的个人首页为：<https://github.com/daemon369>。
 
-然后就是创建 GitHub Pages。有两种类型：用户/组织页面以及项目页面，这两种类型基本上是一致的，只有部分区别：用户/组织页面每个账户只能创建一个，可以使用<code>http://&lt;username&gt;.github.io</code>链接直接访问；项目页面是针对项目，每个项目可以创建一个对应的项目页面，通过<code>http://github.com/&lt;projectname&gt;</code>链接访问。
+然后就是创建`GitHub Pages`。有两种类型：用户/组织页面、项目页面，这两种类型基本上是一致的，只有部分区别：用户/组织页面每个账户只能创建一个，可以使用`http://<username>.github.io`链接直接访问；项目页面是针对项目，每个项目可以创建一个对应的项目页面，通过`http://github.com/<projectname>`链接访问。
 
-创建一个repository，名称为：daemon369.github.com，这样创建的博客直接通过网址[http://daemon369.github.com](http://daemon369.github.com)可以直接访问。
+创建一个repository，名称为：daemon369.github.com，这样创建的博客直接通过网址<http://daemon369.github.com>可以直接访问。
 
 然后clone一个现有的模板，我使用了[codepiano的博客](http://codepiano.github.io/)作为模板：
 
     git clone https://github.com/codepiano/codepiano.github.com.git
 
-然后拷贝本地codepiano.github.com文件夹下除了.git文件夹以外的所有文件到我的本地新建目录daemon369.github.com下。
+然后拷贝本地`codepiano.github.com`文件夹下除了.git文件夹以外的所有文件到我的本地新建目录`daemon369.github.com`下。
 
 可以现在本地看看是否能够正常显示：
 
     $ cd daemon369.github.com
     $ jekyll serve -w
 
-打开浏览器，输入网站：http://localhost:4000，就可以本地查看网站的显示情况。如果显示正常就可以上传github，有问题就可以实时修改。
+打开浏览器，输入网站：<http://localhost:4000>，就可以本地查看网站的显示情况。如果显示正常就可以上传github，有问题就可以实时修改。
 
 上传到github：
 
@@ -41,7 +41,7 @@ date: 2013-08-03 00:00:00
     $ git commit -a -m "upload my blog"
     $ git push -u origin master
 
-当前直接clone的别人的博客，很多地方显示的都是不符合个人要求的，网址链接有可能也是链到原作者的博客，所以后面需要自己修改，_posts目录下面的文章也要都替换成自己的文章。
+当前直接clone的别人的博客，很多地方显示的都是不符合个人要求的，网址链接有可能也是链到原作者的博客，所以后面需要自己修改，`_posts`目录下面的文章也要都替换成自己的文章。
 
 # 参考
 

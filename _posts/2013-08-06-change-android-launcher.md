@@ -16,20 +16,20 @@ date: 2013-08-06 00:00:00
 
 <!--excerpt-->
 
-    ~~$ adb remount~~
+    $ adb remount
 
 ~~2.将a.apk放入手机~~
 
-    ~~$ adb push d:/a.apk /system/app~~
+    $ adb push d:/a.apk /system/app
 
 ~~3. 更改a.apk权限~~
 
-    ~~$ adb shell chmod 644 /system/app/a.apk~~
+    $ adb shell chmod 644 /system/app/a.apk
 
 ~~4.删除原系统桌面~~
 
-    ~~$ adb shell rm /system/app/b.apk~~
+    $ adb shell rm /system/app/b.apk
 
 ~~5 .重启手机~~
 
-    ~~$ adb reboot~~
+    $ adb reboot

@@ -14,7 +14,7 @@ date: 2013-08-05 01:00:00
 
 <!--excerpt-->
 
-一. Windows：
+# 一. Windows：
 
 1.安装手机驱动（使用官方驱动或者打开qq手机管家等工具自动安装）
 
@@ -40,7 +40,7 @@ date: 2013-08-05 01:00:00
 
 ![图片](/image/2013-08-05/win.png)
 
-二. ubuntu：
+# 二. ubuntu：
 terminal工具下输入lsusb，就可以看到手机设备ID
 
 ![图片](/image/2013-08-05/ubu.png)
