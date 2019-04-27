@@ -21,14 +21,17 @@ jekyll项目中，包含YAML front matter代码区块的所有文件都会被jek
 
 三段横线之间可以设置预定义的变量，也可以自己定义变量。这些变量能够使用Liquid标签来使用。你可以在这个文件中，也可以在这个文件依赖的布局文件或include文件中使用。
 
-###!!UTF-8编码需要注意
+### !!UTF-8编码需要注意
+
 如果使用UTF-8编码，需要注意文件中不能包含*BOM*头。否则jekyll会产生很大的问题。尤其是在windows系统中使用jekyll中更需要注意。
 
-###Front Matter变量是可选项
+### Front Matter变量是可选项
+
 如果你希望在文件中使用Liquid标签和变量，而不需要在front-matter设置变量等内容，那么front-matter可以留空。两行三短横线中留空也会被jekyll特殊处理。(在CSS或者RSS中比较有用)
 
 ***
-#预定义的全局变量
+
+# 预定义的全局变量
 
 jekyll中预先定义了一些全局变量，用户可以在page或post的front-matter中进行设置。
 
@@ -83,7 +86,8 @@ jekyll中预先定义了一些全局变量，用户可以在page或post的front-
 </table>
 
 ***
-#自定义变量
+
+# 自定义变量
 
 Front-matter中定义的所有非预定义变量在jekyll转换文件时，都会和数据一起发送给Liquid模板引擎。譬如，如果你设置了变量*title*，那么你就可以在你的布局文件中用这个变量来设置你的page标题：
 
@@ -96,7 +100,8 @@ Front-matter中定义的所有非预定义变量在jekyll转换文件时，都�
         ...
 
 ***
-#为Posts预定义的变量
+
+# 为Posts预定义的变量
 
 These are available out-of-the-box to be used in the front-matter for a post.
 
@@ -119,7 +124,9 @@ These are available out-of-the-box to be used in the front-matter for a post.
 </table>
 
 ***
-#PS:
+
+# PS:
+
 文章翻译自jekyll官方文档(2013-09-13)(有很多地方能够理解却不好翻译，或者不太理解，先留英文原文，后面理解透彻了再改)：
 
 [Configuration](http://jekyllrb.com/docs/frontmatter/)
