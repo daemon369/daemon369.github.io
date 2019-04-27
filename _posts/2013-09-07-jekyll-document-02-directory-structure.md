@@ -36,8 +36,11 @@ jekyll项目的基本组织结构一般如下：
     |   └── 2009-04-26-barcamp-boston-4-roundup.textile
     ├── _site
     └── index.html
+
 ***
+
 # 功能
+
 jekyll项目中的每一部分的功能如下：
 
 <table cellpadding="10">
@@ -78,8 +81,10 @@ jekyll项目中的每一部分的功能如下：
     <td>除了上面列出的文件和目录，其他的文件和目录一般都会原样复制到生成的网站里。也有例外，譬如用户除了首页index.html，还创建了其他的页面，这些页面也可以用Markdown等格式编写，最终也会被转化为普通网页。</td>
   </tr>
 </table>
+
 ***
-#PS:
+
+# PS:
 文章翻译自jekyll官方文档(2013-09-07)：
 
 [Directory structure](http://jekyllrb.com/docs/structure/)
