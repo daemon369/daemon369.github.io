@@ -15,7 +15,8 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
 <!--excerpt-->
 
 ***
-#全局变量
+
+# 全局变量
 
 <table cellpadding="10">
   <col width="25%" />
@@ -59,7 +60,8 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
 </table>
 
 ***
-#Site变量
+
+# Site变量
 
 <table cellpadding="10">
   <col width="25%" />
@@ -127,7 +129,8 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
 </table>
 
 ***
-#Page变量
+
+# Page变量
 
 <table cellpadding="10">
   <col width="25%" />
@@ -210,12 +213,13 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
   </tr>
 </table>
 
-##使用自定义的front-matter
+## 使用自定义的front-matter
 
 任何你设置的front matter都可以在*page*下使用。例如：如果你在page的front matter中设定了*custom_css: true*，那么你就可以使用变量*page.custom_css*。
 
 ***
-#Paginator
+
+# Paginator
 
 
 <table cellpadding="10">
@@ -299,12 +303,13 @@ Jekyll会遍历网站寻找可以处理的文件。每个包含[YAML Front Matte
   </tr>
 </table>
 
-##paginator变量的用途
+## paginator变量的用途
 
 这些变量只能用在index索引文件中。当然，索引文件可以放到子目录里，例如:*/blog/index.html*。
 
 ***
-#PS:
+
+# PS:
 文章翻译自jekyll官方文档(2013-09-20)：
 
 [Variables](http://jekyllrb.com/docs/variables/)
