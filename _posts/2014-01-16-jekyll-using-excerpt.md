@@ -20,7 +20,8 @@ date: 2014-01-16 00:00:00
 <!--excerpt-->
 
 ***
-#设置摘要分割符
+
+# 设置摘要分割符
 
 在配置文件_config.yml文件中配置摘要分割符*excerpt_separator*，例如:
 
@@ -38,7 +39,8 @@ Jekyll会自动提取post内容从开始到摘要分割符(也就是设置的"&l
     </ul>
 
 ***
-#excerpt变量
+
+# excerpt变量
 
 摘要也可以在每篇post的YAML Front-Matter中设置excerpt变量：
 
@@ -52,7 +54,8 @@ Jekyll会自动提取post内容从开始到摘要分割符(也就是设置的"&l
 这个变量会覆盖第一种方法提供的摘要，在index索引页面中使用的方法如上例。
 
 ***
-#参考:
+
+# 参考:
 
 [Writing posts - Post excerpts](http://jekyllrb.com/docs/posts/#post_excerpts)
 
