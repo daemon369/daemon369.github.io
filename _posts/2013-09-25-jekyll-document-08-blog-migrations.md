@@ -15,7 +15,8 @@ date: 2013-09-25 00:00:00
 <!--excerpt-->
 
 ***
-#博客迁移前的准备
+
+# 博客迁移前的准备
 
 因为所有的导入系统都有其单独的依赖群，因此我们需要一个特殊的叫做[jekyll-import](https://github.com/jekyll/jekyll-import)的gem来使得我们的导入系统能够正常工作。你只需要安装这个gem，这些导入系统就会作为Jekyll标准命令行接口的一部分来提供我们需要的功能。
 
@@ -28,25 +29,26 @@ date: 2013-09-25 00:00:00
 
 这里*IMPORTER*是特定导入系统的名称。
 
-###仔细核查导入的内容
+### 仔细核查导入的内容
 
 Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，因此你需要仔细的核查Jekyll导入的内容是否是你希望展示的效果。
 
 ***
-#WordPress
 
-###WordPress的导出文件
+# WordPress
+
+### WordPress的导出文件
 
 如果你没有安装hepricot，那么你需要运行*gem install hpricot*来安装。然后，你需要使用WordPress导出工具来导出你的博客。假定你已经导出了博客并保存到文件*wordpress.xml*，运行下面的命令：
 
     $ ruby -rubygems -e 'require "jekyll/jekyll-import/wordpressdotcom";
           JekyllImport::WordpressDotCom.process({ :source => "wordpress.xml" })'
 
-###WordPress.com导出工具
+### WordPress.com导出工具
 
 如果你从WordPress.com账户中迁移，可以从以下地址访问导出工具：*https://YOUR-USER_NAME.worpress.com/wp-admin/export.php*。
 
-###直连WordPress的MySQL服务器
+### 直连WordPress的MySQL服务器
 
 如果你希望能够直接连接WordPress的MySQL服务器来导入博客，方法如下：
 
@@ -68,7 +70,8 @@ Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，�
 * [wpXml2Jekyll](https://github.com/theaob/wpXml2Jekyll)是一个运行在windows下的可执行程序，可以从你的WordPress的xml文件中创建Markdown的posts。
 
 ***
-#Drupal
+
+# Drupal
 
 如果你是从[Drupal](http://drupal.org/)迁移博客，根据你的Drupal的版本的不同，下面有两个工具可供使用：
 
@@ -92,7 +95,8 @@ Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，�
         JekyllImport::Drupal7.process("dbname", "user", "pass", "host", "table_prefix")'
 
 ***
-#Movable Type
+
+# Movable Type
 
 从Movable Type中导入posts：
 
@@ -100,7 +104,8 @@ Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，�
         JekyllImport::MT.process("database", "user", "pass")'
 
 ***
-#Typo
+
+# Typo
 
 从Typo中导入posts：
 
@@ -110,7 +115,8 @@ Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，�
 以上代码只在Typo版本4+中测试过
 
 ***
-#TextPattern
+
+# TextPattern
 
 从TextPattern中导入posts：
 
@@ -120,7 +126,8 @@ Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，�
 你需要在你的*\_import*目录的父目录中运行以上命令。例如你的*\_import*目录在*/path/source/_import*，你需要在*/path/source*中运行上述命令。主机名(hostname)默认为*localhost*，其他变量都是必须的。你可以需要调整上述命令来过滤某些入口(extries)。否则，会试图获取所有的live或者sticky的入口(entries)。
 
 ***
-#Mephisto
+
+# Mephisto
 
 从Mephisto中导入posts：
 
@@ -133,7 +140,8 @@ Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，�
         JekyllImport::Mephisto.postgres({:database => "database", :username=>"username", :password =>"password"})'
 
 ***
-#Blogger(Blogspot)
+
+# Blogger(Blogspot)
 
 导入Blooger中的posts，可以参看文章[Migrate from blogger to jekyll](http://blog.coolaj86.com/articles/migrate-from-blogger-to-jekyll.html)。如果导入不成功，你可以尝试一下方法：
 
@@ -142,7 +150,8 @@ Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，�
 * [@juniorz](https://github.com/juniorz)创建了另外的[importer](https://gist.github.com/1564581)，对[Octopress](http://octopress.org/)有效。这个比较类似[@ngauthier的版本](https://gist.github.com/1506614)，不同的是将草稿和posts文章分离开来，并且导入tags标签和静态链接。
 
 ***
-#Posterous
+
+# Posterous
 
 导入Posterous博客：
 
@@ -157,7 +166,8 @@ Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，�
 还有一个[可选的迁移工具](https://github.com/pepijndevos/jekyll/blob/patch-1/lib/jekyll/migrators/posterous.rb)可以保持静态链接并试图导入图片。
 
 ***
-#Tumblr
+
+# Tumblr
 
 导入Tumblr的posts：
 
@@ -173,12 +183,14 @@ Jekyll的导入系统可能无法分清需要发布的posts和私人的posts，�
     #                  to the new Jekyll paths. Defaults to false.
 
 ***
-#其他系统
+
+# 其他系统
 
 如果你在使用一个目前不存在迁移器的博客系统，可以考虑自己写一个并发送一个推送请求给[Jekyll](https://github.com/jekyll/jekyll-import)。
 
 ***
-#PS:
+
+# PS:
 文章翻译自jekyll官方文档(2013-09-25)：
 
 [Blog migrations](http://jekyllrb.com/docs/migrations/)
