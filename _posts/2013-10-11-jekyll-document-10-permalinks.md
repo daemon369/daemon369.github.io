@@ -19,7 +19,8 @@ Jekyll的静态链接是由设定的或默认的URL模板构建的，其中的�
 <!--excerpt-->
 
 ***
-#模板变量(Template variables)
+
+# 模板变量(Template variables)
 
 <table cellpadding="10">
   <col width="25%" />
@@ -87,7 +88,8 @@ Jekyll的静态链接是由设定的或默认的URL模板构建的，其中的�
 </table>
 
 ***
-#内置静态链接样式(Tags)
+
+# 内置静态链接样式(Tags)
 
 <table cellpadding="10">
   <col width="25%" />
@@ -123,7 +125,8 @@ Jekyll的静态链接是由设定的或默认的URL模板构建的，其中的�
 </table>
 
 ***
-#静态链接样式示例
+
+# 静态链接样式示例
 
 给定一个post名为：*/2009-04-29-slap-chop.textile*
 
@@ -170,7 +173,9 @@ Jekyll的静态链接是由设定的或默认的URL模板构建的，其中的�
 
 
 ***
-#PS:
+
+# PS:
+
 文章翻译自jekyll官方文档(2013-10-11)：
 
 [Permalinks](http://jekyllrb.com/docs/permalinks/)
