@@ -14,7 +14,7 @@ date: 2014-04-06 00:00:00
 
 ***
 
-#JAVA反射机制主要提供了以下功能：
+# JAVA反射机制主要提供了以下功能：
 
     1.在运行时判断任意一个对象所属的类
     2.在运行时构造任意一个类的对象
@@ -23,11 +23,12 @@ date: 2014-04-06 00:00:00
 
 ***
 
-#Java 反射相关的API简介：
+# Java 反射相关的API简介：
 
 与反射有关的所有接口以及类都在java.lang.reflect包里。
 
-###接口
+### 接口
+
 <table>
     <tr>接口摘要</tr>
     <tr>
@@ -68,7 +69,8 @@ date: 2014-04-06 00:00:00
     </tr>
 </table>
 
-###类
+### 类
+
 <table>
     <tr>类摘要</tr>
     <tr>
@@ -168,7 +170,7 @@ Java允许我们从多种途径为一个类class生成对应的Class对象。
 
 ***
 
-#运行时生成Class的实例
+# 运行时生成Class的实例
 
 运行时通过反射机制生成Class的实例，有两种方法，
 
@@ -196,11 +198,11 @@ Java允许我们从多种途径为一个类class生成对应的Class对象。
 
 ***
 
-#运行时调用Method
+# 运行时调用Method
 
 首先准备一个Class[]{}作为getMethod(String name，Class[])方法的参数类型，接下来准备一个Obeject[]放置自变量，然后调用Method对象的invoke(Object obj，Object[])方法。
 
-###获取Method
+### 获取Method
 
 1. public Method getMethod(String name, Class&lt;?&gt;... parameterTypes);
 
@@ -219,7 +221,7 @@ name是方法名称；parameterTypes是Class对象的数组，标识了参数的
 
 用法同getMethods，返回包括public、protected、package和private的所有方法。
 
-###示例
+### 示例
 
     Class c = Class.forName("com.yc.javatest.TestClass");
     Object object1 = c.newInstance();
@@ -233,11 +235,11 @@ name是方法名称；parameterTypes是Class对象的数组，标识了参数的
 
 ***
 
-#运行时调用Field内容
+# 运行时调用Field内容
 
 变更Field不需要参数和自变量，首先调用Class的getField()并指定field名称，获得特定的Field对象后便可以直接调用Field的 get(Object obj)和set(Object obj,Object value)方法
 
-###获取Field
+### 获取Field
 
 1. public Field getField(String name);
 
@@ -258,7 +260,7 @@ name是方法名称；parameterTypes是Class对象的数组，标识了参数的
 
 用法同getFields()，可以获取所有类型的field。
 
-###访问Field
+### 访问Field
 
 对field的访问可用getxxx(Object)方法和setxxx(Object, Object)方法。其中，引用类型使用:
 
@@ -297,7 +299,7 @@ name是方法名称；parameterTypes是Class对象的数组，标识了参数的
 
 ***
 
-#DEMO
+# DEMO
 
     package cn.com.reflection;   
 
@@ -431,7 +433,7 @@ name是方法名称；parameterTypes是Class对象的数组，标识了参数的
 
 ***
 
-#参考:
+# 参考:
 
 [JAVA反射机制的学习](http://hejianjie.iteye.com/blog/136205)
 
