@@ -14,7 +14,7 @@ SparseArray（稀疏数组）是android提供的建议替换HashMap&lt;Integer, 
 
 SparseArray提供以下方法：
 
-###构造
+### 构造
 
 SparseArray提供了两个构造函数：
 
@@ -22,13 +22,13 @@ SparseArray提供了两个构造函数：
 
     public SparseArray(int initialCapacity);
 
-###增
+### 增
 
     public void put(int key, E value);//增加或替换
 
     public void append(int key, E value);//同put，对key大于所有已缓存key情况进行了优化
 
-###删
+### 删
 
     public void delete(int key);
 
@@ -38,11 +38,11 @@ SparseArray提供了两个构造函数：
 
     public void clear();
 
-###改
+### 改
 
     public void setValueAt(int index, E value);//设置序号index处value
 
-###查
+### 查
 
     public E get(int key);//没有则返回null
 
@@ -58,13 +58,13 @@ SparseArray提供了两个构造函数：
 
 <!--excerpt-->
 
-###高效性
+### 高效性
 
 SparseArray在进行删除单一键值对操作时，并不是直接移除对应键值对，而是将对应的value设置为删除标记对象DELETED，并设置标记mGarbage为true，在调用gc()时才会真的进行删除操作：进行数组拷贝并设置mSize减一。这样，如果再次设置了同样key的键值对，就不需要重新调整内部数组，直接设置value。gc的操作以下情况调用：1.put或append时mGarbage标记为true且内部键值对数组已满；2.进行查询操作；
 
 SparseArray的高效性还体现在其内部使用了数组来存储keys和values，其查找使用key来折半查找，没有找到则返回应该插入的位置，这样查找和插入都很高效。
 
-###源码分析
+### 源码分析
 
     /**
      * SparseArray提供了整型到Object对象的映射，其索引不连续，这点和普通
@@ -364,12 +364,13 @@ SparseArray的高效性还体现在其内部使用了数组来存储keys和value
         }
     }
 
-###SparseBooleanArray、SparseIntArray
+### SparseBooleanArray、SparseIntArray
 
 SparseBooleanArray是设计用来替换HashMap&lt;Integer, Boolean&gt;，而SparseIntArray是用来替换HashMap&lt;Integer, Integet&gt;，他们内部处理和SparseArray基本一致，只有一点不同：它们的单个键值对的删除操作是直接进行数组拷贝，而SparseArray是先标记为DELETED，后面需要时再删除。
 
 ***
-#参考:
+
+# 参考:
 
 [Android编程之SparseArray&lt;E&gt;详解](http://blog.csdn.net/xyz_fly/article/details/7931943)
 
