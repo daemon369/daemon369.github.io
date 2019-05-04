@@ -15,7 +15,8 @@ date: 2014-03-18 00:00:00
 <!--excerpt-->
 
 ***
-#[<b>android:descendantFocusability</b>](http://developer.android.com/reference/android/view/ViewGroup.html#attr_android:descendantFocusability)
+
+# [<b>android:descendantFocusability</b>](http://developer.android.com/reference/android/view/ViewGroup.html#attr_android:descendantFocusability)
 
 Android官方文档中对android:descendantFocusability有以下描述：
 
