@@ -18,13 +18,13 @@ Android中的任何一个布局、任何一个控件其实都是直接或间接�
 
 ***
 
-#一. onMeasure
+# 一. onMeasure
 
 measure 即测量的意思，onMeasure 方法顾名思义就是用于测量视图的大小的。View 系统的绘制流程会从 ViewRoot 的 performTraversals() 方法中开始，在其内部调用 View 的 measure() 方法。measure() 方法接收两个参数，widthMeasureSpec 和 heightMeasureSpec，这两个值分别用于确定视图的宽度和高度的规格和大小。
 
 <!--excerpt-->
 
-##MeasureSpec
+## MeasureSpec
 
 {% highlight java linenos %}
 public static class MeasureSpec {
@@ -69,15 +69,15 @@ public static class MeasureSpec {
 
 MeasureSpec 使用一个 int 类型来存储 View 的模式 (specMode) 和大小 (specSize)，其中前两位代表模式，后面30位代表 View 的大小。specMode 一共有三种类型，如下所示：
 
-###1. EXACTLY
+### 1. EXACTLY
 
 表示父视图希望子视图的大小应该是由 specSize 的值来决定的，系统默认会按照这个规则来设置子视图的大小，开发人员也可以按照自己的意愿设置成任意的大小。
 
-###2. AT_MOST
+### 2. AT_MOST
 
 表示子视图最多只能是 specSize 中指定的大小，开发人员应该尽可能小得去设置这个视图，并且保证不会超过 specSize。系统默认会按照这个规则来设置子视图的大小，开发人员也可以按照自己的意愿设置成任意的大小。
 
-###3. UNSPECIFIED
+### 3. UNSPECIFIED
 
 表示开发人员可以将视图按照自己的意愿设置成任意的大小，没有任何限制。这种情况比较少见，不太会用到。
 
@@ -110,7 +110,7 @@ private int getRootMeasureSpec(int windowSize, int rootDimension) {
 
 可以看到，这里使用了 MeasureSpec.makeMeasureSpec() 方法来组装一个 MeasureSpec，当 rootDimension 参数等于 MATCH_PARENT 的时候，MeasureSpec 的 specMode 就等于 EXACTLY，当 rootDimension 等于 WRAP_CONTENT 的时候，MeasureSpec 的 specMode 就等于 AT_MOST。并且 MATCH_PARENT 和 WRAP_CONTENT 时的 specSize 都是等于 windowSize 的，也就意味着根视图总是会充满全屏的。
 
-##measure()
+## measure()
 
 介绍了这么多 MeasureSpec 相关的内容，接下来我们看下 View 的 measure() 方法里面的代码吧，如下所示：
 
@@ -232,7 +232,7 @@ public class MyView extends View {
 
 ***
 
-#二. onLayout()
+# 二. onLayout()
 
 measure 过程结束后，视图的大小就已经测量好了，接下来就是 layout 的过程了。正如其名字所描述的一样，这个方法是用于给视图进行布局的，也就是确定视图的位置。ViewRoot 的 performTraversals() 方法会在 measure 结束后继续执行，并调用 View 的 layout() 方法来执行此过程：
 
@@ -342,7 +342,7 @@ protected void onLayout(boolean changed, int l, int t, int r, int b) {
 
 ***
 
-#三. onDraw()
+# 三. onDraw()
 
 measure 和 layout 的过程都结束后，接下来就进入到 draw 的过程了，这里才真正地开始对视图进行绘制。ViewRoot 中的代码会继续执行并创建出一个 Canvas 对象，然后调用 View 的 draw() 方法来执行具体的绘制工作。
 
@@ -466,6 +466,6 @@ public class MyView extends View {
 
 ***
 
-#参考:
+# 参考:
 
 [Android视图绘制流程完全解析，带你一步步深入了解View(二)](http://blog.csdn.net/guolin_blog/article/details/16330267)
