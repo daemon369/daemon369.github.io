@@ -14,7 +14,7 @@ date: 2014-04-07 00:00:00
 
 ***
 
-#TextView中显示HTML文本：
+# TextView中显示HTML文本：
 
     final String htmlString = "<font color="#00ff0000">abcdefg</font>";
     final TextView tv = (TextView)findViewById(R.id.tv);
@@ -24,7 +24,7 @@ date: 2014-04-07 00:00:00
 
 ***
 
-#去除HTML标签
+# 去除HTML标签
 
 还可以将HTML文本中的标签去除，转换为普通文本：
 
@@ -38,6 +38,7 @@ date: 2014-04-07 00:00:00
 <!--excerpt-->
 
 ***
-#参考:
+
+# 参考:
 
 [去除HTML标签](http://www.krislq.com/2012/12/android_skill_remove_the_html_tag/)
