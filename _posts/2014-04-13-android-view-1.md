@@ -463,7 +463,7 @@ getWindow().setBackgroundDrawableResource()
 
 ***
 
-#参考:
+# 参考:
 
 [Android LayoutInflater原理分析，带你一步步深入了解View(一)](http://blog.csdn.net/guolin_blog/article/details/12921889)
 
