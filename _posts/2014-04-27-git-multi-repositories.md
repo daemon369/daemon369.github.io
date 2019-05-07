@@ -14,7 +14,7 @@ github是使用最为广泛的git远程仓库管理平台，很多优秀的开�
 
 ***
 
-#添加多个仓库
+# 添加多个仓库
 
 打开github项目下的.git/config文件，在[remote "origin"]节点下增加新的url，这个url必需是先到对应的托管平台创建repository之后才有用。也可以创建新的remote节点，譬如[remote "all"]，在新的节点下添加url。
 
@@ -31,7 +31,7 @@ github是使用最为广泛的git远程仓库管理平台，很多优秀的开�
 
 ***
 
-#参考:
+# 参考:
 
 [Git一键推送多个远程仓库](http://my.oschina.net/chinesedragon/blog/81483)
 
