@@ -14,7 +14,7 @@ date: 2014-04-19 00:00:00
 
 ***
 
-#一、自绘控件
+# 一、自绘控件
 
 自绘控件的意思就是，这个 View 上所展现的内容全部都是我们自己绘制出来的。绘制的代码是写在 onDraw() 方法中的，控件可以自己定义 View 的绘制方式。
 
@@ -82,7 +82,7 @@ public class CounterView extends View implements OnClickListener {
 
 ***
 
-#二、组合控件
+# 二、组合控件
 
 组合控件的意思就是，我们并不需要自己去绘制视图上显示的内容，而只是用系统原生的控件就好了，但我们可以将几个系统原生的控件组合到一起，这样创建出的控件就被称为组合控件。组合控件一般继承与 ViewGroup 类的子类，例如 LinearLayout、RelativeLayout 等。
 
@@ -183,7 +183,7 @@ TitleView 中的代码非常简单，在 TitleView 的构建方法中，我们�
 
 ***
 
-#三、继承控件
+# 三、继承控件
 
 继承控件的意思就是，我们并不需要自己重头去实现一个控件，只需要去继承一个现有的控件，然后改写父类的一些方法的实现或增加一些新的功能，就可以形成一个自定义的控件了。这种自定义控件的特点就是不仅能够按照我们的需求加入相应的功能，还可以保留原生控件的所有功能。
 
@@ -399,6 +399,6 @@ public class MainActivity extends Activity {
 
 ***
 
-#参考:
+# 参考:
 
 [Android自定义View的实现方法，带你一步步深入了解View(四)](http://blog.csdn.net/guolin_blog/article/details/17357967)
