@@ -16,7 +16,7 @@ date: 2014-05-01 00:00:00
 
 ***
 
-#创建Handler对象
+# 创建Handler对象
 
 首先来看一下如何创建Handler对象。Handler提供了4个构造函数：
 
@@ -127,7 +127,7 @@ date: 2014-05-01 00:00:00
 
 ***
 
-#发送消息
+# 发送消息
 
 看完了如何创建Handler之后，接下来我们看一下如何发送消息，这个流程相信大家也已经非常熟悉了，new出一个Message对象，然后可以使用setData()方法或arg参数等方式为消息携带一些数据，再借助Handler将消息发送出去就可以了，示例代码如下：
 
@@ -360,6 +360,6 @@ sendMessageAtTime()方法接收两个参数，其中msg参数就是我们发送�
 
 ***
 
-#参考:
+# 参考:
 
 [Android异步消息处理机制完全解析，带你从源码的角度彻底理解](http://blog.csdn.net/guolin_blog/article/details/9991569)
