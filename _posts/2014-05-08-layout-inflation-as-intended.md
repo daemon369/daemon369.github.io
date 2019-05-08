@@ -25,7 +25,7 @@ date: 2014-05-08 00:00:00
 
 ***
 
-#LayoutInflater
+# LayoutInflater
 
 首先来了解下LayoutInflater的工作方式：
 
@@ -127,7 +127,7 @@ inflate方法共提供了三个参数，其中第一个参数是我们需要解�
 
 ***
 
-#案例分析
+# 案例分析
 
 我们经常使用ListView并实现自定义的adapter实例，在adapter中的getView方法中我们提供自定义的列表项布局，这就需要使用LayoutInflater来解析布局文件：
 
@@ -147,7 +147,7 @@ inflate方法共提供了三个参数，其中第一个参数是我们需要解�
 
 ***
 
-#程序示例
+# 程序示例
 
 列表项布局R.layout.list_item：
 
@@ -196,7 +196,7 @@ inflate方法共提供了三个参数，其中第一个参数是我们需要解�
 
 ***
 
-#例外的情况
+# 例外的情况
 
 一般我们不建议使用第一个inflate方法传入root为null的使用方式，但是也有确实需要传入null的使用场景。
 
@@ -217,6 +217,6 @@ AlertDialog.Builder支持自定义布局，但只提供了如下的设置布局�
 
 ***
 
-#参考:
+# 参考:
 
 [Layout Inflation as Intended](http://www.doubleencore.com/2013/05/layout-inflation-as-intended/)
