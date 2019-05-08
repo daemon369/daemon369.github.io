@@ -12,7 +12,7 @@ date: 2014-06-01 00:00:00
 
 ***
 
-#一.关于GoAgent
+# 一.关于GoAgent
 
 GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google App Engine 的服务器充当代理，帮助我们浏览一些被封锁或被过滤的内容。由于GFW等的封锁，很多的技术资料网站或某些资源网站都无法访问或访问困难。免费的GoAgent在这方面给予了很大的帮助。
 
@@ -20,7 +20,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#二.GoAgent原理
+# 二.GoAgent原理
 
 下面是GoAgent开发者提供的GoAgent原理图：
 
@@ -30,7 +30,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#三.创建GAE应用
+# 三.创建GAE应用
 
 1.首先申请Google Appengine并创建appid。打开网页[ https://appengine.google.com/start](https://appengine.google.com/start)注册或使用Google账号登录。
 
@@ -51,11 +51,11 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#四.安装GoAgent依赖环境
+# 四.安装GoAgent依赖环境
 
 以Ubuntu14.04为例安装GoAgent：
 
-###依赖
+### 依赖
 
 1. 必选
 * python2(建议安装python2.7，如需在Linux上传或安装gevent需先安装python-dev)
@@ -67,11 +67,11 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 * pycrypto(RC4加密所需，建议安装)
 * python-appindicator(Unity桌面下的托盘组件，其他桌面不必安装)
 
-###安装依赖
+### 安装依赖
 
     sudo apt-get install python-dev python-greenlet python-gevent python-vte python-openssl python-crypto python-appindicator
 
-###安装gevent
+### 安装gevent
 
 需要在安装 python-dev 之后才能正确安装gevent和上传server，安装gevent需要安装了 gcc(Linux/Unix)。
 
@@ -89,13 +89,13 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 如果不想安装gevent可以下载[gevent-1.0-py2.7-linux.egg](https://github.com/binyuj/gevent-egg/raw/egg/gevent-1.0-py2.7-linux.egg)放local文件夹
 
-###下载GoAgent
+### 下载GoAgent
 
 到[https://code.google.com/p/goagent/](https://code.google.com/p/goagent/)或[https://github.com/goagent/goagent/releases](https://github.com/goagent/goagent/releases)下载最新GoAgent程序压缩包，解压安装包到本地。
 
 打开local/proxy.ini文件，修改\[gae\]下面的appid=你自己申请的appid，多个appid使用“\|”来分隔，保存文件并退出。
 
-###上传服务端
+### 上传服务端
 
 如果需要设置密码，先修改server/gae/gae.py文件，设置：
 
@@ -107,7 +107,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 输入appid，多个appid同样使用“\|”来分隔，一次只能上传同一个Google账号下的appid，回车确认。然后根据提示依次输入Gmail邮箱和对应密码(注意：如果开启了两步验证，密码应为16位的应用程序专用密码而非谷歌帐户密码，否则会出现AttributeError: can\'t set attribute错误），填完按回车。如果要上传多个谷歌帐户下的appid，先上传一个账号的，传完一个账号后删除uploader.bat同目录下的.appcfg_cookies文件再传另一个。
 
-###运行GoAgent
+### 运行GoAgent
 
 进入目录local/，运行python脚本，第一次运行需要管理员权限来导入证书：
 
@@ -116,9 +116,9 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#五.浏览器中使用GoAgent代理
+# 五.浏览器中使用GoAgent代理
 
-###在google chrome浏览器中使用goagent
+### 在google chrome浏览器中使用goagent
 
 首先安装[SwitchySharp插件](https://chrome.google.com/webstore/detail/dpplabbmogkhghncfbfdeeokoefdjegm)
 
@@ -172,7 +172,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#六.Tips：
+# 六.Tips：
 
 1.不是每次升级goagent都需要重新上传服务端。只有你升级的版本带[是]的，或者你的升级跨越了多个版本，其中某个版本带[是]，这样你就需要重新上传服务端。
 
@@ -190,7 +190,7 @@ GoAgent 是使用跨平台语言 Python 开发的代理软件，利用 Google Ap
 
 ***
 
-#七.参考：
+# 七.参考：
 
 [GaAgent FAQ](https://code.google.com/p/goagent/wiki/FAQ)
 
