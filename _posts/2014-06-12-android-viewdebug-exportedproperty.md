@@ -16,7 +16,7 @@ date: 2014-06-12 00:00:00
 
 ***
 
-#[ExprotedProperty注解源码][1]
+# [ExprotedProperty注解源码][1]
 
 {% highlight java %}
 /**
@@ -125,11 +125,11 @@ public @interface ExportedProperty {
 
 ***
 
-#使用
+# 使用
 
 下面是@ViewDebug.ExportedProperty注解的部分属性的使用介绍：
 
-##1.category
+## 1.category
 
 category用来指定属性的类别，例如measurement, layout, drawing等。我们在自定义View中为使用@ViewDebug.ExportedProperty注解的变量或方法指定category：
 
@@ -148,7 +148,7 @@ public boolean isFocused() {
 
 ![](/image/2014-06-12/1.png)
 
-##2.resolveId
+## 2.resolveId
 
 当resolveId为true时，如果使用注解的变量或方法的值为int数据，那么这个值会被转化为对应的Android资源的名称。
 
@@ -167,7 +167,7 @@ int b = 0x7f030000;
 
 ![](/image/2014-06-12/2.png)
 
-##3.mapping
+## 3.mapping
 
 mapping可以将int值映射到指定的字符串值，例如View.getVisibility()返回的值是int值，View中使用注解将其映射为字符串，其中0为"VISIBLE"，4为"INVISIBLE"，8为"GONE"。我们重载View.getVisibility()并加上我们自己定制的映射：
 
@@ -188,7 +188,7 @@ public int getVisibility() {
 
 ![](/image/2014-06-12/3.png)
 
-##4.indexMapping
+## 4.indexMapping
 
 indexMapping可以将数组的序号映射为字符串。
 
@@ -210,7 +210,7 @@ int[] elements = new int[] {
 
 ***
 
-#Demo
+# Demo
 
 {% highlight java %}
 package com.daemon.demo;
@@ -277,7 +277,7 @@ public class MarqueeText extends TextView {
 
 ***
 
-#参考
+# 参考
 
 [@ViewDebug.ExportedProperty](https://plus.google.com/+EvelioTarazonaC%C3%A1ceres/posts/fQ3G2QHaLx4)
 
