@@ -18,7 +18,7 @@ date: 2014-08-25 00:00:00
 
 ***
 
-#OnTouchListener & onTouchEvent
+# OnTouchListener & onTouchEvent
 
 首先我们来看看View的OnTouchListener与onTouchEvent方法的区别与联系，如下布局：
 
@@ -99,7 +99,7 @@ onTouch方法返回true表示这个touch事件已被消费掉，这就意味着t
 
 ***
 
-#OnTouchListener & OnClickListener
+# OnTouchListener & OnClickListener
 
 对MyView设置OnTouchListener 和 OnClickListener，onTouch方法返回false：
 
@@ -236,7 +236,7 @@ onLongClick方法返回true再看下：
 
 可以看到，onLongClick方法返回true后，onClick方法就不再触发了，这是因为onLongClick消费了长按事件。
 
-###总结
+### 总结
 
 1. 设置OnTouchListener：onTouch方法返回false时，onTouch方法及View的onTouchEvent方法依次被调用；onTouch方法返回true时，只调用onTouch方法，onTouchEvent方法不再被调用
 
@@ -248,13 +248,13 @@ onLongClick方法返回true再看下：
 
 ***
 
-#Demo代码
+# Demo代码
 
 demo代码可以在我的github上下载：[Android触屏事件传递演示Demo](https://github.com/daemon369/Demo/tree/master/20140825)
 
 ***
 
-#相关文章
+# 相关文章
 
 [Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent][1]
 
@@ -264,7 +264,7 @@ demo代码可以在我的github上下载：[Android触屏事件传递演示Demo]
 
 ***
 
-#参考
+# 参考
 
 [Android onTouchEvent, onClick及onLongClick的调用机制](http://blog.csdn.net/ddna/article/details/5451722)
 
