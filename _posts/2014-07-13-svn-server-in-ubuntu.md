@@ -12,13 +12,13 @@ date: 2014-07-13 00:00:00
 
 ***
 
-#1、安装SVN
+# 1、安装SVN
 
     $ sudo apt-get install subversion
 
 ***
 
-#2、添加svn管理用户及subversion组
+# 2、添加svn管理用户及subversion组
 
     $sudo adduser svnuser
     $sudo addgroup subversion
@@ -28,7 +28,7 @@ date: 2014-07-13 00:00:00
 
 ***
 
-#3、创建项目目录
+# 3、创建项目目录
 
     $ sudo mkdir /home/svn
     $ cd /home/svn
@@ -39,7 +39,7 @@ date: 2014-07-13 00:00:00
 
 ***
 
-#4、访问权限设置
+# 4、访问权限设置
 
 svn账户的配置文件在/home/svn/myproject/conf目录下，主要有svnserve.conf、passwd、authz三个文件。
 
@@ -71,7 +71,7 @@ svn账户的配置文件在/home/svn/myproject/conf目录下，主要有svnserve
 
 ***
 
-#4、启动SVN服务
+# 4、启动SVN服务
 
     $ svnserve -d -r /home/svn
 
@@ -80,7 +80,7 @@ svn账户的配置文件在/home/svn/myproject/conf目录下，主要有svnserve
 
 ***
 
-#5、客户端访问
+# 5、客户端访问
 
 假设svn服务运行在服务器192.168.1.11上，局域网内客户端访问方式为：
 
@@ -88,7 +88,7 @@ svn账户的配置文件在/home/svn/myproject/conf目录下，主要有svnserve
 
 ***
 
-#6、问题
+# 6、问题
 
 因为版本库的创建使用的是root权限，因此客户端在commit时可能会报告db/txn-current-lock: 权限不够 或者 txn-current-lock : Permission denied 之类的信息，这种情况下需要修改版本库中db目录下文件的访问权限：
 
@@ -97,6 +97,6 @@ svn账户的配置文件在/home/svn/myproject/conf目录下，主要有svnserve
 
 ***
 
-#参考
+# 参考
 
 [ubuntu下SVN服务器安装配置](http://www.mobibrw.com/?p=336)
