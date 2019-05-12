@@ -12,9 +12,9 @@ date: 2014-10-15 01:00:00
 
 ***
 
-#一. 申请PHP空间
+# 一. 申请PHP空间
 
-###1. EcVPS
+### 1. EcVPS
 
 首先进入[EcVps申请页面](http://www.ecvps.com/client/cart.php?gid=3 "EcVps申请页面")：
 
@@ -38,7 +38,7 @@ date: 2014-10-15 01:00:00
 
 ***
 
-#二. 上传文件
+# 二. 上传文件
 
 空间申请成功后，我们可以进入网页版管理员页面来上传文件，也可以用ftp客户端来管理上传文件。这里我使用的是linux下的ftp工具FileZilla：
 
@@ -48,7 +48,7 @@ date: 2014-10-15 01:00:00
 
 ***
 
-#参考
+# 参考
 
 [EcVPS免费空间goagent之绝配](http://www.faith.ga/2913.html)
 
