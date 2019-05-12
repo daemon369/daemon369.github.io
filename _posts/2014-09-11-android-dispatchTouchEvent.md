@@ -18,7 +18,7 @@ date: 2014-09-11 00:00:00
 
 ***
 
-#一. ViewRoot
+# 一. ViewRoot
 
 Android的所有触屏事件、按键事件、界面刷新等事件都是通过ViewRoot进行分发的。
 
@@ -88,7 +88,7 @@ private void deliverPointerEvent(MotionEvent event) {
 
 ***
 
-#二. View.dispatchTouchEvent()
+# 二. View.dispatchTouchEvent()
 
 {% highlight java linenos %}
 /**
@@ -123,7 +123,7 @@ View的dispatchTouchEvent方法处理逻辑很简单：
 
 ***
 
-#三. ViewGroup.dispatchTouchEvent()
+# 三. ViewGroup.dispatchTouchEvent()
 
 ViewGroup中的dispatchTouchEvent方法就要复杂的多了，关键代码如下：
 
@@ -260,7 +260,7 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
 
 ***
 
-#四. Activity.dispatchTouchEvent
+# 四. Activity.dispatchTouchEvent
 
 前面分析了View以及ViewGroup对touch事件的分发处理机制，下面我们继续研究下Activity的dispatchTouchEvent方法。
 
@@ -496,7 +496,7 @@ DecorView是FrameLayout的子类，这样最终touch事件分发给ViewGroup的d
 
 ***
 
-#相关文章
+# 相关文章
 
 [Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent][1]
 
@@ -506,7 +506,7 @@ DecorView是FrameLayout的子类，这样最终touch事件分发给ViewGroup的d
 
 ***
 
-#参考
+# 参考
 
 [Android事件分发机制完全解析，带你从源码的角度彻底理解(上)](http://blog.csdn.net/guolin_blog/article/details/9097463)
 
