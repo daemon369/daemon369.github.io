@@ -18,7 +18,7 @@ date: 2014-10-12 00:00:00
 
 ***
 
-#一. View.onTouchEvent
+# 一. View.onTouchEvent
 
 Android的触屏事件，最终分发给View的onTouchEvent方法来处理，我们来看看它是怎么处理的：
 
@@ -142,7 +142,7 @@ public boolean onTouchEvent(MotionEvent event) {
 
 由第10行处代码可知，当View是DISABLED状态时，仍然会消费分发过来的touch事件，只是不做任何处理。
 
-###1. down事件
+### 1. down事件
 
 首先看下对down事件的处理：
 
@@ -211,7 +211,7 @@ class CheckForLongPress implements Runnable {
 
 当用户按下View的时间超过长按时间阈值时，就会调用CheckForLongPress.run()方法；在run方法中调用View.performLongClick()方法，处理用户长按事件。
 
-###2. move事件
+### 2. move事件
 
 下面再看下onTouchEvent方法对move事件的处理：
 
@@ -240,7 +240,7 @@ class CheckForLongPress implements Runnable {
 
 move事件的处理很简单：View接收到move事件时，如果触点移出View时，调用removeTapCallback和removeLongPressCallback，将发送到主线程消息队列的tap、long click消息移除，不再处理点击或长按事件，同时取消PRESSED状态。
 
-###3. up事件
+### 3. up事件
 
 再来看下onTouchEvent方法对up事件的处理：
 
@@ -325,7 +325,7 @@ public boolean performLongClick() {
 
 ***
 
-#相关文章
+# 相关文章
 
 [Android Touch事件传递机制(一) -- onInterceptTouchEvent & onTouchEvent][1]
 
@@ -335,7 +335,7 @@ public boolean performLongClick() {
 
 ***
 
-#参考
+# 参考
 
 [Android事件分发机制完全解析，带你从源码的角度彻底理解(上)](http://blog.csdn.net/guolin_blog/article/details/9097463)
 
